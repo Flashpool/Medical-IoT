@@ -15,7 +15,7 @@
     --black: #000;
 }
 body{
-	background-color: #f5f7fa;
+	background-color: #ffffff;
 	height: 100vh;
 	font-family: 'Quicksand', sans-serif;
 }
@@ -69,16 +69,10 @@ body{
 	float: left;
 	padding: 30px 30px 0px 30px;
 }
-.right-sidebar{
-	max-width: 260px;
-	width: 100%;
-	float: left;
-	background-color: white;
-	padding: 25px;
-}
+
 .menu-icon{display: none!important;}
 .arrow1{
-	float: left;
+
 	display: inline-block!important;
 	margin-right: 30px!important;
 	margin-bottom: 15px;
@@ -170,7 +164,7 @@ body{
 	border-radius: 15px;
 	box-shadow: var(--shadow);
 }
-.circle[animation]{
+/*.circle[animation]{
 	transition: 0.2s;
 	stroke-width:0;
 	stroke:rgb(83, 162, 215, 0.3);
@@ -189,10 +183,20 @@ svg g[show_date]{
 	100%{
 		opacity: 1;
 	}
+}*/
+.right-sidebar{
+	max-width: 260px;
+	width: 100%;
+	float: left;
+  margin-top: 10px;
+	background-color: rgb(228, 228, 228);
+  border-radius: 15px;
+	padding: 25px;
 }
 .nub-sec{
 	padding: 15px 10px;
 	margin-top: 5px;
+  background-color: var(--white);
  box-shadow: var(--shadow);
  border-radius: 10px;
  
@@ -231,7 +235,7 @@ svg g[show_date]{
 	.left-sidebar{width: 7%;}
 	.main{width: 60%;}
 	.right-sidebar{width: 20%; float: right;}
-	.box{width: 100%; margin-left: 0px;}
+	.box{width: 45%; margin-left: 0px; margin-right: 10px;}
 	.left-sidebar img{width: 70%;}
 }
 
