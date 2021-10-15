@@ -7,6 +7,7 @@
     <title>Dashboard</title>
  
     <!--Css-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/dashboard.css">
     <script src="https://kit.fontawesome.com/728dc9daba.js" crossorigin="anonymous"></script>
@@ -20,15 +21,27 @@
 		<img class="logo" src="assets/img/logo.png">
 		<br><br><br>
 		
-		<i class="fa fa-th-large"></i>
-		<i class="fa fa-calendar-days"></i>
-		<i class="fa fa-reorder"></i>
-		<i class="fa fa-line-chart"></i>
-
+		<a href="#" class="nav__link">
+		<i class="material-icons nav__icon" style="font-size: 35px;">dashboard</i> </a>
+		<br><br><br>
+		<a href="#" class="nav__link">
+		<i class="material-icons nav__icon" style="font-size: 35px;">analytics</i></a>
+		<br><br><br>
+		<a href="#" class="nav__link">
+		<i class="material-icons nav__icon" style="font-size: 35px;">person</i></a>
+		<br><br><br>
+		<a href="#" class="nav__link">
+		<i class="material-icons nav__icon" style="font-size: 35px;">settings</i></a>
+		<br>
 
 		
 	</div>
 
+	
+
+
+
+<!--	<a href="#" style="text-decoration: none; float: left; margin-left: 0.5em;"><i class="fa fa-reorder menu-icon" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i></a>-->
 	<div class="main">
 		<div class="welcome">
 			<div class="content">
@@ -40,9 +53,9 @@
 		</div>
 
        
-			<a href="#" style="text-decoration: none; float: left;"><i class="fa fa-reorder menu-icon" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i></a>
-		    <i class="fa fa-long-arrow-left arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0; "></i>
-			<i class="fa fa-long-arrow-right arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i>
+			
+		   <!--<i class="fa fa-long-arrow-left arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0; "></i>
+			<i class="fa fa-long-arrow-right arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i>-->
         
 			<div class="clearfix"></div>
 
@@ -52,7 +65,7 @@
 			<div class="box" style="margin-left: 0px;">
 				<div class="content">
 					<i class="fa fa-tint" style="color: #f13232 ;"></i>
-					<span>72</span>
+					<span id="pulse">72</span>
                     <p style="font-size: small;">Pulse Rate</p>
 				</div>
 			</div>
@@ -61,7 +74,7 @@
 				<div class="content">
 					<i class="fa fa-lungs" style="color: #329bf1 ;"></i>
 					
-					<span>91</span>
+					<span id="oxygen">91</span>
                     <p style="font-size: small;">Oxygen Level</p>
 				</div>
 			</div>
@@ -70,7 +83,7 @@
 				<div class="content">
 					<i class="fa fa-temperature-low" style="color: #f1be32 ;"></i>
 					
-					<span>36</span>
+					<span id="temp">36</span>
                     <p style="font-size: small;">Temperature</p>
 				</div>
 			</div>
@@ -79,19 +92,14 @@
 				<div class="content">
 					<i class="fa fa-bed" style="color: #b432f1 ;"></i>
 					
-					<span>7hrs</span>
+					<span id="sleep">7hrs</span>
                     <p style="font-size: small;">Sleep</p>
 				</div>
 			</div>
 
-			<div class="box">
-				<div class="content">
-					
-				</div>
-			</div>
-
+			
 				<div class="clearfix"></div>
-				<br>
+				
 				<div>
 					<!--<p class="p-1">Burndown Chart <span>Burdown chart</span></p>-->
 					<br>
@@ -104,53 +112,53 @@
 	<div class="right-sidebar">
 		<p class="p-1">Patient List</p>
 		<br>
-		<div class="nub-sec">
+		<div class="patient-list">
 			<p class="p2">P</p><p class="head">Patient 1<br><span>Bed 1</span></p>
 			<i class="fa fa-ellipsis-h dots"></i>
 		</div>
 
-		<div class="nub-sec">
+		<div class="patient-list">
 			<p class="p2" style="background: #f5d1d1; color: #957272;">P</p><p class="head">Patient 2<br><span>Bed 2</span></p>
 			<i class="fa fa-ellipsis-h dots"></i>
 		</div>
 
-		<div class="nub-sec">
+		<div class="patient-list">
 			<p class="p2" style="background: #ffedcb; color: #927b40;">P</p><p class="head">Patient 3<br><span>Bed 3</span></p>
 			<i class="fa fa-ellipsis-h dots"></i>
 		</div>
 
-		<div class="nub-sec">
+		<div class="patient-list">
 			<p class="p2">P</p><p class="head">Patient 4<br><span>Bed 4</span></p>
 			<i class="fa fa-ellipsis-h dots"></i>
 		</div>
 
-		<div class="nub-sec">
+		<div class="patient-list">
 			<p class="p2" style="background: #f5d1d1; color: #957272;">P</p><p class="head">Patient 5<br><span>Bed 5</span></p>
 			<i class="fa fa-ellipsis-h dots"></i>
 		</div>
 
-		<div class="nub-sec">
-			<p class="p2" style="background: #ffedcb; color: #927b40;">P</p><p class="head">Patient 6<br><span>Bed 6</span></p>
-			<i class="fa fa-ellipsis-h dots"></i>
-		</div>
-
-		<div class="nub-sec">
-			<p class="p2">P</p><p class="head">Patient 7<br><span>Bed 7</span></p>
-			<i class="fa fa-ellipsis-h dots"></i>
-		</div>
-
-		<div class="nub-sec">
-			<p class="p2" style="background: #f5d1d1; color: #957272;">P</p><p class="head">Patient 8<br><span>Bed 8</span></p>
-			<i class="fa fa-ellipsis-h dots"></i>
-		</div>
-
-		<div class="nub-sec">
-			<p class="p2" style="background: #ffedcb; color: #927b40;">P</p><p class="head">Patient 9<br><span>Bed 9</span></p>
-			<i class="fa fa-ellipsis-h dots"></i>
-		</div>
-
+		
 
 	</div>
+
+	<nav class="nav">
+		<a href="#" class="nav__link">
+		  <i class="material-icons nav__icon">dashboard</i>
+		  <span class="nav__text">Dashboard</span>
+		</a>
+		<a href="#" class="nav__link">
+		  <i class="material-icons nav__icon">analytics</i>
+		  <span class="nav__text">Analysis</span>
+		</a>
+		<a href="#" class="nav__link nav__link">
+			<i class="material-icons nav__icon">person</i>
+			<span class="nav__text">Profile</span>
+		  </a>
+		<a href="#" class="nav__link">
+		  <i class="material-icons nav__icon">settings</i>
+		  <span class="nav__text">Settings</span>
+		</a>
+	  </nav>
 </section>
 
 
@@ -160,26 +168,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$(".fa-long-arrow-left").click(function(){
-			$(".left-sidebar").hide(500);
-			$(".main").css('max-width','72.5%');
-			$(".box").css('width','181px');
-		});
-
-		$(".fa-long-arrow-right").click(function(){
-			$(".left-sidebar").show(500);
-			$(".main").css('max-width','63.6%');
-			$(".box").css('width','159px');
-		});
-
-		$(".menu-icon").click(function(){
-			$(".left-sidebar").slideToggle();
-			$(".main").css('max-width','75%');
-		});
-	});
-</script>
 
 </body>
 
