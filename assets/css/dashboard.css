@@ -156,7 +156,8 @@ body{
 	color: white;
 }
 .patient_details{
-    height: fit-content;
+    height: 250px;
+	max-height: 950px;
 	font-size: 10px;
 	font-family: system-ui;
 	cursor: pointer;
@@ -164,11 +165,9 @@ body{
 	padding: 15px;
 	border-radius: 15px;
 	box-shadow: var(--shadow);
-
-	
 	position: relative;
-	display: grid;
-	grid-template-columns: 25% 35% 40%;
+	/*display: grid;
+	grid-template-columns: 25% 35% 40%;*/
 	
 
 }
@@ -176,15 +175,15 @@ body{
 	height: 80%;
 	float: left;
 	padding: 15px;
-	
-	border-right: 3px solid #444444;
+
+	/*border: 3px solid #444444;*/
 
 }
 .profile2{
 	height: 80%;
 	float: left;
 	padding: 15px;
-	border-right: 3px solid #444444;
+	
 }
 .profile3{
 	height: 80%;
