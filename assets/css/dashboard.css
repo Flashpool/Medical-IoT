@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 *{
 	margin: 0px; padding: 0px;
 }
@@ -6,6 +8,7 @@
 	--bodyFont: 'Work Sans', sans-serif;
     --specialFont:'Quicksand', sans-serif;   
     --lightGreen: #30c799;
+	--gradientGreen: -webkit-gradient(linear, left top, right bottom, color-stop(100%,#08e1ae), color-stop(0%,#98de5b));
     --textColor: #323232;
     --white: #fff;
     --bodycolor:rgb(226, 226, 226);
@@ -36,17 +39,17 @@ body{
     margin-top: 25px;
 }
 .fa{
-	font-size: 30px!important;
+	font-size: 28px!important;
 	display: block!important;
 	margin-bottom: 20px;
 	/*color: #b5b5b5;*/
 }
 .fa:hover{
-	color: var(--lightGreen);
+	color: var(--gradientGreen);
 }
 .plus{
 	font-size: 30px;
-	background: var(--lightGreen);
+	
 	height: 40px;
 	width: 40px;
 	padding: 0px 12px;
@@ -114,10 +117,9 @@ body{
 }
 .welcome{
 	width: 100%;
-	background-color: white;
+	background: var(--gradientGreen);
 	box-shadow: var(--shadow);
 	float: left;
-	
 	/*margin-top: 5px;*/
 	border-radius: 15px;
 	font-weight: bold;
@@ -136,10 +138,14 @@ body{
 }
 .content{
 	padding: 15px 25px;
+	
 }
 .content p{font-size: 12px;}
 .content span{
-	font-size: 50px!important;
+	font-size: 50px;
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+	text-shadow: 0.5px 1px rgba(0, 0, 0, 0.301);
   
 }
 .icons{
@@ -213,11 +219,34 @@ body{
 	border: 10px solid var(--lightGreen);
 }
 
-.name{
+.personal{
 	font-size: 15px;
+	height: 20px;
+	width: fit-content;
+	float: left;
+	margin-right:10px ;
+	/*font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;*/
+	padding: 5px;
+	background-color: var(--white);
+	border-radius: 5px;
+	margin-bottom: 8px;
+	box-shadow: var(--shadow);
+
+}
+.p_data{
+	font-size: 17px;
+	margin-bottom: 0;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
+	color: var(--lightGreen);
+	
 }
+.info{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
 /*.circle[animation]{
 	transition: 0.2s;
 	stroke-width:0;
@@ -252,9 +281,9 @@ svg g[show_date]{
 .patient-list{
 	padding: 15px 10px;
 	margin-top: 5px;
-  background-color: var(--white);
- box-shadow: var(--shadow);
- border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
  
 }
 .patient-list:hover{
@@ -372,6 +401,8 @@ svg g[show_date]{
 	.profile3{width: 85%; margin-left: 15px; margin-bottom: 10px;}
   
 	.profile_img{height: 130px; width: 130px;margin-left: 25%; margin-top: 20px;}
+	.personal{font-size: 12px;}
+	.p_data{font-size: 13px;}
 	.icons{
 		margin-bottom: 0px!important;
 		font-size: 28px!important;}
