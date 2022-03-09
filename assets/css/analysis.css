@@ -127,9 +127,9 @@ body{
 	border-radius: 15px;
 	font-weight: bold;
 }
-.box{
-	width: 160px;
-	height: 160px;
+.linegraph{
+	width: 800px;
+	height: 400px;
  
 	background-color: white;
 	box-shadow: var(--shadow);
@@ -139,6 +139,11 @@ body{
 	border-radius: 15px;
 	font-weight: bold;
 }
+
+/*start*/
+
+  
+  /*end*/
 .content{
 	padding: 15px 25px;
 	
@@ -175,6 +180,7 @@ body{
 	color: var(--lightGreen);
 	
 }
+
 
 .right-sidebar{
 	max-width: 260px;

@@ -4,7 +4,7 @@ patient_data =[];
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
-    xhr.open("GET","https://script.google.com/macros/s/AKfycbwXkWnzBW4c47avCNi_ai-FyFDQd3MdwYwFdgRkyU-V3Pvg3ueC3hz3AGNqIv9hrPxIDw/exec",true);
+    xhr.open("GET","https://script.google.com/macros/s/AKfycbx7dPsSqVFKrt0zVKYENwl6C_uKCuwN9mqvwwnnObk_94BrhBEQQT52YywNkdCVnpyWJw/exec",true);
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
             patient_data=JSON.parse(this.responseText);
@@ -69,3 +69,41 @@ function create_patient_list(patient_data){
 
 
 fetch_patients_data();
+// Area Graph start
+
+const el = document.getElementById('chart-area');
+      const data = {
+        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        series: [
+          {
+            name: 'Pulse',
+            data: [10, 100, 50, 40, 70, 55, 33, 70, 90, 110],
+          },
+          {
+            name: 'Oxygen',
+            data: [60, 40, 10, 33, 70, 90, 100, 17, 40, 80],
+          },
+        ],
+      };
+      const options = {
+        chart: { title: 'LiveUpdate', width: 900, height: 350 },
+        xAxis: { pointOnColumn: false, title: { text: 'X Title' } },
+        yAxis: { title: 'Y Title' },
+        series: { shift: true },
+      };
+
+      const chart = toastui.Chart.areaChart({ el, data, options });
+
+      let index = 11;
+
+      const intervalId = setInterval(() => {
+        const random = Math.round(Math.random() * 100);
+        const random2 = Math.round(Math.random() * 100);
+        chart.addData([random, random2], index.toString());
+        index += 1;
+        if (index === 30) {
+          clearInterval(intervalId);
+        }
+      }, 4000);
+    
+      // Area Graph End

@@ -331,6 +331,9 @@ svg g[show_date]{
 	color: var(--lightGreen);
 	
 }
+.nav__link1{
+	color: var(--lightGreen);
+}
 @media only screen and (max-width: 1347px){
 	.left-sidebar{width: 7%;}
 	.main{width: 60%;}
