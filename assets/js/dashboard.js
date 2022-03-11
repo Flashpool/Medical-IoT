@@ -22,7 +22,9 @@ patient_data =[];
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
-    xhr.open("GET","https://script.google.com/macros/s/AKfycbwXkWnzBW4c47avCNi_ai-FyFDQd3MdwYwFdgRkyU-V3Pvg3ueC3hz3AGNqIv9hrPxIDw/exec",true);
+    // xhr.open("GET","https://script.google.com/macros/s/AKfycbwXkWnzBW4c47avCNi_ai-FyFDQd3MdwYwFdgRkyU-V3Pvg3ueC3hz3AGNqIv9hrPxIDw/exec",true);
+    xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
             patient_data=JSON.parse(this.responseText);
@@ -53,17 +55,17 @@ function create_patient_list(patient_data){
 
         let intial_P_name=document.createElement('p')
         intial_P_name.setAttribute("class","p2")
-        intial_P_name.innerHTML=patient_data[i].name.substring(0,1);
+        intial_P_name.innerHTML=patient_data[i].patient_name.substring(0,1);
 
         let P_name=document.createElement('p')
         P_name.setAttribute("class","head")
-        P_name.innerHTML=patient_data[i].name;
+        P_name.innerHTML=patient_data[i].patient_name;
         
         let list_break=document.createElement('br');
 
         let p_bed=document.createElement('span');
         p_bed.setAttribute("class","p_span")
-        p_bed.innerHTML=patient_data[i].bed_no;
+        p_bed.innerHTML=patient_data[i].bed_id;
 
         P_name.appendChild(list_break);
         P_name.appendChild(p_bed);
@@ -93,9 +95,9 @@ function change_patient_data(patient_id){
    
     let patients_data = patient_data.find(element => element.patientid == patient_id);
 
-    console.log(patients_data + ": "+patient_id);
+    // console.log(patients_data + ": "+patient_id);
     let patient_name=document.getElementById('p_name');
-    patient_name.innerHTML=patients_data["name"];
+    patient_name.innerHTML=patients_data["patient_name"];
 
     let patient_blood=document.getElementById('p_blood');
     patient_blood.innerHTML=patients_data["blood_group"];
@@ -116,13 +118,17 @@ function change_patient_data(patient_id){
     let patient_weight=document.getElementById('p_weight');
     patient_weight.innerHTML=patients_data["weight"];
 
-    
+
+    let patient_bmi=document.getElementById('p_bmi');
+    patient_bmi.innerHTML=patients_data["bmi"];
+
+
     let patient_type=document.getElementById('p_type');
     patient_type.innerHTML=patients_data["patient_type"];
 
     
     let patient_bed=document.getElementById('p_bed');
-    patient_bed.innerHTML=patients_data["bed_no"];
+    patient_bed.innerHTML=patients_data["bed_id"];
 
     
     let patient_reg_date=document.getElementById('p_reg_date');

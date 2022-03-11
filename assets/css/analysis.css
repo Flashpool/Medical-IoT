@@ -128,9 +128,9 @@ body{
 	font-weight: bold;
 }
 .linegraph{
-	width: 800px;
-	height: 400px;
- 
+	width: fit-content;
+	height: fit-content;
+    padding: 20px;
 	background-color: white;
 	box-shadow: var(--shadow);
 	float: left;
