@@ -48,7 +48,7 @@ function create_patient_list(patient_data){
 
         let patientlist=document.createElement('div')
         patientlist.setAttribute("class","patient-list")
-        patientlist.setAttribute("id",patient_data[i].patientid) // 1003
+        patientlist.setAttribute("id",patient_data[i].id) // 1003
         patientlist.setAttribute("onclick","change_patient_data(this.id)") // 1003
       
 
@@ -83,7 +83,7 @@ function create_patient_list(patient_data){
 
     }
 
-    change_patient_data(patient_data[0].patientid)
+    change_patient_data(patient_data[0].id)
 
 }
 
@@ -93,7 +93,7 @@ function create_patient_list(patient_data){
 function change_patient_data(patient_id){
 
    
-    let patients_data = patient_data.find(element => element.patientid == patient_id);
+    let patients_data = patient_data.find(element => element.id == patient_id);
 
     // console.log(patients_data + ": "+patient_id);
     let patient_name=document.getElementById('p_name');
