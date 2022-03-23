@@ -1,449 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Dashboard Admin</title>
+    <link
+      rel="stylesheet"
+      href="assets/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/cards.css">
-</head>
-
-<body>
-  <div class="container-scroller">
-    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
-          <h1>Logo</h1>
-        </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
-          <h5>Logo</h5>
-        </a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-stretch">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="mdi mdi-menu"></span>
-        </button>
-        <div class="search-field d-none d-md-block">
-          <div class="d-flex align-items-center h-100" action="#">
-            <div class="input-group">
-              <div class="input-group-prepend bg-transparent">
-                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+  <body>
+    <div class="container-scroller">
+      <nav
+        class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
+      >
+        <div
+          class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+        >
+          <a class="navbar-brand brand-logo" href="index.html">
+            <h1>Logo</h1>
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <h5>Logo</h5>
+          </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button
+            class="navbar-toggler navbar-toggler align-self-center"
+            type="button"
+            data-toggle="minimize"
+          >
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="search-field d-none d-md-block">
+            <div class="d-flex align-items-center h-100" action="#">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent">
+                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                </div>
+                <input
+                  type="text"
+                  class="form-control bg-transparent border-0"
+                  placeholder="Search Patient"
+                />
               </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="Search Patient">
             </div>
           </div>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="profileDropdown"
+                href="#"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="nav-profile-img">
+                  <img
+                    src="https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png"
+                    alt="image"
+                  />
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">Dr Rugved Alav</p>
+                </div>
+              </a>
+              <div
+                class="dropdown-menu navbar-dropdown"
+                aria-labelledby="profileDropdown"
+              >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span class="mdi mdi-menu"></span>
+          </button>
         </div>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <div class="nav-profile-img">
-                <img
-                  src="https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png"
-                  alt="image">
-                <span class="availability-status online"></span>
-              </div>
-              <div class="nav-profile-text">
-                <p class="mb-1 text-black">Dr Rugved Alav</p>
-              </div>
-            </a>
-            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
-            </div>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
-          <span class="mdi mdi-menu"></span>
-        </button>
-      </div>
-    </nav>
-    <div class="container-fluid page-body-wrapper">
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img
-                  src="https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png"
-                  alt="profile">
-                <span class="login-status online"></span>
-              </div>
-              <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">Dr Rugved Alav</span>
-                <span class="color-accent text-secondary text-small">Doctor</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-              aria-controls="ui-basic">
-              <span class="menu-title">Forms</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item" onclick="switchPages('registration')"> <a class="nav-link">Registration</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="switchPages('patientcards')">
-              <span class="menu-title">Patient Cards</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">
-              <span class="menu-title">Documents</span>
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-            </a>
-          </li>
-        </ul>
       </nav>
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <section id="unsetSection"></section>
-          <section id="registration">
-            <div class="row">
-              <div class="col-md-12">
-                <form action="index.html" method="post" class="registration" autocomplete="off">
-                  <h1>Registration</h1>
-                  <fieldset>
-                    <div class="parent">
-                      <label for="name">Name:</label>
-                      <input type="text" placeholder="Name" id="name" name="user_name">
-                    </div>
-
-                    <div class="parent">
-                      <label for="dob">Date Of Birth:</label>
-                      <input type="date" id="dob" placeholder="Date Of Birth" name="user_dob">
-                    </div>
-
-                    <div class="parent">
-                      <label for="gender">Gender:</label>
-                      <select name="gender" id="gender">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Transgender">Transgender</option>
-                      </select>
-                    </div>
-
-                    <div class="parent">
-                      <label for="gaurdians_no">Gaurdians Contact: </label>
-                      <input type="number" placeholder="Gaurdians Contact" id="gaurdians_no" name="gaurdians_no">
-                    </div>
-
-                    <div class="parent">
-                      <label for="address">Address: </label>
-                      <input type="text" placeholder="Address" id="address" name="address">
-                    </div>
-
-                    <div class="parent">
-                      <label for="weight">Weight:</label>
-                      <input type="number" placeholder="Weight" id="weight" name="user_weight">
-                    </div>
-
-                    <div class="parent">
-                      <label for="age">Age:</label>
-                      <input type="number" placeholder="Age" id="age" name="user_age">
-                    </div>
-
-                    <div class="parent">
-                      <label for="disease">Patient Type (disease):</label>
-                      <input type="text" placeholder="Patient Type (disease)" id="disease" name="user_disease">
-                    </div>
-
-                    <div class="parent">
-                      <label for="admission">Admission date:</label>
-                      <input type="date" placeholder="Admission date" id="admission" name="user_admission">
-                    </div>
-
-                    <div class="parent">
-                      <label for="bloodgroup">Blood Group:</label>
-                      <select name="bloodgroup" id="bloodgroup">
-                        <!-- <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="A">A</option>
-                        <option value="A">A-</option>
-                        <option value="B">B</option>
-                        <option value="B">B-</option>
-                        <option value="O">O</option>
-                        <option value="O-">O-</option> -->
-                      </select>
-                    </div>
-
-                    <div class="parent">
-                      <label for="bedNo">Bed No.:</label>
-                      <input type="text" id="bedNo" placeholder="Bed No." name="user_bedNo">
-                    </div>
-
-                    <div class="parent">
-                      <label for="profilePic">Profile Picture:</label>
-                      <input type="file" name="profilePic" id="profilePic">
-                    </div>
-
-                    <div class="parent">
-                      <label for="medicalReports">Medical Reports Upload:</label>
-                      <input type="file" placeholder="Medical Reports Upload" name="medicalReports" id="medicalReports">
-                    </div>
-
-                    <div class="parent">
-                      <label for="prescriptionUpload">Current Prescription Upload:</label>
-                      <input type="file" name="prescriptionUpload" placeholder="Current Prescription Upload"
-                        id="prescriptionUpload">
-                    </div>
-
-                    <div class="parent">
-                      <label for="doctorAssigned">Doctor Assigned:</label>
-                      <input type="text" name="doctorAssigned" placeholder="Doctor Assigned" id="doctorAssigned">
-                    </div>
-
-                  </fieldset>
-                  <button type="submit">Register</button>
-                </form>
+      <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img
+                    src="https://w7.pngwing.com/pngs/419/473/png-transparent-computer-icons-user-profile-login-user-heroes-sphere-black-thumbnail.png"
+                    alt="profile"
+                  />
+                  <span class="login-status online"></span>
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">Dr Rugved Alav</span>
+                  <span class="color-accent text-secondary text-small"
+                    >Doctor</span
+                  >
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-bs-toggle="collapse"
+                href="#ui-basic"
+                aria-expanded="false"
+                aria-controls="ui-basic"
+              >
+                <span class="menu-title">Forms</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item" onclick="switchPages('registration')">
+                    <a class="nav-link">Registration</a>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </section>
-          <section id="patientcards">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="switchPages('patientcards')">
+                <span class="menu-title">Patient Cards</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <span class="menu-title">Documents</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <section id="unsetSection"></section>
+            <section id="registration">
+              <div class="row">
+                <div class="col-md-12">
+                  <form
+                    action="index.html"
+                    method="post"
+                    class="registration"
+                    autocomplete="off"
+                  >
+                    <h1>Registration</h1>
+                    <fieldset>
+                      <div class="parent">
+                        <label for="name">Name:</label>
+                        <input
+                          type="text"
+                          placeholder="Name"
+                          id="name"
+                          name="user_name"
+                        />
+                      </div>
 
-            <div class="container">
-              <div class="row text-center">
+                      <div class="parent">
+                        <label for="dob">Date Of Birth:</label>
+                        <input
+                          type="date"
+                          id="dob"
+                          placeholder="Date Of Birth"
+                          name="user_dob"
+                        />
+                      </div>
 
-                <!-- Team item -->
-                <div class="col-xl-3 col-sm-6 mb-5">
-                  <div class="bg-white rounded shadow py-3 px-4"><img
-                      src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
-                      class="img-fluid rounded-circle mb-3 img-thumbnail shadow">
-                    <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO -
-                      Founder</span>
-                    <ul class="parent-patient">
-                      <li class="patient-item">
-                        <span>36</span>
-                        <p>Temp</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>72</span>
-                        <p>Pulse</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>94</span>
-                        <p>Oxy</p>
-                      </li>
-                    </ul>
-                    <ul class="patient-details">
-                      <li>
-                        <span>Bed No.: </span>
-                        <p>69</p>
-                      </li>
-                      <li>
-                        <span>Sex: </span>
-                        <p>Male</p>
-                      </li>
-                      <li>
-                        <span>Add Date: </span>
-                        <p>09-10-2022</p>
-                      </li>
-                      <li>
-                        <span>Age: </span>
-                        <p>69 Years</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- End -->
-                <!-- Team item -->
-                <div class="col-xl-3 col-sm-6 mb-5">
-                  <div class="bg-white rounded shadow py-3 px-4"><img
-                      src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
-                      class="img-fluid rounded-circle mb-3 img-thumbnail shadow">
-                    <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO -
-                      Founder</span>
-                    <ul class="parent-patient">
-                      <li class="patient-item">
-                        <span>36</span>
-                        <p>Temp</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>72</span>
-                        <p>Pulse</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>94</span>
-                        <p>Oxy</p>
-                      </li>
-                    </ul>
-                    <ul class="patient-details">
-                      <li>
-                        <span>Bed No.: </span>
-                        <p>69</p>
-                      </li>
-                      <li>
-                        <span>Sex: </span>
-                        <p>Male</p>
-                      </li>
-                      <li>
-                        <span>Add Date: </span>
-                        <p>09-10-2022</p>
-                      </li>
-                      <li>
-                        <span>Age: </span>
-                        <p>69 Years</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- End -->
-                <!-- Team item -->
-                <div class="col-xl-3 col-sm-6 mb-5">
-                  <div class="bg-white rounded shadow py-3 px-4"><img
-                      src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
-                      class="img-fluid rounded-circle mb-3 img-thumbnail shadow">
-                    <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO -
-                      Founder</span>
-                    <ul class="parent-patient">
-                      <li class="patient-item">
-                        <span>36</span>
-                        <p>Temp</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>72</span>
-                        <p>Pulse</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>94</span>
-                        <p>Oxy</p>
-                      </li>
-                    </ul>
-                    <ul class="patient-details">
-                      <li>
-                        <span>Bed No.: </span>
-                        <p>69</p>
-                      </li>
-                      <li>
-                        <span>Sex: </span>
-                        <p>Male</p>
-                      </li>
-                      <li>
-                        <span>Add Date: </span>
-                        <p>09-10-2022</p>
-                      </li>
-                      <li>
-                        <span>Age: </span>
-                        <p>69 Years</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- End -->
-                <!-- Team item -->
-                <div class="col-xl-3 col-sm-6 mb-5">
-                  <div class="bg-white rounded shadow py-3 px-4"><img
-                      src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
-                      class="img-fluid rounded-circle mb-3 img-thumbnail shadow">
-                    <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO -
-                      Founder</span>
-                    <ul class="parent-patient">
-                      <li class="patient-item">
-                        <span>36</span>
-                        <p>Temp</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>72</span>
-                        <p>Pulse</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>94</span>
-                        <p>Oxy</p>
-                      </li>
-                    </ul>
-                    <ul class="patient-details">
-                      <li>
-                        <span>Bed No.: </span>
-                        <p>69</p>
-                      </li>
-                      <li>
-                        <span>Sex: </span>
-                        <p>Male</p>
-                      </li>
-                      <li>
-                        <span>Add Date: </span>
-                        <p>09-10-2022</p>
-                      </li>
-                      <li>
-                        <span>Age: </span>
-                        <p>69 Years</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- End -->
-                <!-- Team item -->
-                <div class="col-xl-3 col-sm-6 mb-5">
-                  <div class="bg-white rounded shadow py-3 px-4"><img
-                      src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
-                      class="img-fluid rounded-circle mb-3 img-thumbnail shadow">
-                    <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO -
-                      Founder</span>
-                    <ul class="parent-patient">
-                      <li class="patient-item">
-                        <span>36</span>
-                        <p>Temp</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>72</span>
-                        <p>Pulse</p>
-                      </li>
-                      <li class="patient-item">
-                        <span>94</span>
-                        <p>Oxy</p>
-                      </li>
-                    </ul>
-                    <ul class="patient-details">
-                      <li>
-                        <span>Bed No.: </span>
-                        <p>69</p>
-                      </li>
-                      <li>
-                        <span>Sex: </span>
-                        <p>Male</p>
-                      </li>
-                      <li>
-                        <span>Add Date: </span>
-                        <p>09-10-2022</p>
-                      </li>
-                      <li>
-                        <span>Age: </span>
-                        <p>69 Years</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div><!-- End -->
+                      <div class="parent">
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Transgender">Transgender</option>
+                        </select>
+                      </div>
 
-  
+                      <div class="parent">
+                        <label for="gaurdians_no">Gaurdians Contact: </label>
+                        <input
+                          type="number"
+                          placeholder="Gaurdians Contact"
+                          id="gaurdians_no"
+                          name="gaurdians_no"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="address">Address: </label>
+                        <input
+                          type="text"
+                          placeholder="Address"
+                          id="address"
+                          name="address"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="weight">Weight:</label>
+                        <input
+                          type="number"
+                          placeholder="Weight"
+                          id="weight"
+                          name="user_weight"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="age">Age:</label>
+                        <input
+                          type="number"
+                          placeholder="Age"
+                          id="age"
+                          name="user_age"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="disease">Patient Type (disease):</label>
+                        <input
+                          type="text"
+                          placeholder="Patient Type (disease)"
+                          id="disease"
+                          name="user_disease"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="admission">Admission date:</label>
+                        <input
+                          type="date"
+                          placeholder="Admission date"
+                          id="admission"
+                          name="user_admission"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="bloodgroup">Blood Group:</label>
+                        <select name="bloodgroup" id="bloodgroup">
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                          <option value="A">A</option>
+                          <option value="A">A-</option>
+                          <option value="B">B</option>
+                          <option value="B">B-</option>
+                          <option value="O">O</option>
+                          <option value="O-">O-</option>
+                        </select>
+                      </div>
+
+                      <div class="parent">
+                        <label for="bedNo">Bed No.:</label>
+                        <input
+                          type="text"
+                          id="bedNo"
+                          placeholder="Bed No."
+                          name="user_bedNo"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="profilePic">Profile Picture:</label>
+                        <input type="file" name="profilePic" id="profilePic" />
+                      </div>
+
+                      <div class="parent">
+                        <label for="medicalReports"
+                          >Medical Reports Upload:</label
+                        >
+                        <input
+                          type="file"
+                          placeholder="Medical Reports Upload"
+                          name="medicalReports"
+                          id="medicalReports"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="prescriptionUpload"
+                          >Current Prescription Upload:</label
+                        >
+                        <input
+                          type="file"
+                          name="prescriptionUpload"
+                          placeholder="Current Prescription Upload"
+                          id="prescriptionUpload"
+                        />
+                      </div>
+
+                      <div class="parent">
+                        <label for="doctorAssigned">Doctor Assigned:</label>
+                        <input
+                          type="text"
+                          name="doctorAssigned"
+                          placeholder="Doctor Assigned"
+                          id="doctorAssigned"
+                        />
+                      </div>
+                    </fieldset>
+                    <button type="submit">Register</button>
+                  </form>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+            <section id="patientcards">
+              <div class="container">
+                <div class="row text-center">
+                  <!-- Team item -->
+                  <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow py-3 px-4">
+                      <img
+                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+                        alt=""
+                        width="100"
+                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
+                      />
+                      <h5 class="mb-0">Manuella Nevoresky</h5>
+                      <span class="small text-uppercase text-muted"
+                        >CEO - Founder</span
+                      >
+                      <ul class="parent-patient">
+                        <li class="patient-item">
+                          <span>36</span>
+                          <p>Temp</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>72</span>
+                          <p>Pulse</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>94</span>
+                          <p>Oxy</p>
+                        </li>
+                      </ul>
+                      <ul class="patient-details">
+                        <li>
+                          <span>Bed No.: </span>
+                          <p>69</p>
+                        </li>
+                        <li>
+                          <span>Sex: </span>
+                          <p>Male</p>
+                        </li>
+                        <li>
+                          <span>Add Date: </span>
+                          <p>09-10-2022</p>
+                        </li>
+                        <li>
+                          <span>Age: </span>
+                          <p>69 Years</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                  <!-- Team item -->
+                  <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow py-3 px-4">
+                      <img
+                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+                        alt=""
+                        width="100"
+                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
+                      />
+                      <h5 class="mb-0">Manuella Nevoresky</h5>
+                      <span class="small text-uppercase text-muted"
+                        >CEO - Founder</span
+                      >
+                      <ul class="parent-patient">
+                        <li class="patient-item">
+                          <span>36</span>
+                          <p>Temp</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>72</span>
+                          <p>Pulse</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>94</span>
+                          <p>Oxy</p>
+                        </li>
+                      </ul>
+                      <ul class="patient-details">
+                        <li>
+                          <span>Bed No.: </span>
+                          <p>69</p>
+                        </li>
+                        <li>
+                          <span>Sex: </span>
+                          <p>Male</p>
+                        </li>
+                        <li>
+                          <span>Add Date: </span>
+                          <p>09-10-2022</p>
+                        </li>
+                        <li>
+                          <span>Age: </span>
+                          <p>69 Years</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                  <!-- Team item -->
+                  <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow py-3 px-4">
+                      <img
+                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+                        alt=""
+                        width="100"
+                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
+                      />
+                      <h5 class="mb-0">Manuella Nevoresky</h5>
+                      <span class="small text-uppercase text-muted"
+                        >CEO - Founder</span
+                      >
+                      <ul class="parent-patient">
+                        <li class="patient-item">
+                          <span>36</span>
+                          <p>Temp</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>72</span>
+                          <p>Pulse</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>94</span>
+                          <p>Oxy</p>
+                        </li>
+                      </ul>
+                      <ul class="patient-details">
+                        <li>
+                          <span>Bed No.: </span>
+                          <p>69</p>
+                        </li>
+                        <li>
+                          <span>Sex: </span>
+                          <p>Male</p>
+                        </li>
+                        <li>
+                          <span>Add Date: </span>
+                          <p>09-10-2022</p>
+                        </li>
+                        <li>
+                          <span>Age: </span>
+                          <p>69 Years</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                  <!-- Team item -->
+                  <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow py-3 px-4">
+                      <img
+                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+                        alt=""
+                        width="100"
+                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
+                      />
+                      <h5 class="mb-0">Manuella Nevoresky</h5>
+                      <span class="small text-uppercase text-muted"
+                        >CEO - Founder</span
+                      >
+                      <ul class="parent-patient">
+                        <li class="patient-item">
+                          <span>36</span>
+                          <p>Temp</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>72</span>
+                          <p>Pulse</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>94</span>
+                          <p>Oxy</p>
+                        </li>
+                      </ul>
+                      <ul class="patient-details">
+                        <li>
+                          <span>Bed No.: </span>
+                          <p>69</p>
+                        </li>
+                        <li>
+                          <span>Sex: </span>
+                          <p>Male</p>
+                        </li>
+                        <li>
+                          <span>Add Date: </span>
+                          <p>09-10-2022</p>
+                        </li>
+                        <li>
+                          <span>Age: </span>
+                          <p>69 Years</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                  <!-- Team item -->
+                  <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow py-3 px-4">
+                      <img
+                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+                        alt=""
+                        width="100"
+                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
+                      />
+                      <h5 class="mb-0">Manuella Nevoresky</h5>
+                      <span class="small text-uppercase text-muted"
+                        >CEO - Founder</span
+                      >
+                      <ul class="parent-patient">
+                        <li class="patient-item">
+                          <span>36</span>
+                          <p>Temp</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>72</span>
+                          <p>Pulse</p>
+                        </li>
+                        <li class="patient-item">
+                          <span>94</span>
+                          <p>Oxy</p>
+                        </li>
+                      </ul>
+                      <ul class="patient-details">
+                        <li>
+                          <span>Bed No.: </span>
+                          <p>69</p>
+                        </li>
+                        <li>
+                          <span>Sex: </span>
+                          <p>Male</p>
+                        </li>
+                        <li>
+                          <span>Add Date: </span>
+                          <p>09-10-2022</p>
+                        </li>
+                        <li>
+                          <span>Age: </span>
+                          <p>69 Years</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End -->
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="./assets/js/crud.js"></script>
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="assets/vendors/chart.js/Chart.min.js"></script>
-  <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-  <script src="assets/js/off-canvas.js"></script>
-  <script src="assets/js/hoverable-collapse.js"></script>
-  <script src="assets/js/misc.js"></script>
-  <script src="assets/js/dashboard.js"></script>
-
-  <script src="assets/js/todolist.js"></script>
-  <script src="assets/js/controller.js"></script>
-</body>
-
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/js/controller.js"></script>
+  </body>
 </html>

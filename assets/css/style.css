@@ -1,55 +1,3 @@
-/*-------------------------------------------------------------------
-  ===== Table of Contents =====
-
-  * Bootstrap functions
-  * Template variables
-  * SCSS Compass Functions
-  * Boostrap Main SCSS
-  * Template mixins
-    + Animation Mixins
-    + Background Mixins
-    + Badge Mixins
-    + Button Mixins
-    + Miscellaneous Mixins
-    + BlockQuote Mixins
-    + Cards Mixins
-    + Color Functions Mixins
-    + Tooltips
-    + popovers
-  * Core Styles
-    + Reset Styles
-    + Fonts
-    + Functions
-    + Backgrounds
-    + Typography
-    + Miscellaneous
-    + Footer
-    + Layouts
-    + Utilities
-    + Demo styles
-  * Components
-    + Badges
-    + Boostrap Progress
-    + Buttons
-    + Breadcrumbs
-    + Cards
-    + Checkboxes and Radios
-    + Dropdowns
-    + Forms
-    + Icons
-    + Preview
-    + Tables
-    + Todo List
-  * Landing screens
-    + Auth
--------------------------------------------------------------------*/
-/*-------------------------------------------------------------------*/
-/* === Import Bootstrap functions and variables === */
-/*-------------------------------------------------------------------*/
-/* === Import template variables === */
-/*-------------------------------------------------------------------*/
-/* === SCSS Compass Functions === */
-
 @-webkit-keyframes flash {
   0% {
     opacity: 1; }
@@ -11032,29 +10980,6 @@ input:focus {
   outline: none; }
 
 /* Fonts */
-@font-face {
-  font-family: 'ubuntu-light';
-  src: url("../fonts/Ubuntu/Ubuntu-Light.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Ubuntu/Ubuntu-Light.woff2") format("woff2"), url("../fonts/Ubuntu/Ubuntu-Light.woff") format("woff"), url("../fonts/Ubuntu/Ubuntu-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'ubuntu-regular';
-  src: url("../fonts/Ubuntu/Ubuntu-Regular.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'ubuntu-medium';
-  src: url("../fonts/Ubuntu/Ubuntu-Medium.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Ubuntu/Ubuntu-Medium.woff2") format("woff2"), url("../fonts/Ubuntu/Ubuntu-Medium.woff") format("woff"), url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'ubuntu-bold';
-  src: url("../fonts/Ubuntu/Ubuntu-Bold.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype"); }
 
 .text-twitter {
   color: #2caae1; }
