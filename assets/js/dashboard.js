@@ -138,12 +138,58 @@ function change_patient_data(patient_id){
     let patient_image=document.getElementById('p_img');
     patient_image.setAttribute("src",patients_data["profile_img"]);
     
- 
+    generate_patient_status(patient_id);
 
 }
 
 fetch_patients_data();
 
+
+function generate_patient_status(patient_id){
+
+
+
+    const interval_status = setInterval(() => {
+    
+  
+        const temp_random = Math.round(get_random_numbers(30,36));
+        const pulse_random = Math.round(get_random_numbers(70,75));
+        const oxy_random = Math.round(get_random_numbers(90,100));
+    
+    
+    
+            // patient_temperature=document.getElementById('temp_'+patient_id)
+            // patient_pulse=document.getElementById('pulse'+patient_id)
+            // patient_oxygen=document.getElementById('oxygen'+patient_id)
+
+            
+            patient_temperature=document.getElementById('temp')
+            patient_pulse=document.getElementById('pulse')
+            patient_oxygen=document.getElementById('oxygen')
+    
+    
+            patient_temperature.innerHTML=temp_random;
+            patient_pulse.innerHTML=pulse_random;
+            patient_oxygen.innerHTML=oxy_random;
+    
+        
+    
+    
+      
+      },2000);
+    
+    
+    
+    
+    }
+    
+    
+    
+    function get_random_numbers(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); 
+      }
 
 
 

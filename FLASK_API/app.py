@@ -72,7 +72,7 @@ def bedList():
         return "Connection not Available, Please check your Internet."
     else:
         try:    
-            bed_query = ("SELECT * FROM `bed_data`")
+            bed_query = ("SELECT * FROM `bed_data` WHERE status='Available'")
             cursor.execute(bed_query)
         except Exception as e:
             return "There is some Problem in fetching data."

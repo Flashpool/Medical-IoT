@@ -24,7 +24,7 @@ function switchPages(page) {
 
 setTimeout(() => {
   switchPages("registration");
-  console.clear()
+  // console.clear()
 }, 100);
 
 (function ($) {

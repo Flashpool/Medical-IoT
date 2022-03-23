@@ -140,7 +140,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
+              <a href="index.html" class="nav-link">
                 <span class="menu-title">Documents</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
@@ -266,12 +266,10 @@
 
                       <div class="parent">
                         <label for="bedNo">Bed No.:</label>
-                        <input
-                          type="text"
-                          id="bedNo"
-                          placeholder="Bed No."
-                          name="user_bedNo"
-                        />
+                        <select name="bedno" id="bedno">
+                       
+                          
+                        </select>
                       </div>
 
                       <div class="parent">
@@ -305,12 +303,12 @@
 
                       <div class="parent">
                         <label for="doctorAssigned">Doctor Assigned:</label>
-                        <input
-                          type="text"
-                          name="doctorAssigned"
-                          placeholder="Doctor Assigned"
-                          id="doctorAssigned"
-                        />
+                   
+                        <select name="doctorname" id="doctorname">
+                       
+                          
+                        </select>
+
                       </div>
                     </fieldset>
                     <button type="submit">Register</button>
@@ -320,246 +318,9 @@
             </section>
             <section id="patientcards">
               <div class="container">
-                <div class="row text-center">
+                <div class="row text-center" id="parent_card">
                   <!-- Team item -->
-                  <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="bg-white rounded shadow py-3 px-4">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-                        alt=""
-                        width="100"
-                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
-                      />
-                      <h5 class="mb-0">Manuella Nevoresky</h5>
-                      <span class="small text-uppercase text-muted"
-                        >CEO - Founder</span
-                      >
-                      <ul class="parent-patient">
-                        <li class="patient-item">
-                          <span>36</span>
-                          <p>Temp</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>72</span>
-                          <p>Pulse</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>94</span>
-                          <p>Oxy</p>
-                        </li>
-                      </ul>
-                      <ul class="patient-details">
-                        <li>
-                          <span>Bed No.: </span>
-                          <p>69</p>
-                        </li>
-                        <li>
-                          <span>Sex: </span>
-                          <p>Male</p>
-                        </li>
-                        <li>
-                          <span>Add Date: </span>
-                          <p>09-10-2022</p>
-                        </li>
-                        <li>
-                          <span>Age: </span>
-                          <p>69 Years</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- End -->
-                  <!-- Team item -->
-                  <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="bg-white rounded shadow py-3 px-4">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-                        alt=""
-                        width="100"
-                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
-                      />
-                      <h5 class="mb-0">Manuella Nevoresky</h5>
-                      <span class="small text-uppercase text-muted"
-                        >CEO - Founder</span
-                      >
-                      <ul class="parent-patient">
-                        <li class="patient-item">
-                          <span>36</span>
-                          <p>Temp</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>72</span>
-                          <p>Pulse</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>94</span>
-                          <p>Oxy</p>
-                        </li>
-                      </ul>
-                      <ul class="patient-details">
-                        <li>
-                          <span>Bed No.: </span>
-                          <p>69</p>
-                        </li>
-                        <li>
-                          <span>Sex: </span>
-                          <p>Male</p>
-                        </li>
-                        <li>
-                          <span>Add Date: </span>
-                          <p>09-10-2022</p>
-                        </li>
-                        <li>
-                          <span>Age: </span>
-                          <p>69 Years</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- End -->
-                  <!-- Team item -->
-                  <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="bg-white rounded shadow py-3 px-4">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-                        alt=""
-                        width="100"
-                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
-                      />
-                      <h5 class="mb-0">Manuella Nevoresky</h5>
-                      <span class="small text-uppercase text-muted"
-                        >CEO - Founder</span
-                      >
-                      <ul class="parent-patient">
-                        <li class="patient-item">
-                          <span>36</span>
-                          <p>Temp</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>72</span>
-                          <p>Pulse</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>94</span>
-                          <p>Oxy</p>
-                        </li>
-                      </ul>
-                      <ul class="patient-details">
-                        <li>
-                          <span>Bed No.: </span>
-                          <p>69</p>
-                        </li>
-                        <li>
-                          <span>Sex: </span>
-                          <p>Male</p>
-                        </li>
-                        <li>
-                          <span>Add Date: </span>
-                          <p>09-10-2022</p>
-                        </li>
-                        <li>
-                          <span>Age: </span>
-                          <p>69 Years</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- End -->
-                  <!-- Team item -->
-                  <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="bg-white rounded shadow py-3 px-4">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-                        alt=""
-                        width="100"
-                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
-                      />
-                      <h5 class="mb-0">Manuella Nevoresky</h5>
-                      <span class="small text-uppercase text-muted"
-                        >CEO - Founder</span
-                      >
-                      <ul class="parent-patient">
-                        <li class="patient-item">
-                          <span>36</span>
-                          <p>Temp</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>72</span>
-                          <p>Pulse</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>94</span>
-                          <p>Oxy</p>
-                        </li>
-                      </ul>
-                      <ul class="patient-details">
-                        <li>
-                          <span>Bed No.: </span>
-                          <p>69</p>
-                        </li>
-                        <li>
-                          <span>Sex: </span>
-                          <p>Male</p>
-                        </li>
-                        <li>
-                          <span>Add Date: </span>
-                          <p>09-10-2022</p>
-                        </li>
-                        <li>
-                          <span>Age: </span>
-                          <p>69 Years</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- End -->
-                  <!-- Team item -->
-                  <div class="col-xl-3 col-sm-6 mb-5">
-                    <div class="bg-white rounded shadow py-3 px-4">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-                        alt=""
-                        width="100"
-                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow"
-                      />
-                      <h5 class="mb-0">Manuella Nevoresky</h5>
-                      <span class="small text-uppercase text-muted"
-                        >CEO - Founder</span
-                      >
-                      <ul class="parent-patient">
-                        <li class="patient-item">
-                          <span>36</span>
-                          <p>Temp</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>72</span>
-                          <p>Pulse</p>
-                        </li>
-                        <li class="patient-item">
-                          <span>94</span>
-                          <p>Oxy</p>
-                        </li>
-                      </ul>
-                      <ul class="patient-details">
-                        <li>
-                          <span>Bed No.: </span>
-                          <p>69</p>
-                        </li>
-                        <li>
-                          <span>Sex: </span>
-                          <p>Male</p>
-                        </li>
-                        <li>
-                          <span>Add Date: </span>
-                          <p>09-10-2022</p>
-                        </li>
-                        <li>
-                          <span>Age: </span>
-                          <p>69 Years</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+
                   <!-- End -->
                 </div>
               </div>
@@ -570,5 +331,7 @@
     </div>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="assets/js/controller.js"></script>
+    <script src="./assets/js/crud.js"></script>
+
   </body>
 </html>
