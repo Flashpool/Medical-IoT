@@ -23,7 +23,7 @@ function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
     // xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
-    xhr.open("GET","./resources/",true);
+    xhr.open("GET","./resources/crud.php",true);
 
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
