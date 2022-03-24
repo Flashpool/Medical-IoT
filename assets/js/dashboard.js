@@ -22,8 +22,8 @@ patient_data =[];
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
-    // xhr.open("GET","https://script.google.com/macros/s/AKfycbwXkWnzBW4c47avCNi_ai-FyFDQd3MdwYwFdgRkyU-V3Pvg3ueC3hz3AGNqIv9hrPxIDw/exec",true);
-    xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+    // xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+    xhr.open("GET","./resources/",true);
 
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){

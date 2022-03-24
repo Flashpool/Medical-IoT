@@ -28,7 +28,7 @@ function create_patient_list(patient_data){
 
         let patientlist=document.createElement('div')
         patientlist.setAttribute("class","patient-list")
-        patientlist.setAttribute("id",patient_data[i].patientid) // 1003
+        patientlist.setAttribute("id",patient_data[i].id) // 1003
         patientlist.setAttribute("onclick","change_patient_data(this.id)") // 1003
       
 
@@ -63,84 +63,84 @@ function create_patient_list(patient_data){
 
     }
 
-  //  change_patient_data(patient_data[0].patientid)
+   change_patient_data(patient_data[0].id)
 
 }
 
 
 fetch_patients_data();
-// Area Graph start
 
+
+
+function change_patient_data(patient_id){
+
+   
+  let patients_data = patient_data.find(element => element.id == patient_id);
+  console.log(patient_id)
+
+  let patient_name=patients_data["patient_name"];
+ 
+ patient_live_update(patient_id,patient_name);
+
+}
+
+
+
+
+
+
+
+// Area Graph start
+function patient_live_update(id,name)
+{
 const el = document.getElementById('chart-area');
+el.innerHTML="";
       const data = {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         series: [
           {
             name: 'Pulse',
-            data: [10, 100, 50, 40, 70, 55, 33, 70, 90, 50],
-          },
-          {
-            name: 'Oxygen',
             data: [60, 40, 10, 33, 70, 90, 20, 17, 40, 80],
           },
-   
+          {
+            name: 'Temperature',
+           data: [10, 90, 50, 40, 70, 55, 33, 70, 90, 50],
+          },
+
+      
         ],
       };
       const options = {
-        chart: { title: 'LiveUpdate', width: 900, height: 250 },
-        xAxis: { pointOnColumn: false, title: { text: 'X Title' } },
-        yAxis: { title: 'Y Title' },
+        chart: { title:  'Live Update - '+name, width: 900, height: 250 },
+        xAxis: { pointOnColumn: false, title: { text: 'X - Time' } },
+        yAxis: { title: 'Y - Data' },
         series: { shift: true },
       };
 
       const chart = toastui.Chart.areaChart({ el, data, options });
 
-      let index = 11;
+    
 
       const intervalId = setInterval(() => {
-        const random = Math.round(Math.random() * 100);
-        const random2 = Math.round(Math.random() * 100);
-        chart.addData([random, random2], index.toString());
-        index += 1;
-        if (index === 30) {
-          clearInterval(intervalId);
-        }
-      }, 4000);
+
+        const temp_random = Math.round(get_random_numbers(36,50));
+        const pulse_random = Math.round(get_random_numbers(70,110));
     
+       
+        const date_time= new Date();
+        let time= date_time.toLocaleTimeString()
+
+
+        chart.addData([pulse_random,temp_random], time);
+      }, 1000);
+
+
+
+
+    } 
       // Area Graph End
-
-      const el1 = document.getElementById('chart-area');
-      const data1 = {
-        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        series: [
-          {
-            name: 'Pulse',
-            data: [10, 100, 50, 40, 70, 55, 33, 70, 90, 50],
-          },
-          {
-            name: 'Oxygen',
-            data: [60, 40, 10, 33, 70, 90, 20, 17, 40, 80],
-          },
-   
-        ],
-      };
-      const options1 = {
-        chart: { title: 'LiveUpdate', width: 900, height: 250 },
-        xAxis: { pointOnColumn: false, title: { text: 'X Title' } },
-        yAxis: { title: 'Y Title' },
-        series: { shift: true },
-      };
-
-      const chart1 = toastui.Chart.areaChart({ el1, data1, options1 });
-
-      let index1 = 11;
-
-      const intervalId1 = setInterval(() => {
-        const random = Math.round(Math.random() * 100);
-        const random2 = Math.round(Math.random() * 100);
-        chart1.addData([random, random2], index1.toString());
-        index += 1;
-        if (index1 === 30) {
-          clearInterval(intervalId1);
-        }
-      }, 4000);
+      function get_random_numbers(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); 
+      }

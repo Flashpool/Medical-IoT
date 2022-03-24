@@ -39,7 +39,7 @@ def patientList():
     else:
         try:    
             # patient_query = ("SELECT * FROM `patient_data`")
-            patient_query=("SELECT patient_data.id,patient_data.patient_name,patient_data.patient_age as age,patient_data.gender,patient_data.blood_group,patient_data.weight,patient_data.height,bed_data.bed_no as bed_id,bed_data.floor, bed_data.ward,patient_data.dob,patient_data.reg_date,disease_data.disease_name as patient_type,patient_data.profile_img,patient_data.bmi,patient_data.address,patient_data.contact_no,patient_data.doctor_id, patient_doc.prescription, patient_doc.reports FROM patient_data INNER JOIN disease_data ON patient_data.disease_id =disease_data.id INNER JOIN bed_data ON patient_data.bed_id =bed_data.id INNER JOIN patient_doc ON patient_data.document_id =patient_doc.id")
+            patient_query=("SELECT patient_data.id,patient_data.patient_name,patient_data.patient_age as age,patient_data.gender,patient_data.blood_group,patient_data.weight,patient_data.height,bed_data.bed_no as bed_id,bed_data.floor, bed_data.ward,patient_data.dob,patient_data.reg_date,disease_data.disease_name as patient_type,patient_data.profile_img,patient_data.bmi,patient_data.address,patient_data.contact_no,patient_data.doctor_id,doctor_data.doctor_name, patient_doc.prescription, patient_doc.reports FROM patient_data INNER JOIN disease_data ON patient_data.disease_id =disease_data.id INNER JOIN bed_data ON patient_data.bed_id =bed_data.id INNER JOIN patient_doc ON patient_data.document_id =patient_doc.id INNER JOIN doctor_data ON patient_data.doctor_id =doctor_data.id")
             cursor.execute(patient_query)
         except Exception as e:
             return "There is some Problem in fetching data."
