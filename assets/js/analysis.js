@@ -4,7 +4,9 @@ patient_data =[];
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
-    xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+     xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+    // xhr.open("GET","./resources/crud.php",true);
+
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
             patient_data=JSON.parse(this.responseText);
@@ -111,7 +113,7 @@ el.innerHTML="";
         ],
       };
       const options = {
-        chart: { title:  'Live Update - '+name, width: 900, height: 250 },
+        chart: { title:  'Live Update - '+name, width: 700, height: 220 },
         xAxis: { pointOnColumn: false, title: { text: 'X - Time' } },
         yAxis: { title: 'Y - Data' },
         series: { shift: true },

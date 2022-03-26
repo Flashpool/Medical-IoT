@@ -1,20 +1,4 @@
 
-// let patient_data=[{"patientid":"1001","name":"Rugved Alav",
-// "age":"22","blood_group":"O+ve Positive"
-// ,"dob":"13/02/2000","gender":"male","bed_no":"Bed 1"
-// ,"reg_date":"31/02/2022","weight":"50 kg","patient_type":"Disease 1","profile_img":""},
-
-// {"patientid":"1002","name":"Anushka Mhaskar",
-// "age":"22","blood_group":"A+ve Positive"
-// ,"dob":"20/05/2000","gender":"female","bed_no":"Bed 2"
-// ,"reg_date":"31/02/2022","weight":"51 kg","patient_type":"Disease 2","profile_img":""},
-
-// {"patientid":"1003","name":"Aayushya Gupta",
-// "age":"22","blood_group":"B+ve Positive"
-// ,"dob":"28/02/2000","gender":"male","bed_no":"Bed 3"
-// ,"reg_date":"31/02/2022","weight":"52 kg","patient_type":"Disease 3","profile_img":""}
-
-// ]
 
 
 patient_data =[];
@@ -22,9 +6,13 @@ patient_data =[];
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
-    // xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
-    xhr.open("GET","./resources/crud.php",true);
+    xhr.open("GET","http://127.0.0.1:5000/get/patientlist",true);
+    // xhr.open("GET","./resources/crud.php",true);
+    // xhr.open("POST","./resources/crud.php",true);
 
+    let data={readdata:"getpatientList"}
+
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
             patient_data=JSON.parse(this.responseText);
@@ -32,7 +20,7 @@ function fetch_patients_data(){
             create_patient_list(patient_data);
         }   
     }
-xhr.send();
+xhr.send("readdata");
 }
 
 
@@ -44,6 +32,7 @@ function create_patient_list(patient_data){
     
     for(let i=0;i<patient_data.length;i++)
     {
+        
    
 
         let patientlist=document.createElement('div')
