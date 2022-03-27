@@ -39,6 +39,7 @@ function create_patient_list(patient_data){
         patientlist.setAttribute("class","patient-list")
         patientlist.setAttribute("id",patient_data[i].id) // 1003
         patientlist.setAttribute("onclick","change_patient_data(this.id)") // 1003
+       
       
 
 
@@ -105,12 +106,17 @@ function change_patient_data(patient_id){
 
     
     let patient_weight=document.getElementById('p_weight');
-    patient_weight.innerHTML=patients_data["weight"];
+    patient_weight.innerHTML=patients_data["weight"]+" Kg";
 
+    let patient_height=document.getElementById('p_height');
+    patient_height.innerHTML=patients_data["height"]+" cm";
 
+    let weight_value=Number(patients_data["weight"]);
+    let height_value=Number(patients_data["height"]/100);
+    let bmi= weight_value/(height_value*height_value)
     let patient_bmi=document.getElementById('p_bmi');
-    patient_bmi.innerHTML=patients_data["bmi"];
-
+    patient_bmi.innerHTML=bmi.toFixed(3);
+    console.log(weight_value+" : "+height_value+" : "+bmi)
 
     let patient_type=document.getElementById('p_type');
     patient_type.innerHTML=patients_data["patient_type"];
@@ -124,8 +130,8 @@ function change_patient_data(patient_id){
     patient_reg_date.innerHTML=patients_data["reg_date"];
 
 
-    let patient_image=document.getElementById('p_img');
-    patient_image.setAttribute("src",patients_data["profile_img"]);
+    // let patient_image=document.getElementById('p_img');
+    // patient_image.setAttribute("src",patients_data["profile_img"]);
     
     generate_patient_status(patient_id);
 
@@ -188,5 +194,52 @@ function generate_patient_status(patient_id){
 
 
 
-
-
+// Activity  Chart
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Branch Name', ''],
+        ['Mon', 900],
+        ['Tue', 200],
+        ['Wed', 700],
+        ['Thr', 455],
+        ['Fri', 600],
+        ['Sat', 310],
+        ['Sun', 760],
+    ]);
+    var options = {
+        chart: {
+            title: 'Patient Activity ',
+        }
+    };
+    var chart = new google.charts.Bar(document.getElementById('chart_div'));
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+    chart.draw(data, options);
+    google.visualization.events.addListener(chart, 'select', selectHandler);
+    function selectHandler(e) {
+         var selection = chart.getSelection();
+         var district=data.getFormattedValue(selection[0].row,0);
+         var url="http://google.com";
+         window.location.href =url;
+        var message = '';
+        for(var i = 0; i < selection.length; i++) {
+            var item = selection[i];
+            if (item.row != null && item.column != null) {
+                var str = data.toJSON(item.row, item.column);
+                message += str;
+            } else if (item.row != null) {
+                var str = data.getFormattedValue(item.row, 0);
+                message += '{row:' + item.row + ', column:none}; value (col 0) = ' + str + '\n';
+            } else if (item.column != null) {
+                var str = data.getFormattedValue(0, item.column);
+                 message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
+            }
+        }
+        if (message == '') {
+            message = 'nothing';
+        }
+    
+    }
+}
+   

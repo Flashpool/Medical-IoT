@@ -3,6 +3,7 @@ doctors_data =[];
 patient_data =[];
 disease_data =[];
 
+
 function fetch_doctors_data(){
      
     var xhr=new XMLHttpRequest();
@@ -30,6 +31,7 @@ function fetch_patients_data(){
             patient_data=JSON.parse(this.responseText);
             console.log(patient_data);
             create_patient_cards(patient_data);
+            create_name_dropdown(patient_data);
         }   
     }
 xhr.send();
@@ -116,6 +118,22 @@ for(i=0;i<data.length;i++)
 }
 
 
+function create_name_dropdown(data)
+{
+parent=document.getElementById("pname")
+
+for(i=0;i<data.length;i++)
+{
+  let  name_option=document.createElement('option')
+  name_option.setAttribute("value",data[i].id);
+  name_option.innerHTML=data[i].patient_name;
+
+  parent.appendChild(name_option);
+}
+
+}
+
+
 fetch_doctors_data();
 fetch_patients_data();
 fetch_bed_data();
@@ -125,14 +143,13 @@ fetch_disease_data();
 
 function create_patient_cards(patients_data){
 
-console.log("after "+patients_data[0].patient_name)
 
- parentcard=document.getElementById('parent_card')
+let parentcard=document.getElementById('parent_card');
  for(let i=0;i<patients_data.length;i++)
      {
 
-        let card=document.createElement('div')
-        card.setAttribute("class","col-xl-3 col-sm-6 mb-5")
+        let card=document.createElement('div');
+        card.setAttribute("class","col-xl-3 col-sm-6 mb-5");
         
 
         let card_shadow=document.createElement('div')
@@ -271,7 +288,7 @@ console.log("after "+patients_data[0].patient_name)
                 view_patient.setAttribute("class","view-btn")
                 view_patient.setAttribute("href","#demo-modal")
                 view_patient.setAttribute("id",patient_data[i].id)
-                view_patient.setAttribute("onclick","change_patient_data(this.id)")
+                // view_patient.setAttribute("onclick","change_patient_data(this.id)")
                 view_patient.innerHTML="Update"
 
 
@@ -301,7 +318,7 @@ console.log("after "+patients_data[0].patient_name)
 
 
      }
-     change_patient_data(patient_data[0].id)
+    //  change_patient_data(patient_data[0].id)
 }
 
 function change_patient_data(patient_id){
@@ -349,14 +366,14 @@ function change_patient_data(patient_id){
     patient_reg_date.innerHTML=patients_data["reg_date"];
 
 
-    let patient_image=document.getElementById('p_img');
-    patient_image.setAttribute("src",patients_data["profile_img"]);
+    // let patient_image=document.getElementById('p_img');
+    // patient_image.setAttribute("src",patients_data["profile_img"]);
     
     generate_patient_status(patient_id);
 
 }
 
-fetch_patients_data();
+// fetch_patients_data();
 
 
 

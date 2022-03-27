@@ -113,7 +113,7 @@ el.innerHTML="";
         ],
       };
       const options = {
-        chart: { title:  'Live Update - '+name, width: 700, height: 220 },
+        chart: { title:  'Live Update - '+name, width: 900, height: 250 },
         xAxis: { pointOnColumn: false, title: { text: 'X - Time' } },
         yAxis: { title: 'Y - Data' },
         series: { shift: true },

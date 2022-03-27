@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+# from flask import 
+from flask import Flask, jsonify,request
 import dbops
 import pandas as pd
 from flask_cors import CORS, cross_origin
@@ -160,6 +161,75 @@ def diseaseList():
             except Exception as e:
                 return "There is some Problem in fetching data from Server."
     return jsonify(diseases)    
+
+
+
+@app.route('/post/authentication', methods =['POST'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
+def credential_submit():
+    try:
+        cnx = dbops.getConnection()
+        cursor = cnx.cursor()
+    except Exception as e:
+        return "Connection not Available, Please check your Internet."
+    else:
+        try:    
+            # bed_query = ("SELECT * FROM `bed_data` WHERE status='Available'")
+            # cursor.execute(bed_query)
+            data=request.get_json()
+            print(data)
+        except Exception as e:
+            return "There is some Problem in fetching data."
+        else:
+            try:
+                username=data['username']
+                password=data['password']
+
+                cred_query = ("SELECT user_type FROM `user_data` WHERE username='"+str(username)+"' and password='"+str(password)+"'")
+                cursor.execute(cred_query)
+
+
+                # print(cursor.fetchall())   
+                # rows = [x for x in cursor]
+                # cols = [x[0] for x in cursor.description] 
+                cred = []     
+                # for row in rows:                      
+                #     single_bed_data = {}
+                #     for prop, val in zip(cols, row):
+                #         single_bed_data [prop] = val
+                #     cred.append(single_bed_data )
+                # auth={"user_type":str(cursor.description)}
+                # cred.append(auth)
+                # cred.
+
+                # print(jsonify(cred))
+
+
+                if(cred['user_type']=="doctor"):
+                    page_html={"page":"dashboard.html"}
+                    cred.append(page_html)
+                    return jsonify(cred)
+
+                elif(cred['user_type']=="admin"):
+                    page_html={"page":"admin.html"}
+                    cred.append(page_html)
+                    return jsonify(cred)
+
+                elif(cred['user_type']=="guardian"):
+                    page_html={"page":"admin.html"}
+                    cred.append(page_html)
+                    return jsonify(cred)
+
+
+
+
+
+                cursor.close()
+                cnx.close()
+            except Exception as e:
+                return "There is some Problem in fetching data from Server."
+    # return jsonify(beds)    
+    # return "success"   
 
 
 

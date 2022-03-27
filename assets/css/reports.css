@@ -1,37 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Roboto:wght@300;400&display=swap');
 
 *{
 	margin: 0px; padding: 0px;
 }
 :root{
-	--bodyFont: 'Work Sans', sans-serif;
-    --specialFont:'Quicksand', sans-serif;   
-    --lightGreen: #30c799;
-	--gradientGreen: -webkit-gradient(linear, left top, right bottom, color-stop(100%,#08e1ae), color-stop(0%,#98de5b));
+	--bodyFont: 'Roboto', sans-serif;
+    --specialFont:'Mulish', sans-serif;  
+    --lightGreen: #9395ed;
+	--gradientGreen: -webkit-gradient(linear, left top, right bottom, color-stop(100%,#9395ed), color-stop(0%,#6c6de3));
+	--purplegradient:linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
     --textColor: #323232;
     --white: #fff;
-    --bodycolor:rgb(206, 206, 206);
-    --shadow: 0 0 90px 0 rgba(0, 0, 0, 0.1607843137) ;
-    --headlinesFont: 'Josefin Sans', sans-serif;
-    --bodyBg: #fff;
+    --bodycolor:rgb(255, 251, 251);
+    /* --shadow: 0 0 90px 0 rgba(0, 0, 0, 0.1607843137) ; */
+    --headlinesFont: 'Roboto', sans-serif;
+    --bodyBg: #dde5fc;
     --black: #000;
 }
 body{
-	background-color: #ffffff;
+	background-color: var(--bodyBg);
 	height: 100vh;
-	font-family: 'Quicksand', sans-serif;
+	font-family: var(--specialFont);
 	box-sizing: border-box;
 	transition: background 0.4s ease-in-out 0s;
 }
 .left-sidebar{
 	padding: 10px;
-	width: 100px;
+	width: 90px;
 	background-color: white;
 	text-align: center;
 	float: left;
-	height: 100vh;
+	height: 40em;
+	margin-top: 2em;
+	margin-left: 1em;
 	box-shadow: var(--shadow);
+	border-radius: 15px;
 }
 .logo{
 	width: 75px;
@@ -120,7 +124,8 @@ body{
 }
 .welcome{
 	width: 100%;
-	background: var(--gradientGreen);
+	/* background: var(--gradientGreen); */
+	background: var(--purplegradient);
 	box-shadow: var(--shadow);
 	float: left;
 	/*margin-top: 5px;*/
@@ -161,8 +166,9 @@ body{
 }
 .content p{font-size: 12px;}
 .content span{
-	font-size: 25px;
-	font-family: 'Roboto Slab', serif;
+	text-align: center;
+	font-size: 22px;
+	font-family: var(--bodyFont);
 	font-weight: bold;
 	text-shadow: 0.5px 1px rgba(0, 0, 0, 0.301);
   

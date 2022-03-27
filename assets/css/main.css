@@ -183,7 +183,7 @@ label.light {
 .content-wrapper{
   width: 100%;
 }
-
+/* Patient mini cards start  */
 .parent-patient{
   display: flex;
   justify-content: space-between;
@@ -234,9 +234,11 @@ li i{
 .color-accent{
   color: #5fcf80 !important;
 }
+/* patient mini cards end  */
+
 
 /* Modal CSS Start*/
-/* If you like this, be sure to ❤️ it. */
+
 .wrapper {
   height: 100vh;
   /* This part is important for centering the content */

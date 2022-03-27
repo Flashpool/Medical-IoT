@@ -10,6 +10,7 @@
 	<!--Css-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" href="https://uicdn.toast.com/chart/latest/toastui-chart.min.css" />
 	<link rel="stylesheet" href="./assets/css/dashboard.css">
 	<script src="https://kit.fontawesome.com/728dc9daba.js" crossorigin="anonymous"></script>
 
@@ -67,7 +68,7 @@
 			<div class="box" style="margin-left: 0px;">
 				<div class="content">
 					<i class="fa fa-tint" style="color:#e94545; "></i>
-					<span id="pulse">72</span>
+					<span id="pulse">72</span>&nbsp<span style="font-size: 0.7em;">bpm</span>
 					<p style="font-size: 11px;">Pulse Rate</p>
 				</div>
 			</div>
@@ -76,7 +77,7 @@
 				<div class="content">
 					<i class="fa fa-lungs" style="color: #329bf1 ;"></i>
 
-					<span id="oxygen">91</span>
+					<span id="oxygen">91</span>&nbsp<span style="font-size: 0.7em;">spO<sub>2</sub></span>
 					<p style="font-size: 11px;">Oxygen Level</p>
 				</div>
 			</div>
@@ -85,7 +86,7 @@
 				<div class="content">
 					<i class="fa fa-temperature-low" style="color: #f1be32 ;"></i>
 
-					<span id="temp">36</span>
+					<span id="temp">36</span>&nbsp<span style="font-size: 0.7em;"><sup>o</sup>C</span>
 					<p style="font-size: 11px;">Temperature</p>
 				</div>
 			</div>
@@ -94,8 +95,18 @@
 				<div class="content">
 					<i class="fa fa-bed" style="color: #b432f1 ;"></i>
 
-					<span id="sleep">7hrs</span>
+					<span id="sleep">7</span>&nbsp<span style="font-size: 0.75em;"><sub>hrs</sub></span>
 					<p style="font-size: 11px;">Sleep</p>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="content">
+					<!-- <a target="_blank" href="https://icons8.com/icon/2cdTONdDZEeR/boot-print"></a> -->
+					<i class="fa fa-solid fa-shoe-prints" style="color: #42f132 ;"></i>
+
+					<span id="foot">245</span>&nbsp<span style="font-size: 0.75em;"><sub>steps</sub></span>
+					<p style="font-size: 11px;">Footsteps</p>
 				</div>
 			</div>
 
@@ -107,41 +118,47 @@
 			<!--	<div class="patient_details" id="line" width="96%">-->
 			<div class="profile1">
 				<!-- <img class="profile_img" id="p_img" src="" alt=""> -->
+				<div id="chart_div" style="height:250px;width:320px"></div>
+				<!-- <div id="chart-area"></div> -->
+
 
 			</div>
 
 			<div class="profile2">
 				<div class="personal">
-					<label class="p_data" for="name">Name: </label><span class="info" id="p_name"></span><br><br>
+					<label class="p_data" for="name">Name : </label><span class="info" id="p_name"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Blood Group: </label><span class="info"
+					<label class="p_data" for="text">Blood Group : </label><span class="info"
 						id="p_blood"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">DOB: </label><span class="info" id="p_birth"></span><br><br>
+					<label class="p_data" for="text">DOB : </label><span class="info" id="p_birth"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Sex: </label><span class="info" id="p_gender"></span><br><br>
+					<label class="p_data" for="text">Sex : </label><span class="info" id="p_gender"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Age: </label><span class="info" id="p_age"></span><br><br>
+					<label class="p_data" for="text">Age : </label><span class="info" id="p_age"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Weight: </label><span class="info" id="p_weight"></span><br><br>
+					<label class="p_data" for="text">Height: </label><span class="info" id="p_height"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">BMI: </label><span class="info" id="p_bmi"></span><br><br>
+					<label class="p_data" for="text">Weight : </label><span class="info" id="p_weight"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Patient type: </label><span class="info"
+					<label class="p_data" for="text">BMI : </label><span class="info" id="p_bmi"></span><br><br>
+				</div>
+				<div class="personal">
+					<label class="p_data" for="text">Patient type : </label><span class="info"
 						id="p_type"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Bed no: </label><span class="info" id="p_bed"></span><br><br>
+					<label class="p_data" for="text">Bed no : </label><span class="info" id="p_bed"></span><br><br>
 				</div>
 				<div class="personal">
-					<label class="p_data" for="text">Admission Date: </label><span class="info" id="p_reg_date"></span>
+					<label class="p_data" for="text">Admission Date : </label><span class="info" id="p_reg_date"></span>
 				</div>
 
 			</div>
@@ -227,6 +244,8 @@
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- <script src="https://uicdn.toast.com/chart/latest/toastui-chart.min.js"></script> -->
 	<script src="assets/js/dashboard.js"></script>
 
 

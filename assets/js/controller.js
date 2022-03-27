@@ -1,23 +1,33 @@
 let unsetSection = document.getElementById("unsetSection");
 let registration = document.getElementById("registration");
 let patientcards = document.getElementById("patientcards");
+let updateinfo = document.getElementById("updateinfo")
 function switchPages(page) {
   switch (page) {
     case "registration":
       registration.style.display = "";
       unsetSection.style.display = "none";
       patientcards.style.display = "none";
+      updateinfo.style.display = "none"
       break;
+    case "updateinfo":
+      updateinfo.style.display = ""
+      patientcards.style.display = "none";
+      registration.style.display = "none";
+      unsetSection.style.display = "none";
+    break;  
     case "patientcards":
       patientcards.style.display = "";
       registration.style.display = "none";
       unsetSection.style.display = "none";
+      updateinfo.style.display = "none"
       break;
 
     default:
       unsetSection.style.display = "";
       registration.style.display = "none";
       patientcards.style.display = "none";
+      updateinfo.style.display = "none"
       break;
   }
 }
