@@ -2,6 +2,8 @@
 
 
 patient_data =[];
+vitals_data =[];
+
 
 function fetch_patients_data(){
      
@@ -86,6 +88,11 @@ function change_patient_data(patient_id){
     let patients_data = patient_data.find(element => element.id == patient_id);
 
     // console.log(patients_data + ": "+patient_id);
+    // let patientlist=document.getElementById(patient_id)
+    // patientlist.setAttribute("active","");
+ 
+
+
     let patient_name=document.getElementById('p_name');
     patient_name.innerHTML=patients_data["patient_name"];
 
@@ -142,6 +149,7 @@ fetch_patients_data();
 
 function generate_patient_status(patient_id){
 
+   
 
 
     const interval_status = setInterval(() => {
@@ -157,17 +165,24 @@ function generate_patient_status(patient_id){
             // patient_pulse=document.getElementById('pulse'+patient_id)
             // patient_oxygen=document.getElementById('oxygen'+patient_id)
 
-            
+            get_vitals_data(patient_id);
             patient_temperature=document.getElementById('temp')
             patient_pulse=document.getElementById('pulse')
             patient_oxygen=document.getElementById('oxygen')
+            patient_sleep=document.getElementById('sleep')
+
     
+
+            //  get_vitals_data(patient_id);
     
-            patient_temperature.innerHTML=temp_random;
-            patient_pulse.innerHTML=pulse_random;
+            // patient_temperature.innerHTML=temp_random;
+            // patient_pulse.innerHTML=pulse_random;
+            // patient_oxygen.innerHTML=oxy_random;
+
+            patient_temperature.innerHTML=vitals_data[0].temp;
+            patient_pulse.innerHTML=vitals_data[0].pulse_rate;
+            patient_sleep.innerHTML=Number(vitals_data[0].sleep_min/60).toFixed(2);
             patient_oxygen.innerHTML=oxy_random;
-    
-        
     
     
       
@@ -177,6 +192,7 @@ function generate_patient_status(patient_id){
     
     
     }
+    
     
     
     
@@ -241,5 +257,36 @@ function drawChart() {
         }
     
     }
+}
+
+function get_vitals_data(id){
+    // patient_temperature=document.getElementById('temp')
+    // patient_pulse=document.getElementById('pulse')
+    // patient_oxygen=document.getElementById('oxygen')
+    // patient_sleep=document.getElementById('sleep')
+
+    var xhr=new XMLHttpRequest();
+     xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+id,true);
+
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // xhr.send(JSON.stringify(id))
+    xhr.onreadystatechange= function (){
+        if (this.readyState==4 & this.status==200){
+            vitals_data=JSON.parse(this.responseText);
+            console.log(vitals_data);
+
+            // patient_temperature.innerHTML=vitals_data[0].temp;
+            // patient_pulse.innerHTML=vitals_data[0].pulse_rate;
+            // patient_sleep.innerHTML=vitals_data[0].sleep_min;
+            // patient_oxygen.innerHTML=oxy_random;
+          
+        }   
+    }
+    xhr.send();
+// xhr.send(JSON.stringify({"pulse_rate":pulse_random,"temp":temp_random}));
+
+
+
+  
 }
    

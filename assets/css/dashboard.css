@@ -257,7 +257,7 @@ body{
 .info{
 	font-family:var(--specialFont);
 	font-size: 0.8em;
-	font-weight: normal;
+	font-weight: bold;
 	color: black;
 }
 /*start of schedule meet*/
@@ -395,12 +395,12 @@ body{
     border-radius: 10px;
  
 }
-.patient-list:hover{
+/* .phover{
 	background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
 	color: white!important;
 	box-shadow: 2px 5px 10px 3px #36d09c30;
-}
-.patient-list:focus{
+} */
+.patient-list:active{
 	background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
 	color: white!important;
 	box-shadow: 2px 5px 10px 3px #36d09c30;

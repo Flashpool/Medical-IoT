@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 # sqlpwd = ''
 
 # comment out password when to connect with local server (rugved user )
-sqlpwd = 'rugved@1234'
-# sqlpwd = ''
+# sqlpwd = 'rugved@1234'
+sqlpwd = ''
 
 
 def getConnection():
@@ -16,8 +16,8 @@ def getConnection():
     # cnx = mysql.connector.connect(user='root', password=sqlpwd,host='localhost',database='miot')
 
     # comment out connection when to connect with local server
-    cnx = mysql.connector.connect(user='rugved', password=sqlpwd,host='localhost',database='miot')
-    # cnx = mysql.connector.connect(user='root', password=sqlpwd,host='localhost',database='miot')
+    # cnx = mysql.connector.connect(user='rugved', password=sqlpwd,host='localhost',database='miot')
+    cnx = mysql.connector.connect(user='root', password=sqlpwd,host='localhost',database='miot')
 
 
     return cnx

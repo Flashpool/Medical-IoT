@@ -21,6 +21,7 @@ xhr.send();
 
 
 
+
 function create_patient_list(patient_data){
     parent=document.getElementById('parent_patient_list')
     
@@ -95,6 +96,8 @@ function change_patient_data(patient_id){
 // Area Graph start
 function patient_live_update(id,name)
 {
+  let sleep_seconds=0;
+  let sleep_min=0.0;
 const el = document.getElementById('chart-area');
 el.innerHTML="";
       const data = {
@@ -102,7 +105,7 @@ el.innerHTML="";
         series: [
           {
             name: 'Pulse',
-            data: [60, 40, 10, 33, 70, 90, 20, 17, 40, 80],
+            data: [70, 90, 95, 85, 70, 90, 75, 70, 90, 80],
           },
           {
             name: 'Temperature',
@@ -126,15 +129,45 @@ el.innerHTML="";
       const intervalId = setInterval(() => {
 
         const temp_random = Math.round(get_random_numbers(36,50));
-        const pulse_random = Math.round(get_random_numbers(70,110));
+        const pulse_random = Math.round(get_random_numbers(55,65));
     
        
         const date_time= new Date();
-        let time= date_time.toLocaleTimeString()
+        let time=date_time.toLocaleTimeString();
+        // let time= date_time.format("dd-MM-yyyy hh:mm:ss")
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var localtime = today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
+        let current_time=   date+" "+localtime
 
+     
+
+        if(pulse_random<=60 && pulse_random>=55)
+        {
+          sleep_seconds++;
+          // console.log(sleep_hours);
+
+          sleep_min=(sleep_seconds/60);
+          console.log(sleep_min+" mins - "+time+" - "+sleep_seconds);
+    
+          post_patient_data={
+            patient_id:id,
+            pulse_rate: pulse_random,
+            temp: temp_random,
+            sleepmin:sleep_min,
+            current_timestamp:current_time,
+
+          }
+          post_patients_data( post_patient_data);
+
+        }
+
+   
 
         chart.addData([pulse_random,temp_random], time);
       }, 1000);
+
+
 
 
 
@@ -146,3 +179,19 @@ el.innerHTML="";
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1) + min); 
       }
+
+
+      // }
+      
+      function post_patients_data(data){
+     
+        var xhr=new XMLHttpRequest();
+         xhr.open("POST","http://127.0.0.1:5000/patients/postdata",true);
+
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    // xhr.send(JSON.stringify({"pulse_rate":pulse_random,"temp":temp_random}));
+   
+        xhr.send(JSON.stringify(data))
+  }
+    

@@ -1,8 +1,18 @@
 # from flask import 
+from cmath import e
+from sqlite3 import Cursor
+from tkinter import E
+from turtle import st
 from flask import Flask, jsonify,request
 import dbops
+from flask_apscheduler import APScheduler
 import pandas as pd
 from flask_cors import CORS, cross_origin
+import datetime
+import random
+import time
+
+
 
 app = Flask(__name__)
 
@@ -24,6 +34,46 @@ def hello_m():
     p=4
     a=7
     return "<p>Hello, Aniket!</p>"+str((p+a))
+
+
+@app.route("/patients/postdata", methods =['POST'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
+def patients_vitals_generate():
+    # patient_id=random.randint(1,2)
+    data=request.get_json()
+    cnx = dbops.getConnection()
+    cursor = cnx.cursor()
+    print(data)
+    # sleep_seconds=0
+    # temp_random=random.randint(36,50)
+    # pulse_random=random.randint(55,65)
+
+    # time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    patient_id=str(data['patient_id'])
+    pulse_rate=str(data['pulse_rate'])
+    temp=str(data['temp'])
+    sleepmin=str(data['sleepmin'])
+    current_timestamp=str(data['current_timestamp'])
+
+
+    # if(pulse_random<=60 and pulse_random>=55):
+    #     sleep_seconds+=1
+    #     sleep_min=str(sleep_seconds/60)
+    #     print(str(pulse_random)+" : "+str(time)+" - "+str(temp_random)+" : "+sleep_min)
+    try:
+        
+           query= pd.DataFrame([["",patient_id,sleepmin,pulse_rate,temp,current_timestamp]],columns=["id","patient_id","sleep_min","pulse_rate","temp","current_timestamp"])
+           with dbops.engine.begin() as connection:
+             query.to_sql('patient_analysis_data',con=connection, if_exists='append',index=False)
+    except Exception as e:
+            print(e)
+    else:
+            cursor.close()
+            cnx.close()
+
+
+
+    return "success"
 
 
 
@@ -74,6 +124,43 @@ def bedList():
     else:
         try:    
             bed_query = ("SELECT * FROM `bed_data` WHERE status='Available'")
+            cursor.execute(bed_query)
+        except Exception as e:
+            return "There is some Problem in fetching data."
+        else:
+            try:
+                print(cursor.column_names)   
+                rows = [x for x in cursor]
+                cols = [x[0] for x in cursor.description] 
+                beds = []     
+                for row in rows:                      
+                    single_bed_data = {}
+                    for prop, val in zip(cols, row):
+                        single_bed_data [prop] = val
+                    beds.append(single_bed_data )
+                cursor.close()
+                cnx.close()
+            except Exception as e:
+                return "There is some Problem in fetching data from Server."
+    return jsonify(beds)    
+
+
+@app.route('/get/patient/vitals', methods =['GET'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
+def vitals_status():
+    # data=request.get_json()
+    data=request.args
+
+    id=str(data.get("id"))
+    print(id)
+    try:
+        cnx = dbops.getConnection()
+        cursor = cnx.cursor()
+    except Exception as e:
+        return "Connection not Available, Please check your Internet."
+    else:
+        try:    
+            bed_query = ("SELECT * FROM `patient_analysis_data`  where patient_id='"+id+"' ORDER BY id DESC LIMIT 0, 1 ")
             cursor.execute(bed_query)
         except Exception as e:
             return "There is some Problem in fetching data."
@@ -234,4 +321,7 @@ def credential_submit():
 
 
 if __name__ == "__main__":
+    # scheduler = APScheduler()
+    # scheduler.add_job(func=patients_vitals_generate, args=[], trigger='interval', id='job', seconds=2)
+    # scheduler.start()
     app.run(debug=True)
