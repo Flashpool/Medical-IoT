@@ -1,785 +1,235 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <style id="cfs-style">html{display: none;}</style>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <link rel="stylesheet" type="text/css" href="./themes/pmahomme/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.3&nocache=2358672697ltr&server=1">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/printview.css?v=5.1.3" media="print" id="printcss">
-    <title>localhost:8080 / 127.0.0.1 | phpMyAdmin 5.1.3</title>
-    <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-migrate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/sprintf.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/ajax.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/keyhandler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/bootstrap/bootstrap.bundle.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/js.cookie.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.mousewheel.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.validate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui-timepicker-addon.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.ba-hashchange-2.0.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.debounce-1.0.6.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/menu_resizer.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/cross_framing_protection.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/rte.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/messages.php?l=en&v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/config.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/doclinks.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/functions.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/navigation.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/indexes.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/common.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/page_settings.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/export_output.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/mode/sql/sql.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/runmode/runmode.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/show-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/sql-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/lint/lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/codemirror/addon/lint/sql-lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/tracekit.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/error_report.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/drag_drop_import.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/shortcuts_handler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/console.js?v=5.1.3"></script>
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: miot
+-- ------------------------------------------------------
+-- Server version	10.4.24-MariaDB
 
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"en",server:"1",table:"",db:"",token:"416127394c6d6c2a74714c263270755b",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"P",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.1.3",auth_type:"config",user:"root"});
-var firstDayOfCalendar = '0';
-var themeImagePath = '.\/themes\/pmahomme\/img\/';
-var mysqlDocTemplate = '.\/url.php\u003Furl\u003Dhttps\u00253A\u00252F\u00252Fdev.mysql.com\u00252Fdoc\u00252Frefman\u00252F8.0\u00252Fen\u00252F\u002525s.html';
-var maxInputVars = 1000;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-if ($.datepicker) {
-  $.datepicker.regional[''].closeText = 'Done';
-  $.datepicker.regional[''].prevText = 'Prev';
-  $.datepicker.regional[''].nextText = 'Next';
-  $.datepicker.regional[''].currentText = 'Today';
-  $.datepicker.regional[''].monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  $.datepicker.regional[''].monthNamesShort = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  $.datepicker.regional[''].dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  $.datepicker.regional[''].dayNamesShort = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
-  ];
-  $.datepicker.regional[''].dayNamesMin = [
-    'Su',
-    'Mo',
-    'Tu',
-    'We',
-    'Th',
-    'Fr',
-    'Sa',
-  ];
-  $.datepicker.regional[''].weekHeader = 'Wk';
-  $.datepicker.regional[''].showMonthAfterYear = false;
-  $.datepicker.regional[''].yearSuffix = '';
-  $.extend($.datepicker._defaults, $.datepicker.regional['']);
-}
+--
+-- Table structure for table `bed_data`
+--
 
-if ($.timepicker) {
-  $.timepicker.regional[''].timeText = 'Time';
-  $.timepicker.regional[''].hourText = 'Hour';
-  $.timepicker.regional[''].minuteText = 'Minute';
-  $.timepicker.regional[''].secondText = 'Second';
-  $.extend($.timepicker._defaults, $.timepicker.regional['']);
-}
+DROP TABLE IF EXISTS `bed_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bed_data` (
+  `id` smallint(11) NOT NULL AUTO_INCREMENT,
+  `bed_no` smallint(4) NOT NULL,
+  `floor` varchar(10) NOT NULL,
+  `ward` varchar(10) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-function extendingValidatorMessages () {
-  $.extend($.validator.messages, {
-    required: 'This\u0020field\u0020is\u0020required',
-    remote: 'Please\u0020fix\u0020this\u0020field',
-    email: 'Please\u0020enter\u0020a\u0020valid\u0020email\u0020address',
-    url: 'Please\u0020enter\u0020a\u0020valid\u0020URL',
-    date: 'Please\u0020enter\u0020a\u0020valid\u0020date',
-    dateISO: 'Please\u0020enter\u0020a\u0020valid\u0020date\u0020\u0028\u0020ISO\u0020\u0029',
-    number: 'Please\u0020enter\u0020a\u0020valid\u0020number',
-    creditcard: 'Please\u0020enter\u0020a\u0020valid\u0020credit\u0020card\u0020number',
-    digits: 'Please\u0020enter\u0020only\u0020digits',
-    equalTo: 'Please\u0020enter\u0020the\u0020same\u0020value\u0020again',
-    maxlength: $.validator.format('Please\u0020enter\u0020no\u0020more\u0020than\u0020\u007B0\u007D\u0020characters'),
-    minlength: $.validator.format('Please\u0020enter\u0020at\u0020least\u0020\u007B0\u007D\u0020characters'),
-    rangelength: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D\u0020characters\u0020long'),
-    range: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D'),
-    max: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
-    min: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020greater\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
-    validationFunctionForDateTime: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020date\u0020or\u0020time'),
-    validationFunctionForHex: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020HEX\u0020input'),
-    validationFunctionForMd5: $.validator.format('This\u0020column\u0020can\u0020not\u0020contain\u0020a\u002032\u0020chars\u0020value'),
-    validationFunctionForAesDesEncrypt: $.validator.format('These\u0020functions\u0020are\u0020meant\u0020to\u0020return\u0020a\u0020binary\u0020result\u003B\u0020to\u0020avoid\u0020inconsistent\u0020results\u0020you\u0020should\u0020store\u0020it\u0020in\u0020a\u0020BINARY,\u0020VARBINARY,\u0020or\u0020BLOB\u0020column.')
-  });
-}
+--
+-- Dumping data for table `bed_data`
+--
 
-ConsoleEnterExecutes=false
+LOCK TABLES `bed_data` WRITE;
+/*!40000 ALTER TABLE `bed_data` DISABLE KEYS */;
+INSERT INTO `bed_data` VALUES (1,1001,'1st floor','General','Available'),(2,1002,'1st floor','General','Available'),(3,1003,'1st floor','General','Available'),(4,1004,'1st floor','General','Unavailable'),(5,1005,'2nd floor','ICU','Available'),(6,1006,'2nd floor','ICU','Available'),(7,1007,'2nd floor','ICU','Unavailable'),(8,1008,'3rd floor','special','Available'),(9,1009,'3rd floor','special','Available'),(10,1010,'3rd floor','special','Available');
+/*!40000 ALTER TABLE `bed_data` ENABLE KEYS */;
+UNLOCK TABLES;
 
-AJAX.scriptHandler
-  .add('vendor/jquery/jquery.min.js', 0)
-  .add('vendor/jquery/jquery-migrate.js', 0)
-  .add('vendor/sprintf.js', 1)
-  .add('ajax.js', 0)
-  .add('keyhandler.js', 1)
-  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)
-  .add('vendor/jquery/jquery-ui.min.js', 0)
-  .add('vendor/js.cookie.js', 1)
-  .add('vendor/jquery/jquery.mousewheel.js', 0)
-  .add('vendor/jquery/jquery.validate.js', 0)
-  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)
-  .add('vendor/jquery/jquery.ba-hashchange-2.0.js', 0)
-  .add('vendor/jquery/jquery.debounce-1.0.6.js', 0)
-  .add('menu_resizer.js', 1)
-  .add('cross_framing_protection.js', 0)
-  .add('rte.js', 1)
-  .add('messages.php', 0)
-  .add('config.js', 1)
-  .add('doclinks.js', 1)
-  .add('functions.js', 1)
-  .add('navigation.js', 1)
-  .add('indexes.js', 1)
-  .add('common.js', 1)
-  .add('page_settings.js', 1)
-  .add('export_output.js', 1)
-  .add('vendor/codemirror/lib/codemirror.js', 0)
-  .add('vendor/codemirror/mode/sql/sql.js', 0)
-  .add('vendor/codemirror/addon/runmode/runmode.js', 0)
-  .add('vendor/codemirror/addon/hint/show-hint.js', 0)
-  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)
-  .add('vendor/codemirror/addon/lint/lint.js', 0)
-  .add('codemirror/addon/lint/sql-lint.js', 0)
-  .add('vendor/tracekit.js', 1)
-  .add('error_report.js', 1)
-  .add('drag_drop_import.js', 1)
-  .add('shortcuts_handler.js', 1)
-  .add('console.js', 1)
-;
-$(function() {
-        AJAX.fireOnload('vendor/sprintf.js');
-        AJAX.fireOnload('keyhandler.js');
-      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');
-        AJAX.fireOnload('vendor/js.cookie.js');
-                AJAX.fireOnload('menu_resizer.js');
-        AJAX.fireOnload('rte.js');
-        AJAX.fireOnload('config.js');
-      AJAX.fireOnload('doclinks.js');
-      AJAX.fireOnload('functions.js');
-      AJAX.fireOnload('navigation.js');
-      AJAX.fireOnload('indexes.js');
-      AJAX.fireOnload('common.js');
-      AJAX.fireOnload('page_settings.js');
-      AJAX.fireOnload('export_output.js');
-                    AJAX.fireOnload('vendor/tracekit.js');
-      AJAX.fireOnload('error_report.js');
-      AJAX.fireOnload('drag_drop_import.js');
-      AJAX.fireOnload('shortcuts_handler.js');
-      AJAX.fireOnload('console.js');
-  });
-// ]]>
-</script>
+--
+-- Table structure for table `disease_data`
+--
 
-  <noscript><style>html{display:block}</style></noscript>
-</head>
-<body>
-    <div id="pma_navigation" data-config-navigation-width="240">
-    <div id="pma_navigation_resizer"></div>
-    <div id="pma_navigation_collapser"></div>
-    <div id="pma_navigation_content">
-      <div id="pma_navigation_header">
+DROP TABLE IF EXISTS `disease_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `disease_data` (
+  `id` smallint(11) NOT NULL AUTO_INCREMENT,
+  `disease_name` varchar(30) NOT NULL,
+  `disease_severity` varchar(3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-                  <div id="pmalogo">
-                          <a href="index.php">
-                                      <img id="imgpmalogo" src="./themes/pmahomme/img/logo_left.png" alt="phpMyAdmin">
-                                      </a>
-                      </div>
-        
-        <div id="navipanellinks">
-          <a href="index.php?route=/" title="Home"><img src="themes/dot.gif" title="Home" alt="Home" class="icon ic_b_home"></a>
+--
+-- Dumping data for table `disease_data`
+--
 
-                      <a class="logout disableAjax" href="index.php?route=/logout" title="Empty session data"><img src="themes/dot.gif" title="Empty session data" alt="Empty session data" class="icon ic_s_loggoff"></a>
-          
-          <a href="./doc/html/index.html" title="phpMyAdmin documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="phpMyAdmin documentation" alt="phpMyAdmin documentation" class="icon ic_b_docs"></a>
+LOCK TABLES `disease_data` WRITE;
+/*!40000 ALTER TABLE `disease_data` DISABLE KEYS */;
+INSERT INTO `disease_data` VALUES (1,'Piles','20%'),(2,'Asthama','45%'),(3,'Corona','80%'),(4,'Omicron','70%'),(5,'Dengue','60%'),(6,'Corona Delta','95%'),(7,'Arthritis','50%'),(8,'Malaria','80%'),(9,'Jaundice','60%'),(10,'TB','20%'),(11,'Cold','50%');
+/*!40000 ALTER TABLE `disease_data` ENABLE KEYS */;
+UNLOCK TABLES;
 
-          <a href="./url.php?url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F" title="MariaDB Documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="MariaDB Documentation" alt="MariaDB Documentation" class="icon ic_b_sqlhelp"></a>
+--
+-- Table structure for table `doctor_data`
+--
 
-          <a id="pma_navigation_settings_icon" href="#" title="Navigation panel settings"><img src="themes/dot.gif" title="Navigation panel settings" alt="Navigation panel settings" class="icon ic_s_cog"></a>
+DROP TABLE IF EXISTS `doctor_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `doctor_data` (
+  `id` smallint(11) NOT NULL AUTO_INCREMENT,
+  `doctor_name` varchar(40) NOT NULL,
+  `doctor_contact` varchar(13) NOT NULL,
+  `specialization` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-          <a id="pma_navigation_reload" href="#" title="Reload navigation panel"><img src="themes/dot.gif" title="Reload navigation panel" alt="Reload navigation panel" class="icon ic_s_reload"></a>
-        </div>
+--
+-- Dumping data for table `doctor_data`
+--
 
-        
-        <img src="themes/dot.gif" title="Loading…" alt="Loading…" style="visibility: hidden; display:none" class="icon ic_ajax_clock_small throbber">
-      </div>
-      <div id="pma_navigation_tree" class="list_container synced highlight autoexpand">
+LOCK TABLES `doctor_data` WRITE;
+/*!40000 ALTER TABLE `doctor_data` DISABLE KEYS */;
+INSERT INTO `doctor_data` VALUES (1,'sgsgsg','66545465465','Surgeon'),(2,'Omkar Chorge','9029537518','Lungs'),(3,'Rugved Alav','8356058712','Physician');
+/*!40000 ALTER TABLE `doctor_data` ENABLE KEYS */;
+UNLOCK TABLES;
 
-  <div class="pma_quick_warp"><div class="drop_list"><button title="Recent tables" class="drop_button btn">Recent</button><ul id="pma_recent_list"><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=miot&table=patient_analysis_data">`miot`.`patient_analysis_data`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=miot&table=doctor_data">`miot`.`doctor_data`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=miot&table=patient_data">`miot`.`patient_data`</a></li></ul></div><div class="drop_list"><button title="Favorite tables" class="drop_button btn">Favorites</button><ul id="pma_favorite_list"><li class="warp_link">There are no favorite tables.</li></ul></div><div class="clearfloat"></div></div>
+--
+-- Table structure for table `patient_analysis_data`
+--
 
-<div class="clearfloat"></div>
+DROP TABLE IF EXISTS `patient_analysis_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `patient_analysis_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `patient_id` smallint(6) NOT NULL,
+  `sleep_min` text NOT NULL,
+  `pulse_rate` text NOT NULL,
+  `temp` text NOT NULL,
+  `oxygen` text NOT NULL,
+  `footsteps` text NOT NULL,
+  `movementicon` text NOT NULL,
+  `current_timestamp` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `analysis_patient_id_constraint` (`patient_id`),
+  CONSTRAINT `analysis_patient_id_constraint` FOREIGN KEY (`patient_id`) REFERENCES `patient_data` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1602 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-<ul>
-  
-  <!-- CONTROLS START --><li id="navigation_controls_outer"><div id="navigation_controls"><a href="#" id="pma_navigation_collapse" title="Collapse all"><img src="themes/dot.gif" title="Collapse all" alt="Collapse all" class="icon ic_s_collapseall"></a><a href="#" id="pma_navigation_sync" title="Unlink from main panel"><img src="themes/dot.gif" title="Unlink from main panel" alt="Unlink from main panel" class="icon ic_s_link"></a></div></li><!-- CONTROLS ENDS -->
-</ul>
+--
+-- Dumping data for table `patient_analysis_data`
+--
 
+LOCK TABLES `patient_analysis_data` WRITE;
+/*!40000 ALTER TABLE `patient_analysis_data` DISABLE KEYS */;
+INSERT INTO `patient_analysis_data` VALUES (1,1,'None','64','46','91','5','running','2022-03-29 0:19:18'),(2,1,'0.016666666666666666','59','43','93','0','sleeping','2022-03-29 0:19:19'),(3,1,'0.03333333333333333','56','49','93','0','sleeping','2022-03-29 0:19:20'),(4,1,'0.05','56','42','90','0','sleeping','2022-03-29 0:19:21'),(5,1,'None','65','50','90','10','running','2022-03-29 0:19:22'),(6,1,'0.06666666666666667','60','46','91','0','sleeping','2022-03-29 0:19:23'),(7,1,'None','64','48','96','6','running','2022-03-29 0:19:24'),(8,1,'None','64','40','99','5','walking','2022-03-29 0:19:25'),(9,1,'0.08333333333333333','55','49','90','0','sleeping','2022-03-29 0:19:26'),(10,1,'0.1','57','45','96','0','sleeping','2022-03-29 0:19:27'),(11,1,'None','64','41','95','10','sitting','2022-03-29 0:19:28'),(12,1,'None','65','36','99','7','running','2022-03-29 0:19:29'),(13,1,'0.11666666666666667','57','37','90','0','sleeping','2022-03-29 0:19:30'),(14,1,'0.13333333333333333','57','50','91','0','sleeping','2022-03-29 0:19:31'),(15,1,'0.15','60','39','95','0','sleeping','2022-03-29 0:19:32'),(16,1,'0.16666666666666666','55','48','98','0','sleeping','2022-03-29 0:19:33'),(17,1,'None','64','39','97','6','running','2022-03-29 0:19:34'),(18,1,'None','64','42','96','6','running','2022-03-29 0:19:35'),(19,1,'None','64','46','95','6','walking','2022-03-29 0:19:36'),(20,1,'0.18333333333333332','59','45','95','0','sleeping','2022-03-29 0:19:37'),(21,1,'0.2','58','41','90','0','sleeping','2022-03-29 0:19:38'),(22,1,'None','62','43','90','4','sitting','2022-03-29 0:19:39'),(23,1,'0.21666666666666667','58','36','90','0','sleeping','2022-03-29 0:19:40'),(24,1,'0.23333333333333334','57','48','92','0','sleeping','2022-03-29 0:19:41'),(25,1,'None','63','45','95','7','running','2022-03-29 0:19:42'),(26,1,'0.25','58','46','94','0','sleeping','2022-03-29 0:19:43'),(27,1,'0.26666666666666666','57','45','90','0','sleeping','2022-03-29 0:19:44'),(28,1,'0.2833333333333333','60','44','99','0','sleeping','2022-03-29 0:19:45'),(29,1,'0.3','59','49','92','0','sleeping','2022-03-29 0:19:46'),(30,1,'None','61','43','97','9','sitting','2022-03-29 0:19:47'),(31,1,'0.31666666666666665','60','45','90','0','sleeping','2022-03-29 0:19:48'),(32,1,'0.3333333333333333','55','41','96','0','sleeping','2022-03-29 0:19:49'),(33,1,'None','63','36','92','8','running','2022-03-29 0:19:50'),(34,1,'None','65','36','93','4','sitting','2022-03-29 0:19:51'),(35,1,'None','61','49','92','9','running','2022-03-29 0:19:52'),(36,1,'0.35','56','47','99','0','sleeping','2022-03-29 0:19:53'),(37,1,'None','65','47','93','7','running','2022-03-29 0:19:54'),(38,1,'None','65','36','97','8','walking','2022-03-29 0:19:55'),(39,1,'None','62','39','93','10','walking','2022-03-29 0:19:56'),(40,1,'0.36666666666666664','56','45','100','0','sleeping','2022-03-29 0:19:57'),(41,1,'0.38333333333333336','59','47','90','0','sleeping','2022-03-29 0:19:58'),(42,1,'0.4','57','40','98','0','sleeping','2022-03-29 0:19:59'),(43,1,'0.4166666666666667','56','43','97','0','sleeping','2022-03-29 0:20:0'),(44,1,'0.43333333333333335','55','49','93','0','sleeping','2022-03-29 0:20:1'),(45,1,'0.45','59','50','98','0','sleeping','2022-03-29 0:20:2'),(46,1,'None','63','45','99','6','running','2022-03-29 0:20:3'),(47,1,'None','62','39','93','5','sitting','2022-03-29 0:20:4'),(48,1,'0.4666666666666667','59','44','90','0','sleeping','2022-03-29 0:20:5'),(49,1,'0.48333333333333334','55','42','100','0','sleeping','2022-03-29 0:20:6'),(50,1,'0.5','60','50','97','0','sleeping','2022-03-29 0:20:7'),(51,1,'None','64','50','91','6','running','2022-03-29 0:20:8'),(52,1,'None','62','36','98','6','running','2022-03-29 0:20:9'),(53,1,'None','65','39','94','4','sitting','2022-03-29 0:20:10'),(54,1,'0.5166666666666667','55','49','93','0','sleeping','2022-03-29 0:20:11'),(55,1,'None','62','38','100','4','walking','2022-03-29 0:20:12'),(56,1,'0.5333333333333333','56','46','91','0','sleeping','2022-03-29 0:20:13'),(57,1,'None','61','39','91','6','walking','2022-03-29 0:20:14'),(58,1,'None','63','37','99','4','walking','2022-03-29 0:20:17'),(59,1,'None','62','47','94','10','walking','2022-03-29 0:20:19'),(60,1,'None','62','48','95','9','running','2022-03-29 0:20:20'),(61,1,'0.55','58','50','98','0','sleeping','2022-03-29 0:20:22'),(62,1,'0.5666666666666667','58','38','99','0','sleeping','2022-03-29 0:20:24'),(63,1,'None','64','49','96','7','walking','2022-03-29 0:20:25'),(64,1,'None','64','45','100','8','running','2022-03-29 0:20:27'),(65,1,'None','63','39','92','9','sitting','2022-03-29 0:20:29'),(66,1,'0.5833333333333334','55','36','96','0','sleeping','2022-03-29 0:20:30'),(67,1,'0.6','60','44','94','0','sleeping','2022-03-29 0:20:32'),(68,1,'0.6166666666666667','60','41','96','0','sleeping','2022-03-29 0:20:34'),(69,1,'0.6333333333333333','56','39','91','0','sleeping','2022-03-29 0:20:35'),(70,1,'0.65','56','43','93','0','sleeping','2022-03-29 0:20:37'),(71,1,'0.6666666666666666','60','41','93','0','sleeping','2022-03-29 0:20:38'),(72,1,'None','61','46','90','6','running','2022-03-29 0:20:40'),(73,1,'0.6833333333333333','56','36','100','0','sleeping','2022-03-29 0:20:41'),(74,1,'None','63','45','93','5','walking','2022-03-29 0:20:42'),(75,1,'0.7','59','39','96','0','sleeping','2022-03-29 0:20:44'),(76,1,'0.7166666666666667','58','41','92','0','sleeping','2022-03-29 0:20:46'),(77,1,'None','63','46','100','7','running','2022-03-29 0:20:47'),(78,1,'0.7333333333333333','59','47','98','0','sleeping','2022-03-29 0:20:49'),(79,1,'0.75','55','48','99','0','sleeping','2022-03-29 0:20:50'),(80,1,'None','65','49','100','9','running','2022-03-29 0:20:52'),(81,1,'None','63','49','91','10','walking','2022-03-29 0:20:54'),(82,1,'None','64','45','98','8','sitting','2022-03-29 0:20:56'),(83,1,'0.7666666666666667','58','40','97','0','sleeping','2022-03-29 0:20:57'),(84,1,'0.7833333333333333','55','39','90','0','sleeping','2022-03-29 0:20:59'),(85,1,'0.8','57','37','96','0','sleeping','2022-03-29 0:21:0'),(86,1,'None','61','42','99','5','walking','2022-03-29 0:21:3'),(87,1,'0.8166666666666667','59','39','97','0','sleeping','2022-03-29 0:21:5'),(88,1,'0.8333333333333334','55','40','92','0','sleeping','2022-03-29 0:21:7'),(89,1,'0.85','59','37','94','0','sleeping','2022-03-29 0:21:8'),(90,1,'0.8666666666666667','59','39','95','0','sleeping','2022-03-29 0:21:10'),(91,1,'None','61','47','95','4','sitting','2022-03-29 0:21:12'),(92,1,'None','62','42','99','6','running','2022-03-29 0:21:14'),(93,1,'0.8833333333333333','57','42','90','0','sleeping','2022-03-29 0:21:15'),(94,1,'None','64','41','97','9','sitting','2022-03-29 0:21:17'),(95,1,'0.9','59','47','96','0','sleeping','2022-03-29 0:21:20'),(96,1,'0.9166666666666666','57','39','92','0','sleeping','2022-03-29 0:21:22'),(97,1,'0.9333333333333333','59','49','94','0','sleeping','2022-03-29 0:21:23'),(98,1,'None','64','38','97','10','sitting','2022-03-29 0:21:24'),(99,1,'0.95','59','38','93','0','sleeping','2022-03-29 0:21:25'),(100,1,'0.9666666666666667','55','47','98','0','sleeping','2022-03-29 0:21:26'),(101,1,'None','61','44','100','8','walking','2022-03-29 0:21:27'),(102,1,'0.9833333333333333','60','36','99','0','sleeping','2022-03-29 0:21:28'),(103,1,'None','62','42','99','8','running','2022-03-29 0:21:30'),(104,1,'None','65','50','92','9','walking','2022-03-29 0:21:30'),(105,1,'1','60','38','94','0','sleeping','2022-03-29 0:21:32'),(106,1,'None','63','48','98','5','running','2022-03-29 0:21:33'),(107,1,'1.0166666666666666','57','36','95','0','sleeping','2022-03-29 0:21:33'),(108,1,'1.0333333333333334','58','43','96','0','sleeping','2022-03-29 0:21:35'),(109,1,'1.05','59','36','90','0','sleeping','2022-03-29 0:21:37'),(110,1,'1.0666666666666667','60','42','93','0','sleeping','2022-03-29 0:21:39'),(111,1,'None','62','39','93','7','running','2022-03-29 0:21:42'),(112,1,'None','61','46','90','8','sitting','2022-03-29 0:21:46'),(113,1,'None','61','40','91','6','walking','2022-03-29 0:21:49'),(114,1,'1.0833333333333333','56','47','92','0','sleeping','2022-03-29 0:21:51'),(115,1,'None','64','44','100','10','running','2022-03-29 0:21:53'),(116,1,'1.1','58','47','96','0','sleeping','2022-03-29 0:21:57'),(117,1,'None','61','39','97','9','sitting','2022-03-29 0:21:59'),(118,1,'1.1166666666666667','57','43','92','0','sleeping','2022-03-29 0:22:2'),(119,1,'1.1333333333333333','59','42','93','0','sleeping','2022-03-29 0:22:4'),(120,1,'1.15','59','46','91','0','sleeping','2022-03-29 0:22:7'),(121,1,'1.1666666666666667','58','42','95','0','sleeping','2022-03-29 0:22:9'),(122,1,'1.1833333333333333','59','40','99','0','sleeping','2022-03-29 0:22:12'),(123,1,'1.2','56','40','98','0','sleeping','2022-03-29 0:22:14'),(124,1,'1.2166666666666666','59','49','92','0','sleeping','2022-03-29 0:22:17'),(125,1,'None','61','50','94','5','walking','2022-03-29 0:22:20'),(126,1,'None','61','49','100','8','walking','2022-03-29 0:22:28'),(127,1,'1.2333333333333334','57','45','92','0','sleeping','2022-03-29 0:22:31'),(128,1,'None','63','37','93','7','sitting','2022-03-29 0:22:35'),(129,1,'None','62','38','100','6','running','2022-03-29 0:22:38'),(130,1,'None','62','45','91','8','walking','2022-03-29 0:22:41'),(131,1,'1.25','57','45','99','0','sleeping','2022-03-29 0:22:44'),(132,1,'1.2666666666666666','55','37','93','0','sleeping','2022-03-29 0:22:47'),(133,1,'None','64','47','96','4','sitting','2022-03-29 0:22:49'),(134,1,'1.2833333333333334','60','44','92','0','sleeping','2022-03-29 0:22:50'),(135,1,'1.3','55','36','94','0','sleeping','2022-03-29 0:22:52'),(136,1,'None','65','50','99','6','walking','2022-03-29 0:22:54'),(137,1,'1.3166666666666667','60','39','94','0','sleeping','2022-03-29 0:22:56'),(138,1,'None','63','49','96','10','walking','2022-03-29 0:22:58'),(139,1,'1.3333333333333333','60','42','96','0','sleeping','2022-03-29 0:23:0'),(140,1,'1.35','57','50','95','0','sleeping','2022-03-29 0:23:2'),(141,1,'None','61','50','95','6','sitting','2022-03-29 0:23:4'),(142,1,'1.3666666666666667','55','36','100','0','sleeping','2022-03-29 0:23:5'),(143,1,'1.3833333333333333','56','46','94','0','sleeping','2022-03-29 0:23:8'),(144,1,'1.4','57','40','99','0','sleeping','2022-03-29 0:23:10'),(145,1,'1.4166666666666667','55','39','98','0','sleeping','2022-03-29 0:23:12'),(146,1,'1.4333333333333333','57','41','98','0','sleeping','2022-03-29 0:23:15'),(147,1,'None','61','40','95','6','walking','2022-03-29 0:23:18'),(148,1,'None','61','38','94','5','sitting','2022-03-29 0:23:22'),(149,1,'1.45','58','40','90','0','sleeping','2022-03-29 0:23:27'),(150,1,'None','61','48','99','4','walking','2022-03-29 0:23:32'),(151,1,'1.4666666666666666','57','50','96','0','sleeping','2022-03-29 0:23:34'),(152,1,'None','63','37','94','9','walking','2022-03-29 0:23:38'),(153,1,'1.4833333333333334','60','44','92','0','sleeping','2022-03-29 0:23:42'),(154,1,'1.5','55','38','93','0','sleeping','2022-03-29 0:23:44'),(155,1,'1.5166666666666666','58','40','96','0','sleeping','2022-03-29 0:23:47'),(156,1,'1.5333333333333334','59','40','98','0','sleeping','2022-03-29 0:23:51'),(157,1,'None','65','50','98','10','running','2022-03-29 0:23:55'),(158,1,'1.55','60','42','98','0','sleeping','2022-03-29 0:23:57'),(159,1,'1.5666666666666667','55','50','96','0','sleeping','2022-03-29 0:24:0'),(160,1,'1.5833333333333333','56','40','97','0','sleeping','2022-03-29 0:24:3'),(161,1,'1.6','60','41','94','0','sleeping','2022-03-29 0:24:7'),(162,1,'1.6166666666666667','59','49','90','0','sleeping','2022-03-29 0:24:11'),(163,1,'None','62','43','98','9','running','2022-03-29 0:24:16'),(164,1,'None','62','38','98','8','running','2022-03-29 0:24:20'),(165,1,'None','64','38','100','6','sitting','2022-03-29 0:24:23'),(166,1,'1.6333333333333333','55','45','93','0','sleeping','2022-03-29 0:24:26'),(167,1,'None','63','41','93','7','sitting','2022-03-29 0:24:29'),(168,1,'1.65','56','37','99','0','sleeping','2022-03-29 0:24:33'),(169,1,'1.6666666666666667','59','47','93','0','sleeping','2022-03-29 0:24:38'),(170,1,'None','62','43','98','8','walking','2022-03-29 0:24:42'),(171,1,'1.6833333333333333','60','43','97','0','sleeping','2022-03-29 0:24:45'),(172,1,'1.7','56','46','93','0','sleeping','2022-03-29 0:24:48'),(173,1,'None','61','49','91','10','sitting','2022-03-29 0:24:51'),(174,1,'None','65','42','96','9','walking','2022-03-29 0:24:55'),(175,1,'1.7166666666666666','55','42','91','0','sleeping','2022-03-29 0:25:0'),(176,1,'1.7333333333333334','56','38','99','0','sleeping','2022-03-29 0:25:3'),(177,1,'1.75','57','39','95','0','sleeping','2022-03-29 0:25:5'),(178,1,'None','63','49','92','5','sitting','2022-03-29 0:25:10'),(179,1,'None','62','38','98','7','sitting','2022-03-29 0:25:14'),(180,1,'None','65','44','96','6','running','2022-03-29 0:25:19'),(181,1,'None','65','39','99','6','running','2022-03-29 0:25:24'),(182,1,'1.7666666666666666','59','45','94','0','sleeping','2022-03-29 0:25:29'),(183,1,'None','62','37','93','5','walking','2022-03-29 0:25:34'),(184,1,'None','64','50','99','10','walking','2022-03-29 0:25:39'),(185,1,'None','64','40','91','6','walking','2022-03-29 0:25:43'),(186,1,'None','63','44','100','10','running','2022-03-29 0:25:47'),(187,1,'None','64','41','97','8','sitting','2022-03-29 0:25:52'),(188,1,'None','65','41','93','4','running','2022-03-29 0:25:59'),(189,1,'1.7833333333333334','56','39','94','0','sleeping','2022-03-29 0:26:4'),(190,1,'1.8','58','40','98','0','sleeping','2022-03-29 0:26:10'),(191,1,'1.8166666666666667','56','46','99','0','sleeping','2022-03-29 0:26:14'),(192,1,'1.8333333333333333','56','42','93','0','sleeping','2022-03-29 0:26:19'),(193,1,'None','62','43','90','6','walking','2022-03-29 0:26:23'),(194,1,'1.85','55','36','94','0','sleeping','2022-03-29 0:26:29'),(195,1,'None','62','36','100','7','sitting','2022-03-29 0:26:57'),(196,1,'1.8666666666666667','56','48','98','0','sleeping','2022-03-29 0:26:58'),(197,1,'None','65','39','94','10','walking','2022-03-29 0:26:59'),(198,1,'1.8833333333333333','58','39','100','0','sleeping','2022-03-29 0:27:0'),(199,1,'None','64','37','91','7','running','2022-03-29 0:27:1'),(200,1,'1.9','59','44','100','0','sleeping','2022-03-29 0:27:2'),(201,1,'1.9166666666666667','56','41','99','0','sleeping','2022-03-29 0:27:4'),(202,1,'1.9333333333333333','55','44','90','0','sleeping','2022-03-29 0:27:5'),(203,1,'None','62','49','100','10','sitting','2022-03-29 0:27:6'),(204,1,'None','65','41','90','4','sitting','2022-03-29 0:27:7'),(205,1,'None','65','38','98','10','walking','2022-03-29 0:27:7'),(206,1,'1.95','60','36','96','0','sleeping','2022-03-29 0:27:8'),(207,1,'None','63','47','92','8','walking','2022-03-29 0:27:9'),(208,1,'1.9666666666666666','57','43','97','0','sleeping','2022-03-29 0:27:11'),(209,1,'1.9833333333333334','57','48','95','0','sleeping','2022-03-29 0:27:12'),(210,1,'2','55','43','99','0','sleeping','2022-03-29 0:27:13'),(211,1,'2.0166666666666666','57','39','100','0','sleeping','2022-03-29 0:27:14'),(212,1,'2.033333333333333','58','42','100','0','sleeping','2022-03-29 0:27:15'),(213,1,'2.05','58','49','95','0','sleeping','2022-03-29 0:27:16'),(214,1,'None','62','38','91','8','walking','2022-03-29 0:27:17'),(215,1,'2.066666666666667','57','38','92','0','sleeping','2022-03-29 0:27:18'),(216,1,'None','62','40','100','6','running','2022-03-29 0:27:19'),(217,1,'None','61','46','92','9','sitting','2022-03-29 0:27:23'),(218,1,'None','61','45','94','7','running','2022-03-29 0:27:27'),(219,1,'2.0833333333333335','59','44','93','0','sleeping','2022-03-29 0:27:28'),(220,1,'None','65','50','100','4','running','2022-03-29 0:27:29'),(221,1,'2.1','57','49','94','0','sleeping','2022-03-29 0:27:31'),(222,1,'2.1166666666666667','60','50','95','0','sleeping','2022-03-29 0:27:32'),(223,1,'None','64','44','99','10','walking','2022-03-29 0:27:33'),(224,1,'2.1333333333333333','59','39','97','0','sleeping','2022-03-29 0:27:33'),(225,1,'None','63','36','98','8','walking','2022-03-29 0:27:34'),(226,1,'2.15','60','45','93','0','sleeping','2022-03-29 0:27:35'),(227,1,'2.1666666666666665','58','46','93','0','sleeping','2022-03-29 0:27:37'),(228,1,'None','62','45','90','4','sitting','2022-03-29 0:27:38'),(229,1,'None','61','46','90','8','walking','2022-03-29 0:27:44'),(230,1,'2.183333333333333','59','50','92','0','sleeping','2022-03-29 0:27:48'),(231,1,'None','64','40','94','7','sitting','2022-03-29 0:27:54'),(232,1,'None','61','49','95','8','running','2022-03-29 0:27:57'),(233,1,'2.2','59','46','94','0','sleeping','2022-03-29 0:28:4'),(234,1,'2.216666666666667','59','36','97','0','sleeping','2022-03-29 0:28:8'),(235,1,'2.2333333333333334','58','45','97','0','sleeping','2022-03-29 0:28:16'),(236,1,'None','63','36','98','8','walking','2022-03-29 0:28:22'),(237,1,'None','62','42','92','8','sitting','2022-03-29 0:28:24'),(238,1,'None','64','50','96','6','running','2022-03-29 0:28:27'),(239,1,'2.25','59','50','100','0','sleeping','2022-03-29 0:28:35'),(240,1,'2.2666666666666666','57','38','97','0','sleeping','2022-03-29 0:28:39'),(241,1,'None','63','41','95','7','walking','2022-03-29 0:28:45'),(242,1,'None','61','45','93','9','sitting','2022-03-29 0:28:51'),(243,1,'None','62','48','90','9','sitting','2022-03-29 0:28:58'),(244,1,'None','62','50','96','4','walking','2022-03-29 0:29:3'),(245,1,'2.283333333333333','57','37','92','0','sleeping','2022-03-29 0:29:8'),(246,1,'2.3','60','45','100','0','sleeping','2022-03-29 0:29:12'),(247,1,'2.316666666666667','57','41','94','0','sleeping','2022-03-29 0:29:18'),(248,1,'None','65','39','98','9','walking','2022-03-29 0:29:25'),(249,1,'None','63','37','92','9','running','2022-03-29 0:29:31'),(250,1,'None','62','48','92','7','running','2022-03-29 0:29:36'),(251,1,'2.3333333333333335','57','41','90','0','sleeping','2022-03-29 0:29:39'),(252,1,'2.35','57','41','96','0','sleeping','2022-03-29 0:29:43'),(253,1,'2.3666666666666667','56','42','95','0','sleeping','2022-03-29 0:29:50'),(254,1,'2.3833333333333333','60','47','93','0','sleeping','2022-03-29 0:29:54'),(255,1,'None','64','46','96','6','sitting','2022-03-29 0:29:57'),(256,1,'2.4','55','36','93','0','sleeping','2022-03-29 0:30:0'),(257,1,'2.4166666666666665','58','47','96','0','sleeping','2022-03-29 0:30:5'),(258,1,'None','61','40','99','10','walking','2022-03-29 0:30:9'),(259,1,'2.433333333333333','56','44','93','0','sleeping','2022-03-29 0:30:17'),(260,1,'2.45','59','37','95','0','sleeping','2022-03-29 0:30:24'),(261,1,'2.466666666666667','56','39','93','0','sleeping','2022-03-29 0:30:30'),(262,1,'2.4833333333333334','57','43','94','0','sleeping','2022-03-29 0:30:36'),(263,1,'2.5','55','40','99','0','sleeping','2022-03-29 0:30:45'),(264,1,'2.5166666666666666','55','46','90','0','sleeping','2022-03-29 0:30:53'),(265,1,'None','64','41','98','6','running','2022-03-29 0:30:58'),(266,1,'None','63','36','94','5','walking','2022-03-29 0:31:4'),(267,1,'None','63','47','95','7','walking','2022-03-29 0:31:11'),(268,1,'2.533333333333333','60','46','92','0','sleeping','2022-03-29 0:31:17'),(269,1,'None','61','47','100','7','walking','2022-03-29 0:31:21'),(270,1,'2.55','55','36','98','0','sleeping','2022-03-29 0:31:29'),(271,1,'2.566666666666667','58','50','91','0','sleeping','2022-03-29 0:31:35'),(272,1,'None','65','42','98','8','walking','2022-03-29 0:31:40'),(273,1,'None','65','38','92','10','walking','2022-03-29 0:31:46'),(274,1,'2.5833333333333335','56','50','94','0','sleeping','2022-03-29 0:31:52'),(275,1,'2.6','55','36','97','0','sleeping','2022-03-29 0:31:59'),(276,1,'2.6166666666666667','58','38','98','0','sleeping','2022-03-29 0:32:7'),(277,1,'2.6333333333333333','57','47','100','0','sleeping','2022-03-29 0:32:14'),(278,1,'2.65','57','40','92','0','sleeping','2022-03-29 0:32:21'),(279,1,'2.6666666666666665','56','42','97','0','sleeping','2022-03-29 0:32:26'),(280,1,'2.683333333333333','58','37','97','0','sleeping','2022-03-29 0:33:28'),(281,1,'None','61','47','90','6','running','2022-03-29 0:34:29'),(282,1,'None','63','42','90','8','walking','2022-03-29 0:35:29'),(283,1,'2.7','58','48','96','0','sleeping','2022-03-29 0:36:28'),(284,1,'2.716666666666667','59','38','99','0','sleeping','2022-03-29 0:37:29'),(285,1,'0.016666666666666666','60','49','91','0','sleeping','2022-03-29 0:37:45'),(286,1,'0.03333333333333333','59','48','94','0','sleeping','2022-03-29 0:37:46'),(287,1,'0.05','56','38','96','0','sleeping','2022-03-29 0:37:47'),(288,1,'2.7333333333333334','58','49','98','0','sleeping','2022-03-29 0:38:29'),(289,1,'2.75','58','38','100','0','sleeping','2022-03-29 0:39:7'),(290,1,'None','63','50','92','4','running','2022-03-29 0:39:8'),(291,1,'None','61','36','99','10','running','2022-03-29 0:39:9'),(292,1,'2.7666666666666666','60','36','97','0','sleeping','2022-03-29 0:39:10'),(293,1,'None','62','37','90','7','sitting','2022-03-29 0:39:12'),(294,1,'2.783333333333333','55','48','98','0','sleeping','2022-03-29 0:39:13'),(295,1,'2.8','57','49','99','0','sleeping','2022-03-29 0:39:14'),(296,1,'2.816666666666667','57','40','92','0','sleeping','2022-03-29 0:39:15'),(297,1,'2.8333333333333335','59','44','96','0','sleeping','2022-03-29 0:39:16'),(298,1,'2.85','55','48','94','0','sleeping','2022-03-29 0:39:17'),(299,1,'None','61','46','98','10','walking','2022-03-29 0:39:17'),(300,1,'2.8666666666666667','59','50','94','0','sleeping','2022-03-29 0:39:19'),(301,1,'2.8833333333333333','56','37','96','0','sleeping','2022-03-29 0:39:20'),(302,1,'2.9','58','50','99','0','sleeping','2022-03-29 0:39:21'),(303,1,'None','62','46','92','4','running','2022-03-29 0:39:22'),(304,1,'None','62','36','94','4','running','2022-03-29 0:39:23'),(305,1,'None','64','39','99','5','running','2022-03-29 0:39:24'),(306,1,'2.9166666666666665','57','41','98','0','sleeping','2022-03-29 0:39:25'),(307,1,'2.933333333333333','55','36','90','0','sleeping','2022-03-29 0:39:25'),(308,1,'None','63','38','98','8','walking','2022-03-29 0:39:27'),(309,1,'None','61','36','99','6','running','2022-03-29 0:39:28'),(310,1,'None','64','44','92','7','sitting','2022-03-29 0:39:29'),(311,1,'2.95','59','39','93','0','sleeping','2022-03-29 0:39:29'),(312,1,'None','62','43','95','6','running','2022-03-29 0:39:31'),(313,1,'None','63','38','91','5','sitting','2022-03-29 0:39:32'),(314,1,'None','62','47','97','8','running','2022-03-29 0:39:33'),(315,1,'None','63','49','91','10','running','2022-03-29 0:39:33'),(316,1,'None','62','40','92','4','walking','2022-03-29 0:39:34'),(317,1,'2.966666666666667','57','45','93','0','sleeping','2022-03-29 0:39:36'),(318,1,'None','64','45','90','6','walking','2022-03-29 0:39:37'),(319,1,'None','63','44','97','7','walking','2022-03-29 0:39:38'),(320,1,'2.9833333333333334','59','50','90','0','sleeping','2022-03-29 0:39:38'),(321,1,'None','65','42','97','7','running','2022-03-29 0:39:40'),(322,1,'None','62','40','100','7','sitting','2022-03-29 0:39:41'),(323,1,'3','60','40','95','0','sleeping','2022-03-29 0:39:42'),(324,1,'None','63','36','92','9','walking','2022-03-29 0:39:43'),(325,1,'None','62','36','97','6','walking','2022-03-29 0:39:44'),(326,1,'3.0166666666666666','55','38','100','0','sleeping','2022-03-29 0:39:45'),(327,1,'3.033333333333333','56','43','96','0','sleeping','2022-03-29 0:39:46'),(328,1,'None','62','50','100','7','running','2022-03-29 0:39:47'),(329,1,'3.05','58','50','98','0','sleeping','2022-03-29 0:39:48'),(330,1,'None','63','40','97','5','running','2022-03-29 0:39:49'),(331,1,'3.066666666666667','57','37','100','0','sleeping','2022-03-29 0:39:50'),(332,1,'None','62','48','93','4','walking','2022-03-29 0:39:50'),(333,1,'None','64','46','91','4','running','2022-03-29 0:39:52'),(334,1,'3.0833333333333335','58','44','93','0','sleeping','2022-03-29 0:39:53'),(335,1,'3.1','58','45','90','0','sleeping','2022-03-29 0:39:54'),(336,1,'3.1166666666666667','58','43','90','0','sleeping','2022-03-29 0:39:54'),(337,1,'None','62','49','96','4','sitting','2022-03-29 0:39:56'),(338,1,'3.1333333333333333','57','47','95','0','sleeping','2022-03-29 0:39:57'),(339,1,'3.15','60','47','93','0','sleeping','2022-03-29 0:39:58'),(340,1,'None','62','41','93','7','walking','2022-03-29 0:39:59'),(341,1,'None','61','44','98','9','sitting','2022-03-29 0:40:0'),(342,1,'None','64','37','100','4','walking','2022-03-29 0:40:1'),(343,1,'3.1666666666666665','56','38','98','0','sleeping','2022-03-29 0:40:2'),(344,1,'None','62','45','90','10','sitting','2022-03-29 0:40:3'),(345,1,'3.183333333333333','57','41','93','0','sleeping','2022-03-29 0:40:4'),(346,1,'None','64','40','96','5','running','2022-03-29 0:40:5'),(347,1,'3.2','55','47','90','0','sleeping','2022-03-29 0:40:6'),(348,1,'None','63','48','100','7','running','2022-03-29 0:40:7'),(349,1,'None','63','40','96','10','walking','2022-03-29 0:40:8'),(350,1,'3.216666666666667','57','39','91','0','sleeping','2022-03-29 0:40:9'),(351,1,'3.2333333333333334','56','38','91','0','sleeping','2022-03-29 0:40:10'),(352,1,'3.25','59','46','94','0','sleeping','2022-03-29 0:40:10'),(353,1,'None','63','43','96','10','walking','2022-03-29 0:40:12'),(354,1,'None','62','41','97','4','walking','2022-03-29 0:40:13'),(355,1,'3.2666666666666666','60','42','95','0','sleeping','2022-03-29 0:40:14'),(356,1,'3.283333333333333','59','43','98','0','sleeping','2022-03-29 0:40:15'),(357,1,'None','61','44','91','4','sitting','2022-03-29 0:40:16'),(358,1,'3.3','56','47','100','0','sleeping','2022-03-29 0:40:17'),(359,1,'3.316666666666667','56','43','93','0','sleeping','2022-03-29 0:40:18'),(360,1,'3.3333333333333335','59','40','100','0','sleeping','2022-03-29 0:40:18'),(361,1,'None','65','42','98','9','running','2022-03-29 0:40:20'),(362,1,'3.35','56','46','93','0','sleeping','2022-03-29 0:40:21'),(363,1,'None','64','42','91','6','sitting','2022-03-29 0:40:22'),(364,1,'None','62','40','95','7','running','2022-03-29 0:40:23'),(365,1,'3.3666666666666667','55','49','96','0','sleeping','2022-03-29 0:40:24'),(366,1,'3.3833333333333333','55','48','90','0','sleeping','2022-03-29 0:40:25'),(367,1,'None','62','40','100','5','running','2022-03-29 0:40:26'),(368,1,'3.4','55','38','93','0','sleeping','2022-03-29 0:40:27'),(369,1,'3.4166666666666665','57','48','99','0','sleeping','2022-03-29 0:40:28'),(370,1,'3.433333333333333','58','37','100','0','sleeping','2022-03-29 0:40:29'),(371,1,'None','61','48','97','5','sitting','2022-03-29 0:40:30'),(372,1,'3.45','58','36','90','0','sleeping','2022-03-29 0:40:31'),(373,1,'3.466666666666667','56','48','100','0','sleeping','2022-03-29 0:40:32'),(374,1,'None','65','44','98','5','sitting','2022-03-29 0:40:32'),(375,1,'None','63','45','100','7','walking','2022-03-29 0:40:34'),(376,1,'None','63','39','95','5','walking','2022-03-29 0:40:34'),(377,1,'3.4833333333333334','60','46','100','0','sleeping','2022-03-29 0:40:36'),(378,1,'3.5','55','44','95','0','sleeping','2022-03-29 0:40:37'),(379,1,'3.5166666666666666','60','44','93','0','sleeping','2022-03-29 0:40:37'),(380,1,'None','64','40','99','4','sitting','2022-03-29 0:40:39'),(381,1,'None','61','47','95','8','running','2022-03-29 0:40:39'),(382,1,'3.533333333333333','59','49','91','0','sleeping','2022-03-29 0:40:41'),(383,1,'None','65','47','93','8','walking','2022-03-29 0:40:42'),(384,1,'3.55','60','41','98','0','sleeping','2022-03-29 0:40:43'),(385,1,'None','63','42','97','8','walking','2022-03-29 0:40:44'),(386,1,'3.566666666666667','57','37','97','0','sleeping','2022-03-29 0:40:45'),(387,1,'3.5833333333333335','57','39','99','0','sleeping','2022-03-29 0:40:46'),(388,1,'3.6','60','37','91','0','sleeping','2022-03-29 0:40:47'),(389,1,'3.6166666666666667','58','37','98','0','sleeping','2022-03-29 0:40:47'),(390,1,'3.6333333333333333','59','43','99','0','sleeping','2022-03-29 0:40:49'),(391,1,'3.65','57','41','100','0','sleeping','2022-03-29 0:40:56'),(392,1,'3.6666666666666665','55','45','96','0','sleeping','2022-03-29 0:41:3'),(393,1,'None','64','49','96','6','sitting','2022-03-29 0:41:10'),(394,1,'3.683333333333333','60','37','97','0','sleeping','2022-03-29 0:41:19'),(395,1,'3.7','55','37','91','0','sleeping','2022-03-29 0:41:28'),(396,1,'None','64','45','92','4','running','2022-03-29 0:41:37'),(397,1,'None','64','48','96','9','running','2022-03-29 0:41:43'),(398,1,'None','63','50','94','7','sitting','2022-03-29 0:41:51'),(399,1,'None','63','36','98','9','running','2022-03-29 0:42:2'),(400,1,'3.716666666666667','59','39','93','0','sleeping','2022-03-29 0:42:6'),(401,1,'None','63','42','99','8','walking','2022-03-29 0:42:9'),(402,1,'3.7333333333333334','58','36','90','0','sleeping','2022-03-29 0:42:10'),(403,1,'3.75','58','45','91','0','sleeping','2022-03-29 0:42:12'),(404,1,'3.7666666666666666','59','49','98','0','sleeping','2022-03-29 0:42:14'),(405,1,'None','65','44','92','7','sitting','2022-03-29 0:42:16'),(406,1,'None','65','40','100','5','running','2022-03-29 0:42:17'),(407,1,'3.783333333333333','57','42','97','0','sleeping','2022-03-29 0:42:19'),(408,1,'3.8','55','46','98','0','sleeping','2022-03-29 0:42:20'),(409,1,'3.816666666666667','56','40','90','0','sleeping','2022-03-29 0:42:22'),(410,1,'3.8333333333333335','60','50','95','0','sleeping','2022-03-29 0:42:24'),(411,1,'3.85','57','43','95','0','sleeping','2022-03-29 0:42:26'),(412,1,'None','64','45','93','9','walking','2022-03-29 0:42:28'),(413,1,'3.8666666666666667','60','50','93','0','sleeping','2022-03-29 0:42:30'),(414,1,'None','63','37','100','10','sitting','2022-03-29 0:42:32'),(415,1,'3.8833333333333333','55','42','94','0','sleeping','2022-03-29 0:42:34'),(416,1,'None','62','38','98','5','walking','2022-03-29 0:42:37'),(417,1,'None','63','44','93','5','sitting','2022-03-29 0:42:39'),(418,1,'3.9','55','44','91','0','sleeping','2022-03-29 0:42:41'),(419,1,'3.9166666666666665','55','47','98','0','sleeping','2022-03-29 0:42:43'),(420,1,'3.933333333333333','56','36','90','0','sleeping','2022-03-29 0:42:45'),(421,1,'3.95','60','42','92','0','sleeping','2022-03-29 0:42:46'),(422,1,'None','63','45','100','6','running','2022-03-29 0:42:47'),(423,1,'None','65','46','100','8','running','2022-03-29 0:42:49'),(424,1,'3.966666666666667','58','44','100','0','sleeping','2022-03-29 0:42:50'),(425,1,'3.9833333333333334','55','42','91','0','sleeping','2022-03-29 0:42:52'),(426,1,'None','62','48','99','6','walking','2022-03-29 0:42:54'),(427,1,'None','61','39','96','4','walking','2022-03-29 0:42:55'),(428,1,'4','56','42','95','0','sleeping','2022-03-29 0:42:56'),(429,1,'4.016666666666667','56','43','91','0','sleeping','2022-03-29 0:42:58'),(430,1,'None','65','40','92','9','running','2022-03-29 0:42:59'),(431,1,'4.033333333333333','58','46','98','0','sleeping','2022-03-29 0:43:1'),(432,1,'4.05','56','37','93','0','sleeping','2022-03-29 0:43:2'),(433,1,'4.066666666666666','57','37','96','0','sleeping','2022-03-29 0:43:4'),(434,1,'None','62','47','96','6','walking','2022-03-29 0:43:6'),(435,1,'None','63','38','93','5','running','2022-03-29 0:43:7'),(436,1,'None','65','46','99','6','walking','2022-03-29 0:43:9'),(437,1,'4.083333333333333','59','40','90','0','sleeping','2022-03-29 0:43:10'),(438,1,'None','62','36','98','4','running','2022-03-29 0:43:12'),(439,1,'None','65','47','95','8','sitting','2022-03-29 0:43:14'),(440,1,'4.1','55','41','93','0','sleeping','2022-03-29 0:43:18'),(441,1,'4.116666666666666','60','37','97','0','sleeping','2022-03-29 0:43:20'),(442,1,'4.133333333333334','57','48','97','0','sleeping','2022-03-29 0:43:22'),(443,1,'4.15','56','48','97','0','sleeping','2022-03-29 0:43:24'),(444,1,'4.166666666666667','56','44','97','0','sleeping','2022-03-29 0:43:26'),(445,1,'4.183333333333334','57','48','97','0','sleeping','2022-03-29 0:43:28'),(446,1,'4.816666666666666','59','39','91','0','sleeping','2022-03-29 0:46:17'),(447,1,'4.833333333333333','56','43','92','0','sleeping','2022-03-29 0:46:18'),(448,1,'None','65','46','92','7','sitting','2022-03-29 0:46:19'),(449,1,'4.85','60','37','90','0','sleeping','2022-03-29 0:46:20'),(450,1,'4.866666666666666','55','48','92','0','sleeping','2022-03-29 0:46:21'),(451,1,'4.883333333333334','56','45','96','0','sleeping','2022-03-29 0:46:22'),(452,1,'4.9','57','38','99','0','sleeping','2022-03-29 0:46:23'),(453,1,'4.916666666666667','59','46','92','0','sleeping','2022-03-29 0:46:24'),(454,1,'None','64','36','97','8','walking','2022-03-29 0:46:25'),(455,1,'4.933333333333334','59','37','96','0','sleeping','2022-03-29 0:46:26'),(456,1,'None','63','40','95','6','sitting','2022-03-29 0:46:27'),(457,1,'None','63','45','97','5','walking','2022-03-29 0:46:28'),(458,1,'4.95','57','44','100','0','sleeping','2022-03-29 0:46:29'),(459,1,'4.966666666666667','59','36','91','0','sleeping','2022-03-29 0:46:31'),(460,1,'4.983333333333333','59','45','93','0','sleeping','2022-03-29 0:46:31'),(461,1,'None','64','42','91','5','running','2022-03-29 0:46:32'),(462,1,'5','57','48','90','0','sleeping','2022-03-29 0:46:33'),(463,1,'None','62','46','94','8','running','2022-03-29 0:46:34'),(464,1,'None','62','44','98','6','walking','2022-03-29 0:46:35'),(465,1,'None','62','47','100','9','running','2022-03-29 0:46:36'),(466,1,'None','65','45','96','8','running','2022-03-29 0:46:37'),(467,1,'None','62','47','100','6','walking','2022-03-29 0:46:39'),(468,1,'None','65','38','100','6','walking','2022-03-29 0:46:40'),(469,1,'5.016666666666667','55','37','98','0','sleeping','2022-03-29 0:46:40'),(470,1,'5.033333333333333','58','41','97','0','sleeping','2022-03-29 0:46:42'),(471,1,'5.05','57','50','97','0','sleeping','2022-03-29 0:46:42'),(472,1,'5.066666666666666','59','48','100','0','sleeping','2022-03-29 0:46:43'),(473,1,'5.083333333333333','58','43','91','0','sleeping','2022-03-29 0:46:44'),(474,1,'5.1','55','50','95','0','sleeping','2022-03-29 0:46:45'),(475,1,'None','61','45','98','9','walking','2022-03-29 0:46:46'),(476,1,'None','61','37','92','4','sitting','2022-03-29 0:46:48'),(477,1,'None','62','39','96','5','sitting','2022-03-29 0:46:48'),(478,1,'5.116666666666666','56','50','96','0','sleeping','2022-03-29 0:46:49'),(479,1,'5.133333333333334','56','37','90','0','sleeping','2022-03-29 0:46:50'),(480,1,'5.15','57','50','90','0','sleeping','2022-03-29 0:46:51'),(481,1,'5.166666666666667','58','46','92','0','sleeping','2022-03-29 0:46:52'),(482,1,'None','63','48','98','8','running','2022-03-29 0:46:53'),(483,1,'5.183333333333334','57','36','96','0','sleeping','2022-03-29 0:46:54'),(484,1,'None','63','39','95','8','running','2022-03-29 0:46:55'),(485,1,'None','61','49','96','4','running','2022-03-29 0:46:56'),(486,1,'5.2','59','50','99','0','sleeping','2022-03-29 0:46:57'),(487,1,'5.216666666666667','60','45','90','0','sleeping','2022-03-29 0:46:58'),(488,1,'5.233333333333333','56','38','98','0','sleeping','2022-03-29 0:46:59'),(489,1,'5.25','60','43','90','0','sleeping','2022-03-29 0:47:0'),(490,1,'5.266666666666667','57','36','94','0','sleeping','2022-03-29 0:47:1'),(491,1,'None','61','46','92','5','sitting','2022-03-29 0:47:2'),(492,1,'5.283333333333333','59','41','99','0','sleeping','2022-03-29 0:47:4'),(493,1,'None','62','47','100','6','sitting','2022-03-29 0:47:4'),(494,1,'None','63','47','95','8','sitting','2022-03-29 0:47:5'),(495,1,'None','61','48','93','4','sitting','2022-03-29 0:47:6'),(496,1,'None','63','38','94','4','walking','2022-03-29 0:47:7'),(497,1,'None','62','37','91','8','running','2022-03-29 0:47:8'),(498,1,'5.3','56','50','97','0','sleeping','2022-03-29 0:47:9'),(499,1,'None','65','45','93','6','sitting','2022-03-29 0:47:10'),(500,1,'None','64','46','97','7','sitting','2022-03-29 0:47:11'),(501,1,'5.316666666666666','59','39','93','0','sleeping','2022-03-29 0:47:12'),(502,1,'None','63','46','98','6','walking','2022-03-29 0:47:13'),(503,1,'None','61','48','95','9','sitting','2022-03-29 0:47:14'),(504,1,'None','61','46','91','5','running','2022-03-29 0:47:15'),(505,1,'None','65','38','90','5','running','2022-03-29 0:47:16'),(506,1,'5.333333333333333','59','41','91','0','sleeping','2022-03-29 0:47:17'),(507,1,'5.35','55','43','92','0','sleeping','2022-03-29 0:47:18'),(508,1,'5.366666666666666','56','41','92','0','sleeping','2022-03-29 0:47:19'),(509,1,'5.383333333333334','58','43','93','0','sleeping','2022-03-29 0:47:20'),(510,1,'5.4','60','37','90','0','sleeping','2022-03-29 0:47:21'),(511,1,'5.416666666666667','59','39','99','0','sleeping','2022-03-29 0:47:23'),(512,1,'5.433333333333334','60','41','95','0','sleeping','2022-03-29 0:47:23'),(513,1,'None','63','42','92','6','walking','2022-03-29 0:47:24'),(514,1,'5.45','55','48','100','0','sleeping','2022-03-29 0:47:25'),(515,1,'None','63','38','95','9','sitting','2022-03-29 0:47:26'),(516,1,'None','65','48','99','10','sitting','2022-03-29 0:47:27'),(517,1,'None','61','38','97','9','walking','2022-03-29 0:47:28'),(518,1,'5.466666666666667','59','43','94','0','sleeping','2022-03-29 0:47:29'),(519,1,'None','64','49','93','7','walking','2022-03-29 0:47:30'),(520,1,'None','62','49','93','10','walking','2022-03-29 0:47:31'),(521,1,'None','64','43','97','10','running','2022-03-29 0:47:32'),(522,1,'5.483333333333333','59','43','94','0','sleeping','2022-03-29 0:47:33'),(523,1,'None','62','45','92','4','running','2022-03-29 0:47:34'),(524,1,'None','65','46','91','4','running','2022-03-29 0:47:35'),(525,1,'None','63','41','97','8','running','2022-03-29 0:47:36'),(526,1,'5.5','55','47','90','0','sleeping','2022-03-29 0:47:37'),(527,1,'None','65','37','93','6','running','2022-03-29 0:47:39'),(528,1,'None','64','48','92','6','running','2022-03-29 0:47:40'),(529,1,'5.516666666666667','56','38','92','0','sleeping','2022-03-29 0:47:40'),(530,1,'None','64','45','96','10','sitting','2022-03-29 0:47:41'),(531,1,'None','64','49','100','5','sitting','2022-03-29 0:47:42'),(532,1,'5.533333333333333','56','37','98','0','sleeping','2022-03-29 0:47:43'),(533,1,'None','61','36','92','10','running','2022-03-29 0:47:44'),(534,1,'5.55','55','50','90','0','sleeping','2022-03-29 0:47:45'),(535,1,'5.566666666666666','55','43','92','0','sleeping','2022-03-29 0:47:46'),(536,1,'5.583333333333333','58','48','99','0','sleeping','2022-03-29 0:47:48'),(537,1,'None','61','40','99','5','running','2022-03-29 0:47:48'),(538,1,'5.6','60','48','90','0','sleeping','2022-03-29 0:47:50'),(539,1,'None','63','38','93','4','walking','2022-03-29 0:47:50'),(540,1,'None','62','37','92','8','walking','2022-03-29 0:47:51'),(541,1,'None','65','36','92','8','walking','2022-03-29 0:47:52'),(542,1,'5.616666666666666','58','39','93','0','sleeping','2022-03-29 0:47:53'),(543,1,'None','63','49','90','9','sitting','2022-03-29 0:47:54'),(544,1,'None','65','48','99','4','walking','2022-03-29 0:47:56'),(545,1,'None','63','42','90','5','walking','2022-03-29 0:47:57'),(546,1,'None','64','39','98','10','walking','2022-03-29 0:47:57'),(547,1,'None','65','47','94','10','walking','2022-03-29 0:47:58'),(548,1,'5.633333333333334','57','50','90','0','sleeping','2022-03-29 0:47:59'),(549,1,'None','62','49','90','4','sitting','2022-03-29 0:48:0'),(550,1,'5.65','57','46','90','0','sleeping','2022-03-29 0:48:2'),(551,1,'None','62','47','97','5','walking','2022-03-29 0:48:2'),(552,1,'5.666666666666667','56','48','98','0','sleeping','2022-03-29 0:48:3'),(553,1,'None','64','44','91','6','sitting','2022-03-29 0:48:4'),(554,1,'None','62','42','96','6','running','2022-03-29 0:48:5'),(555,1,'5.683333333333334','59','43','95','0','sleeping','2022-03-29 0:48:8'),(556,1,'5.7','58','37','98','0','sleeping','2022-03-29 0:48:12'),(557,1,'5.716666666666667','55','48','99','0','sleeping','2022-03-29 0:48:15'),(558,1,'5.733333333333333','57','49','96','0','sleeping','2022-03-29 0:48:18'),(559,1,'None','61','36','94','5','walking','2022-03-29 0:48:21'),(560,1,'5.75','57','45','93','0','sleeping','2022-03-29 0:48:24'),(561,1,'5.766666666666667','57','48','99','0','sleeping','2022-03-29 0:48:28'),(562,1,'5.783333333333333','59','37','100','0','sleeping','2022-03-29 0:48:32'),(563,1,'5.8','60','50','91','0','sleeping','2022-03-29 0:48:35'),(564,1,'None','62','38','92','4','sitting','2022-03-29 0:48:37'),(565,1,'5.816666666666666','55','47','92','0','sleeping','2022-03-29 0:48:39'),(566,1,'5.833333333333333','58','45','98','0','sleeping','2022-03-29 0:48:41'),(567,1,'5.85','59','45','100','0','sleeping','2022-03-29 0:48:44'),(568,1,'None','61','36','95','9','walking','2022-03-29 0:48:46'),(569,1,'5.866666666666666','58','50','95','0','sleeping','2022-03-29 0:48:48'),(570,1,'5.883333333333334','59','40','99','0','sleeping','2022-03-29 0:48:51'),(571,1,'5.9','59','50','97','0','sleeping','2022-03-29 0:48:53'),(572,1,'None','62','39','94','6','sitting','2022-03-29 0:48:56'),(573,1,'None','64','42','98','9','sitting','2022-03-29 0:48:58'),(574,1,'5.916666666666667','55','40','99','0','sleeping','2022-03-29 0:49:1'),(575,1,'5.933333333333334','59','39','98','0','sleeping','2022-03-29 0:49:5'),(576,1,'None','64','46','92','8','walking','2022-03-29 0:49:7'),(577,1,'None','64','37','90','9','sitting','2022-03-29 0:49:9'),(578,1,'5.95','60','45','100','0','sleeping','2022-03-29 0:49:11'),(579,1,'5.966666666666667','60','44','91','0','sleeping','2022-03-29 0:49:14'),(580,1,'None','65','43','97','4','sitting','2022-03-29 0:49:17'),(581,1,'5.983333333333333','60','43','90','0','sleeping','2022-03-29 0:49:20'),(582,1,'None','61','37','91','6','sitting','2022-03-29 0:49:24'),(583,1,'None','62','41','92','6','running','2022-03-29 0:49:27'),(584,1,'None','63','47','95','6','running','2022-03-29 0:49:30'),(585,1,'None','64','44','92','5','running','2022-03-29 0:49:34'),(586,1,'6','60','41','97','0','sleeping','2022-03-29 0:49:35'),(587,1,'None','61','48','97','5','running','2022-03-29 0:49:38'),(588,1,'6.016666666666667','60','48','97','0','sleeping','2022-03-29 0:49:39'),(589,1,'6.033333333333333','55','43','97','0','sleeping','2022-03-29 0:49:41'),(590,1,'6.05','56','48','93','0','sleeping','2022-03-29 0:49:44'),(591,1,'6.066666666666666','57','45','92','0','sleeping','2022-03-29 0:49:47'),(592,1,'6.083333333333333','56','46','99','0','sleeping','2022-03-29 0:49:50'),(593,1,'6.1','56','38','96','0','sleeping','2022-03-29 0:49:54'),(594,1,'None','64','36','100','6','walking','2022-03-29 0:49:58'),(595,1,'None','64','50','98','8','running','2022-03-29 0:50:1'),(596,1,'None','61','38','94','4','running','2022-03-29 0:50:5'),(597,1,'None','62','41','96','4','sitting','2022-03-29 0:50:6'),(598,1,'6.116666666666666','57','44','94','0','sleeping','2022-03-29 0:50:7'),(599,1,'6.133333333333334','60','40','93','0','sleeping','2022-03-29 0:50:8'),(600,1,'6.15','56','37','91','0','sleeping','2022-03-29 0:50:9'),(601,1,'None','61','43','96','6','walking','2022-03-29 0:50:10'),(602,1,'None','63','37','93','5','running','2022-03-29 0:50:12'),(603,1,'6.166666666666667','55','38','95','0','sleeping','2022-03-29 0:50:12'),(604,1,'6.183333333333334','56','42','98','0','sleeping','2022-03-29 0:50:13'),(605,1,'6.2','56','40','92','0','sleeping','2022-03-29 0:50:15'),(606,1,'6.216666666666667','60','48','98','0','sleeping','2022-03-29 0:50:16'),(607,1,'6.233333333333333','57','40','92','0','sleeping','2022-03-29 0:50:16'),(608,1,'6.25','59','37','93','0','sleeping','2022-03-29 0:50:18'),(609,1,'6.266666666666667','57','48','90','0','sleeping','2022-03-29 0:50:18'),(610,1,'6.283333333333333','59','48','97','0','sleeping','2022-03-29 0:50:20'),(611,1,'6.3','60','50','92','0','sleeping','2022-03-29 0:50:22'),(612,1,'6.316666666666666','57','40','91','0','sleeping','2022-03-29 0:50:25'),(613,1,'None','62','50','94','4','sitting','2022-03-29 0:50:28'),(614,1,'6.333333333333333','56','37','91','0','sleeping','2022-03-29 0:50:31'),(615,1,'6.35','56','40','98','0','sleeping','2022-03-29 0:50:33'),(616,1,'None','65','37','100','10','running','2022-03-29 0:50:35'),(617,1,'None','62','47','98','7','sitting','2022-03-29 0:50:40'),(618,1,'6.366666666666666','58','40','98','0','sleeping','2022-03-29 0:50:44'),(619,1,'None','61','37','93','6','running','2022-03-29 0:50:49'),(620,1,'None','63','46','100','10','walking','2022-03-29 0:50:55'),(621,1,'6.383333333333334','55','38','92','0','sleeping','2022-03-29 0:51:0'),(622,1,'None','63','36','98','8','walking','2022-03-29 0:51:4'),(623,1,'6.4','56','36','99','0','sleeping','2022-03-29 0:51:7'),(624,1,'6.416666666666667','59','45','96','0','sleeping','2022-03-29 0:51:11'),(625,1,'6.433333333333334','59','47','91','0','sleeping','2022-03-29 0:51:16'),(626,1,'6.45','60','42','90','0','sleeping','2022-03-29 0:51:19'),(627,1,'None','64','40','100','9','walking','2022-03-29 0:51:23'),(628,1,'6.466666666666667','55','43','91','0','sleeping','2022-03-29 0:51:27'),(629,1,'None','64','45','92','4','sitting','2022-03-29 0:51:30'),(630,1,'6.483333333333333','60','36','97','0','sleeping','2022-03-29 0:51:34'),(631,1,'6.5','59','44','93','0','sleeping','2022-03-29 0:51:38'),(632,1,'6.516666666666667','56','49','98','0','sleeping','2022-03-29 0:51:42'),(633,1,'6.533333333333333','60','43','93','0','sleeping','2022-03-29 0:51:45'),(634,1,'None','61','44','96','5','running','2022-03-29 0:51:48'),(635,1,'None','61','38','91','9','walking','2022-03-29 0:51:51'),(636,1,'6.55','58','37','95','0','sleeping','2022-03-29 0:51:54'),(637,1,'6.566666666666666','56','37','91','0','sleeping','2022-03-29 0:51:59'),(638,1,'None','61','37','97','4','running','2022-03-29 0:52:3'),(639,1,'6.583333333333333','60','45','90','0','sleeping','2022-03-29 0:52:7'),(640,1,'None','64','49','94','7','sitting','2022-03-29 0:52:11'),(641,1,'6.6','58','38','97','0','sleeping','2022-03-29 0:52:16'),(642,1,'None','63','49','94','4','running','2022-03-29 0:52:20'),(643,1,'None','64','49','97','9','sitting','2022-03-29 0:52:24'),(644,1,'6.616666666666666','57','43','98','0','sleeping','2022-03-29 0:52:28'),(645,1,'None','65','49','95','7','walking','2022-03-29 0:52:32'),(646,1,'None','65','39','94','6','walking','2022-03-29 0:52:35'),(647,1,'None','61','48','92','6','sitting','2022-03-29 0:52:39'),(648,1,'None','64','47','100','8','running','2022-03-29 0:52:43'),(649,1,'None','63','48','90','10','walking','2022-03-29 0:52:47'),(650,1,'6.633333333333334','59','41','91','0','sleeping','2022-03-29 0:52:50'),(651,1,'6.65','58','39','95','0','sleeping','2022-03-29 0:52:53'),(652,1,'6.666666666666667','59','50','91','0','sleeping','2022-03-29 0:52:58'),(653,1,'6.683333333333334','59','44','97','0','sleeping','2022-03-29 0:53:3'),(654,1,'6.7','58','42','98','0','sleeping','2022-03-29 0:53:7'),(655,1,'None','64','43','94','4','walking','2022-03-29 0:53:11'),(656,1,'6.716666666666667','60','36','100','0','sleeping','2022-03-29 0:53:17'),(657,1,'None','63','36','94','5','walking','2022-03-29 0:53:23'),(658,1,'6.733333333333333','60','50','100','0','sleeping','2022-03-29 0:53:29'),(659,1,'6.75','55','45','93','0','sleeping','2022-03-29 0:53:35'),(660,1,'6.766666666666667','57','48','97','0','sleeping','2022-03-29 0:53:39'),(661,1,'None','65','49','93','4','running','2022-03-29 0:53:43'),(662,1,'None','63','37','95','9','running','2022-03-29 0:53:48'),(663,1,'None','64','50','98','6','walking','2022-03-29 0:53:52'),(664,1,'None','61','50','94','5','walking','2022-03-29 0:53:59'),(665,1,'6.783333333333333','59','41','98','0','sleeping','2022-03-29 0:54:4'),(666,1,'None','61','47','94','6','running','2022-03-29 0:54:8'),(667,1,'6.8','56','36','92','0','sleeping','2022-03-29 0:54:12'),(668,1,'None','63','36','90','8','sitting','2022-03-29 0:54:17'),(669,1,'6.816666666666666','55','45','91','0','sleeping','2022-03-29 0:54:22'),(670,1,'6.833333333333333','60','49','99','0','sleeping','2022-03-29 0:54:28'),(671,1,'None','63','48','94','6','walking','2022-03-29 0:54:31'),(672,1,'None','62','39','90','4','running','2022-03-29 0:54:35'),(673,1,'6.85','57','44','93','0','sleeping','2022-03-29 0:54:40'),(674,1,'6.866666666666666','55','40','95','0','sleeping','2022-03-29 0:54:45'),(675,1,'None','61','47','91','9','walking','2022-03-29 0:54:49'),(676,1,'6.883333333333334','58','47','94','0','sleeping','2022-03-29 0:54:54'),(677,1,'6.9','57','40','93','0','sleeping','2022-03-29 0:54:59'),(678,1,'None','61','46','93','8','walking','2022-03-29 0:55:6'),(679,1,'6.916666666666667','55','49','96','0','sleeping','2022-03-29 0:55:28'),(680,1,'6.933333333333334','58','46','92','0','sleeping','2022-03-29 0:56:29'),(681,1,'6.95','59','39','90','0','sleeping','2022-03-29 0:56:47'),(682,1,'6.966666666666667','55','37','91','0','sleeping','2022-03-29 0:56:48'),(683,1,'6.983333333333333','59','46','95','0','sleeping','2022-03-29 0:56:49'),(684,1,'None','61','39','97','6','running','2022-03-29 0:56:50'),(685,1,'None','64','45','90','9','sitting','2022-03-29 0:56:51'),(686,1,'None','63','48','93','5','sitting','2022-03-29 0:56:53'),(687,1,'None','61','37','98','10','sitting','2022-03-29 0:56:53'),(688,1,'None','63','48','93','9','running','2022-03-29 0:56:54'),(689,1,'7','59','47','91','0','sleeping','2022-03-29 0:56:55'),(690,1,'None','65','38','91','10','sitting','2022-03-29 0:56:56'),(691,1,'None','64','36','90','10','walking','2022-03-29 0:56:57'),(692,1,'None','64','40','95','10','running','2022-03-29 0:56:58'),(693,1,'7.016666666666667','56','37','92','0','sleeping','2022-03-29 0:56:59'),(694,1,'None','64','44','98','8','sitting','2022-03-29 0:57:0'),(695,1,'7.033333333333333','60','42','90','0','sleeping','2022-03-29 0:57:2'),(696,1,'None','62','42','95','8','walking','2022-03-29 0:57:3'),(697,1,'None','64','46','94','7','running','2022-03-29 0:57:3'),(698,1,'7.05','55','46','92','0','sleeping','2022-03-29 0:57:5'),(699,1,'None','63','50','94','9','running','2022-03-29 0:57:5'),(700,1,'7.066666666666666','56','45','94','0','sleeping','2022-03-29 0:57:6'),(701,1,'None','64','43','99','10','running','2022-03-29 0:57:7'),(702,1,'None','62','48','98','7','walking','2022-03-29 0:57:9'),(703,1,'7.083333333333333','57','47','91','0','sleeping','2022-03-29 0:57:9'),(704,1,'None','62','48','98','8','running','2022-03-29 0:57:11'),(705,1,'None','63','50','92','8','running','2022-03-29 0:57:12'),(706,1,'7.1','55','44','94','0','sleeping','2022-03-29 0:57:12'),(707,1,'7.116666666666666','57','38','99','0','sleeping','2022-03-29 0:57:14'),(708,1,'7.133333333333334','55','47','94','0','sleeping','2022-03-29 0:57:15'),(709,1,'None','62','39','97','8','running','2022-03-29 0:57:15'),(710,1,'None','63','48','94','5','sitting','2022-03-29 0:57:17'),(711,1,'None','61','44','97','4','running','2022-03-29 0:57:17'),(712,1,'None','65','50','91','7','sitting','2022-03-29 0:57:19'),(713,1,'None','63','45','94','8','sitting','2022-03-29 0:57:19'),(714,1,'None','63','36','95','7','running','2022-03-29 0:57:20'),(715,1,'7.15','58','39','92','0','sleeping','2022-03-29 0:57:21'),(716,1,'None','64','38','94','7','walking','2022-03-29 0:57:23'),(717,1,'None','62','46','90','4','walking','2022-03-29 0:57:24'),(718,1,'None','65','43','94','7','running','2022-03-29 0:57:25'),(719,1,'None','64','48','99','8','running','2022-03-29 0:57:25'),(720,1,'None','61','42','98','9','walking','2022-03-29 0:57:26'),(721,1,'None','63','44','92','4','sitting','2022-03-29 0:57:28'),(722,1,'None','65','46','99','6','walking','2022-03-29 0:57:28'),(723,1,'7.166666666666667','58','41','90','0','sleeping','2022-03-29 0:57:29'),(724,1,'None','64','48','99','4','sitting','2022-03-29 0:57:31'),(725,1,'7.183333333333334','60','45','98','0','sleeping','2022-03-29 0:57:32'),(726,1,'None','61','46','90','6','walking','2022-03-29 0:57:32'),(727,1,'None','65','44','98','5','walking','2022-03-29 0:57:33'),(728,1,'7.2','56','48','96','0','sleeping','2022-03-29 0:57:35'),(729,1,'7.216666666666667','57','38','92','0','sleeping','2022-03-29 0:57:36'),(730,1,'None','64','38','96','10','sitting','2022-03-29 0:57:36'),(731,1,'7.233333333333333','57','47','99','0','sleeping','2022-03-29 0:57:37'),(732,1,'None','65','41','95','5','running','2022-03-29 0:57:39'),(733,1,'7.25','59','44','100','0','sleeping','2022-03-29 0:57:40'),(734,1,'7.266666666666667','59','47','94','0','sleeping','2022-03-29 0:57:40'),(735,1,'7.283333333333333','56','44','98','0','sleeping','2022-03-29 0:57:41'),(736,1,'None','62','38','98','6','walking','2022-03-29 0:57:42'),(737,1,'None','61','42','98','10','running','2022-03-29 0:57:44'),(738,1,'7.3','59','42','95','0','sleeping','2022-03-29 0:57:45'),(739,1,'7.316666666666666','60','48','99','0','sleeping','2022-03-29 0:57:49'),(740,1,'7.333333333333333','60','42','97','0','sleeping','2022-03-29 0:57:51'),(741,1,'None','65','39','90','6','walking','2022-03-29 0:57:55'),(742,1,'7.35','59','37','96','0','sleeping','2022-03-29 0:57:58'),(743,1,'None','65','36','93','6','running','2022-03-29 0:58:2'),(744,1,'7.366666666666666','55','43','94','0','sleeping','2022-03-29 0:58:6'),(745,1,'7.383333333333334','56','43','90','0','sleeping','2022-03-29 0:58:10'),(746,1,'None','64','37','97','5','running','2022-03-29 0:58:15'),(747,1,'7.4','55','40','100','0','sleeping','2022-03-29 0:58:19'),(748,1,'None','62','39','98','9','sitting','2022-03-29 0:58:21'),(749,1,'7.416666666666667','59','46','99','0','sleeping','2022-03-29 0:58:25'),(750,1,'7.433333333333334','60','36','96','0','sleeping','2022-03-29 0:58:29'),(751,1,'None','65','45','90','8','running','2022-03-29 0:58:33'),(752,1,'7.45','59','39','91','0','sleeping','2022-03-29 0:58:37'),(753,1,'7.466666666666667','58','38','98','0','sleeping','2022-03-29 0:58:42'),(754,1,'7.483333333333333','55','49','97','0','sleeping','2022-03-29 0:58:46'),(755,1,'7.5','56','46','93','0','sleeping','2022-03-29 0:58:48'),(756,1,'None','65','40','96','10','running','2022-03-29 0:58:51'),(757,1,'7.516666666666667','58','47','90','0','sleeping','2022-03-29 0:58:54'),(758,1,'None','61','37','92','6','walking','2022-03-29 0:58:59'),(759,1,'7.533333333333333','60','49','96','0','sleeping','2022-03-29 0:59:6'),(760,1,'None','63','47','98','8','sitting','2022-03-29 0:59:14'),(761,1,'None','63','50','96','4','sitting','2022-03-29 0:59:20'),(762,1,'7.55','59','37','100','0','sleeping','2022-03-29 0:59:25'),(763,1,'None','64','48','91','6','running','2022-03-29 0:59:32'),(764,1,'None','64','38','97','5','sitting','2022-03-29 0:59:37'),(765,1,'7.566666666666666','60','46','100','0','sleeping','2022-03-29 0:59:43'),(766,1,'7.583333333333333','57','41','96','0','sleeping','2022-03-29 0:59:47'),(767,1,'7.6','57','41','94','0','sleeping','2022-03-29 0:59:53'),(768,1,'None','62','48','90','10','running','2022-03-29 0:59:59'),(769,1,'7.616666666666666','55','43','98','0','sleeping','2022-03-29 1:0:5'),(770,1,'None','62','50','92','8','walking','2022-03-29 1:0:10'),(771,1,'7.633333333333334','55','46','91','0','sleeping','2022-03-29 1:0:14'),(772,1,'None','65','38','94','10','walking','2022-03-29 1:0:20'),(773,1,'None','62','43','98','8','walking','2022-03-29 1:0:26'),(774,1,'7.65','60','50','97','0','sleeping','2022-03-29 1:0:32'),(775,1,'None','62','36','91','6','sitting','2022-03-29 1:0:37'),(776,1,'7.666666666666667','55','44','100','0','sleeping','2022-03-29 1:0:42'),(777,1,'7.683333333333334','55','36','97','0','sleeping','2022-03-29 1:0:47'),(778,1,'7.7','59','38','92','0','sleeping','2022-03-29 1:0:54'),(779,1,'7.716666666666667','58','41','93','0','sleeping','2022-03-29 1:0:58'),(780,1,'7.733333333333333','58','44','97','0','sleeping','2022-03-29 1:1:3'),(781,1,'None','63','42','94','8','sitting','2022-03-29 1:1:11'),(782,1,'None','64','36','91','4','sitting','2022-03-29 1:1:15'),(783,1,'None','63','45','95','10','running','2022-03-29 1:1:20'),(784,1,'None','61','50','91','6','walking','2022-03-29 1:1:25'),(785,1,'None','62','42','90','4','running','2022-03-29 1:1:31'),(786,1,'None','64','36','94','9','running','2022-03-29 1:1:35'),(787,1,'7.75','56','50','97','0','sleeping','2022-03-29 1:1:39'),(788,1,'None','65','39','99','6','walking','2022-03-29 1:1:44'),(789,1,'7.766666666666667','55','49','98','0','sleeping','2022-03-29 1:1:46'),(790,1,'7.783333333333333','59','42','99','0','sleeping','2022-03-29 1:1:47'),(791,1,'7.8','59','37','99','0','sleeping','2022-03-29 1:1:48'),(792,1,'7.816666666666666','58','42','97','0','sleeping','2022-03-29 1:1:49'),(793,1,'7.833333333333333','60','38','93','0','sleeping','2022-03-29 1:1:50'),(794,1,'7.85','55','44','95','0','sleeping','2022-03-29 1:1:51'),(795,1,'7.866666666666666','57','38','95','0','sleeping','2022-03-29 1:1:52'),(796,2,'None','65','43','90','5','running','2022-03-29 1:1:52'),(797,1,'7.883333333333334','57','38','97','0','sleeping','2022-03-29 1:1:53'),(798,2,'0.016666666666666666','56','48','90','0','sleeping','2022-03-29 1:1:53'),(799,1,'7.9','56','49','100','0','sleeping','2022-03-29 1:1:54'),(800,2,'None','63','39','94','10','sitting','2022-03-29 1:1:54'),(801,1,'None','62','41','90','9','walking','2022-03-29 1:1:55'),(802,2,'None','61','50','96','10','running','2022-03-29 1:1:55'),(803,1,'None','61','50','97','5','walking','2022-03-29 1:1:56'),(804,2,'0.03333333333333333','55','44','92','0','sleeping','2022-03-29 1:1:56'),(805,1,'7.916666666666667','59','49','98','0','sleeping','2022-03-29 1:1:57'),(806,2,'0.05','56','43','95','0','sleeping','2022-03-29 1:1:57'),(807,1,'None','62','47','98','6','sitting','2022-03-29 1:1:58'),(808,2,'0.06666666666666667','59','39','92','0','sleeping','2022-03-29 1:1:58'),(809,1,'7.933333333333334','59','40','90','0','sleeping','2022-03-29 1:1:59'),(810,2,'0.08333333333333333','56','49','91','0','sleeping','2022-03-29 1:1:59'),(811,1,'7.95','55','43','90','0','sleeping','2022-03-29 1:2:0'),(812,2,'0.1','58','48','98','0','sleeping','2022-03-29 1:2:0'),(813,1,'7.966666666666667','57','39','96','0','sleeping','2022-03-29 1:2:1'),(814,2,'None','63','43','97','4','running','2022-03-29 1:2:1'),(815,1,'None','62','41','98','9','walking','2022-03-29 1:2:2'),(816,2,'0.11666666666666667','57','50','97','0','sleeping','2022-03-29 1:2:2'),(817,1,'7.983333333333333','59','45','96','0','sleeping','2022-03-29 1:2:3'),(818,2,'None','61','50','97','9','sitting','2022-03-29 1:2:3'),(819,1,'None','61','44','95','10','running','2022-03-29 1:2:4'),(820,2,'0.13333333333333333','55','48','98','0','sleeping','2022-03-29 1:2:4'),(821,1,'8','60','40','93','0','sleeping','2022-03-29 1:2:5'),(822,2,'0.15','56','49','95','0','sleeping','2022-03-29 1:2:5'),(823,1,'8.016666666666667','60','39','94','0','sleeping','2022-03-29 1:2:6'),(824,2,'None','62','48','100','6','running','2022-03-29 1:2:6'),(825,1,'8.033333333333333','56','42','93','0','sleeping','2022-03-29 1:2:8'),(826,2,'0.16666666666666666','55','40','91','0','sleeping','2022-03-29 1:2:8'),(827,1,'None','61','39','92','6','running','2022-03-29 1:2:9'),(828,2,'None','61','39','97','8','walking','2022-03-29 1:2:9'),(829,1,'None','61','45','98','6','running','2022-03-29 1:2:10'),(830,2,'0.18333333333333332','58','38','97','0','sleeping','2022-03-29 1:2:10'),(831,1,'8.05','57','47','95','0','sleeping','2022-03-29 1:2:11'),(832,2,'0.2','55','50','97','0','sleeping','2022-03-29 1:2:11'),(833,1,'8.066666666666666','60','50','97','0','sleeping','2022-03-29 1:2:12'),(834,2,'0.21666666666666667','56','40','93','0','sleeping','2022-03-29 1:2:12'),(835,1,'None','61','45','92','10','sitting','2022-03-29 1:2:13'),(836,2,'0.23333333333333334','59','42','93','0','sleeping','2022-03-29 1:2:13'),(837,1,'None','61','42','94','9','walking','2022-03-29 1:2:14'),(838,2,'0.25','59','47','90','0','sleeping','2022-03-29 1:2:14'),(839,1,'None','64','41','93','6','sitting','2022-03-29 1:2:15'),(840,2,'None','61','42','99','7','sitting','2022-03-29 1:2:15'),(841,1,'8.083333333333334','57','47','98','0','sleeping','2022-03-29 1:2:20'),(842,2,'0.26666666666666666','55','43','91','0','sleeping','2022-03-29 1:2:21'),(843,1,'8.1','58','44','90','0','sleeping','2022-03-29 1:2:27'),(844,2,'0.2833333333333333','58','36','92','0','sleeping','2022-03-29 1:2:28'),(845,1,'8.116666666666667','58','45','95','0','sleeping','2022-03-29 1:2:33'),(846,2,'None','65','43','90','10','running','2022-03-29 1:2:34'),(847,1,'None','63','39','91','7','walking','2022-03-29 1:2:40'),(848,2,'0.3','60','38','99','0','sleeping','2022-03-29 1:2:41'),(849,1,'None','63','49','100','6','running','2022-03-29 1:2:45'),(850,2,'0.31666666666666665','59','41','93','0','sleeping','2022-03-29 1:2:46'),(851,1,'8.133333333333333','59','48','90','0','sleeping','2022-03-29 1:2:53'),(852,2,'0.3333333333333333','56','37','92','0','sleeping','2022-03-29 1:2:54'),(853,1,'8.15','59','49','90','0','sleeping','2022-03-29 1:3:0'),(854,2,'0.35','59','50','95','0','sleeping','2022-03-29 1:3:0'),(855,1,'8.166666666666666','56','50','95','0','sleeping','2022-03-29 1:3:6'),(856,2,'0.36666666666666664','55','38','90','0','sleeping','2022-03-29 1:3:7'),(857,1,'None','61','44','98','5','sitting','2022-03-29 1:3:11'),(858,2,'None','65','36','94','4','sitting','2022-03-29 1:3:12'),(859,1,'8.183333333333334','57','45','97','0','sleeping','2022-03-29 1:3:17'),(860,2,'None','62','45','90','6','walking','2022-03-29 1:3:18'),(861,1,'8.2','58','40','100','0','sleeping','2022-03-29 1:3:22'),(862,2,'0.38333333333333336','57','37','99','0','sleeping','2022-03-29 1:3:23'),(863,1,'8.216666666666667','56','43','92','0','sleeping','2022-03-29 1:3:29'),(864,2,'0.4','60','39','98','0','sleeping','2022-03-29 1:3:30'),(865,1,'None','63','48','98','6','running','2022-03-29 1:3:32'),(866,2,'0.4166666666666667','58','48','91','0','sleeping','2022-03-29 1:3:33'),(867,1,'None','64','47','98','6','walking','2022-03-29 1:3:38'),(868,2,'0.43333333333333335','57','46','93','0','sleeping','2022-03-29 1:3:38'),(869,1,'8.233333333333333','60','43','92','0','sleeping','2022-03-29 1:3:44'),(870,2,'0.45','57','50','90','0','sleeping','2022-03-29 1:3:44'),(871,1,'8.25','60','43','91','0','sleeping','2022-03-29 1:3:53'),(872,2,'0.4666666666666667','56','44','90','0','sleeping','2022-03-29 1:3:53'),(873,2,'0.48333333333333334','55','40','97','0','sleeping','2022-03-29 1:3:53'),(874,1,'8.266666666666667','56','47','90','0','sleeping','2022-03-29 1:3:54'),(875,2,'0.5','55','46','92','0','sleeping','2022-03-29 1:3:54'),(876,1,'8.283333333333333','60','37','94','0','sleeping','2022-03-29 1:3:55'),(877,2,'None','63','41','94','5','walking','2022-03-29 1:3:55'),(878,1,'8.3','58','36','92','0','sleeping','2022-03-29 1:3:56'),(879,2,'None','61','38','97','9','sitting','2022-03-29 1:3:56'),(880,1,'None','64','48','100','8','walking','2022-03-29 1:3:57'),(881,2,'None','64','43','95','9','running','2022-03-29 1:3:57'),(882,1,'8.316666666666666','60','39','96','0','sleeping','2022-03-29 1:3:58'),(883,2,'0.5166666666666667','58','39','96','0','sleeping','2022-03-29 1:3:58'),(884,1,'8.333333333333334','58','36','97','0','sleeping','2022-03-29 1:3:59'),(885,2,'0.5333333333333333','59','41','93','0','sleeping','2022-03-29 1:3:59'),(886,1,'None','64','41','96','5','walking','2022-03-29 1:4:0'),(887,2,'None','61','39','97','8','running','2022-03-29 1:4:0'),(888,1,'8.35','55','46','96','0','sleeping','2022-03-29 1:4:1'),(889,2,'None','63','47','93','4','walking','2022-03-29 1:4:1'),(890,1,'None','62','50','95','6','sitting','2022-03-29 1:4:2'),(891,2,'0.55','56','50','97','0','sleeping','2022-03-29 1:4:2'),(892,1,'8.366666666666667','60','38','96','0','sleeping','2022-03-29 1:4:3'),(893,2,'None','61','48','98','8','sitting','2022-03-29 1:4:3'),(894,1,'None','65','47','95','5','running','2022-03-29 1:4:4'),(895,2,'0.5666666666666667','57','36','95','0','sleeping','2022-03-29 1:4:4'),(896,1,'None','64','39','93','8','walking','2022-03-29 1:4:5'),(897,2,'None','65','50','99','10','running','2022-03-29 1:4:5'),(898,1,'None','62','47','92','6','running','2022-03-29 1:4:6'),(899,2,'0.5833333333333334','60','48','95','0','sleeping','2022-03-29 1:4:6'),(900,1,'8.383333333333333','60','47','91','0','sleeping','2022-03-29 1:4:7'),(901,2,'0.6','59','44','90','0','sleeping','2022-03-29 1:4:7'),(902,1,'None','65','49','98','4','running','2022-03-29 1:4:8'),(903,2,'0.6166666666666667','57','45','98','0','sleeping','2022-03-29 1:4:8'),(904,1,'None','61','46','97','7','running','2022-03-29 1:4:9'),(905,2,'None','65','42','97','5','walking','2022-03-29 1:4:9'),(906,1,'None','65','41','91','6','walking','2022-03-29 1:4:10'),(907,2,'0.6333333333333333','55','48','95','0','sleeping','2022-03-29 1:4:10'),(908,1,'8.4','56','48','92','0','sleeping','2022-03-29 1:4:11'),(909,2,'0.65','56','39','97','0','sleeping','2022-03-29 1:4:11'),(910,1,'None','64','36','99','7','walking','2022-03-29 1:4:12'),(911,2,'0.6666666666666666','60','45','99','0','sleeping','2022-03-29 1:4:12'),(912,1,'None','63','40','100','8','running','2022-03-29 1:4:13'),(913,2,'0.6833333333333333','58','50','100','0','sleeping','2022-03-29 1:4:13'),(914,1,'None','63','49','90','4','running','2022-03-29 1:4:14'),(915,2,'0.7','55','41','100','0','sleeping','2022-03-29 1:4:14'),(916,1,'8.416666666666666','56','43','90','0','sleeping','2022-03-29 1:4:15'),(917,2,'None','63','38','93','8','walking','2022-03-29 1:4:15'),(918,1,'None','63','47','100','5','running','2022-03-29 1:4:16'),(919,2,'0.7166666666666667','55','37','91','0','sleeping','2022-03-29 1:4:16'),(920,1,'None','63','38','97','10','running','2022-03-29 1:4:17'),(921,2,'0.7333333333333333','60','45','96','0','sleeping','2022-03-29 1:4:18'),(922,1,'8.433333333333334','56','45','92','0','sleeping','2022-03-29 1:4:18'),(923,2,'0.75','56','40','99','0','sleeping','2022-03-29 1:4:18'),(924,1,'None','61','45','99','10','sitting','2022-03-29 1:4:20'),(925,2,'None','64','49','91','10','sitting','2022-03-29 1:4:20'),(926,1,'8.45','59','36','97','0','sleeping','2022-03-29 1:4:21'),(927,2,'0.7666666666666667','59','41','93','0','sleeping','2022-03-29 1:4:21'),(928,1,'8.466666666666667','59','40','98','0','sleeping','2022-03-29 1:4:22'),(929,2,'None','63','41','94','8','sitting','2022-03-29 1:4:22'),(930,1,'None','65','42','97','4','walking','2022-03-29 1:4:23'),(931,2,'None','65','50','95','10','walking','2022-03-29 1:4:23'),(932,1,'8.483333333333333','55','48','100','0','sleeping','2022-03-29 1:4:24'),(933,2,'0.7833333333333333','55','39','100','0','sleeping','2022-03-29 1:4:24'),(934,1,'8.5','56','44','95','0','sleeping','2022-03-29 1:4:36'),(935,1,'8.516666666666667','59','42','90','0','sleeping','2022-03-29 1:4:36'),(936,2,'0.8','58','49','100','0','sleeping','2022-03-29 1:4:36'),(937,2,'0.8166666666666667','57','45','100','0','sleeping','2022-03-29 1:4:36'),(938,1,'8.533333333333333','58','45','90','0','sleeping','2022-03-29 1:4:37'),(939,2,'0.8333333333333334','59','48','93','0','sleeping','2022-03-29 1:4:37'),(940,1,'None','64','43','92','4','running','2022-03-29 1:4:38'),(941,2,'None','65','40','93','4','running','2022-03-29 1:4:38'),(942,1,'8.55','57','36','99','0','sleeping','2022-03-29 1:4:39'),(943,2,'0.85','57','45','92','0','sleeping','2022-03-29 1:4:39'),(944,1,'8.566666666666666','60','40','96','0','sleeping','2022-03-29 1:4:40'),(945,2,'0.8666666666666667','58','45','93','0','sleeping','2022-03-29 1:4:40'),(946,1,'8.583333333333334','58','40','99','0','sleeping','2022-03-29 1:4:41'),(947,2,'None','65','37','95','9','walking','2022-03-29 1:4:41'),(948,1,'8.6','55','46','99','0','sleeping','2022-03-29 1:4:42'),(949,2,'None','62','50','98','8','running','2022-03-29 1:4:42'),(950,1,'8.616666666666667','60','42','99','0','sleeping','2022-03-29 1:4:43'),(951,2,'None','64','39','92','7','sitting','2022-03-29 1:4:43'),(952,1,'8.633333333333333','58','38','96','0','sleeping','2022-03-29 1:4:44'),(953,2,'0.8833333333333333','58','38','96','0','sleeping','2022-03-29 1:4:44'),(954,1,'8.65','56','49','98','0','sleeping','2022-03-29 1:4:45'),(955,2,'0.9','60','39','99','0','sleeping','2022-03-29 1:4:46'),(956,1,'None','63','41','97','10','sitting','2022-03-29 1:4:47'),(957,2,'0.9166666666666666','58','40','100','0','sleeping','2022-03-29 1:4:47'),(958,1,'8.666666666666666','60','36','97','0','sleeping','2022-03-29 1:4:48'),(959,2,'None','65','48','97','4','sitting','2022-03-29 1:4:48'),(960,1,'None','63','49','100','9','sitting','2022-03-29 1:4:49'),(961,2,'None','62','48','92','4','sitting','2022-03-29 1:4:49'),(962,1,'None','62','45','94','4','running','2022-03-29 1:4:50'),(963,2,'None','62','41','92','9','running','2022-03-29 1:4:50'),(964,1,'None','64','40','99','10','sitting','2022-03-29 1:4:51'),(965,2,'None','62','39','96','10','running','2022-03-29 1:4:51'),(966,1,'None','62','39','92','6','running','2022-03-29 1:4:52'),(967,2,'None','63','40','99','10','sitting','2022-03-29 1:4:52'),(968,1,'None','63','37','92','6','sitting','2022-03-29 1:4:53'),(969,2,'0.9333333333333333','59','47','90','0','sleeping','2022-03-29 1:4:53'),(970,1,'8.683333333333334','59','40','90','0','sleeping','2022-03-29 1:4:54'),(971,2,'0.95','60','48','97','0','sleeping','2022-03-29 1:4:54'),(972,1,'None','64','37','99','5','sitting','2022-03-29 1:5:15'),(973,2,'None','65','43','99','8','walking','2022-03-29 1:5:15'),(974,1,'8.7','57','45','93','0','sleeping','2022-03-29 1:5:23'),(975,2,'0.9666666666666667','57','45','98','0','sleeping','2022-03-29 1:5:24'),(976,1,'8.716666666666667','58','45','95','0','sleeping','2022-03-29 1:5:29'),(977,2,'None','64','40','97','4','walking','2022-03-29 1:5:30'),(978,1,'None','62','43','94','7','walking','2022-03-29 1:5:35'),(979,2,'0.9833333333333333','56','50','92','0','sleeping','2022-03-29 1:5:36'),(980,1,'None','64','50','92','7','sitting','2022-03-29 1:5:42'),(981,2,'1','59','41','97','0','sleeping','2022-03-29 1:5:43'),(982,1,'None','62','44','92','6','sitting','2022-03-29 1:5:49'),(983,2,'1.0166666666666666','60','45','91','0','sleeping','2022-03-29 1:5:50'),(984,1,'None','64','41','100','5','walking','2022-03-29 1:5:53'),(985,2,'1.0333333333333334','59','50','92','0','sleeping','2022-03-29 1:5:53'),(986,2,'None','64','44','93','5','sitting','2022-03-29 1:5:53'),(987,1,'8.733333333333333','58','48','93','0','sleeping','2022-03-29 1:5:54'),(988,2,'1.05','58','46','96','0','sleeping','2022-03-29 1:5:54'),(989,1,'8.75','57','48','94','0','sleeping','2022-03-29 1:5:55'),(990,2,'1.0666666666666667','60','36','98','0','sleeping','2022-03-29 1:5:55'),(991,1,'None','65','38','90','8','running','2022-03-29 1:5:56'),(992,2,'None','61','41','90','9','running','2022-03-29 1:5:56'),(993,1,'8.766666666666667','55','49','91','0','sleeping','2022-03-29 1:5:57'),(994,2,'1.0833333333333333','55','43','100','0','sleeping','2022-03-29 1:5:57'),(995,1,'None','63','48','97','10','sitting','2022-03-29 1:5:58'),(996,2,'1.1','59','45','92','0','sleeping','2022-03-29 1:5:58'),(997,1,'None','62','45','93','9','sitting','2022-03-29 1:5:59'),(998,2,'1.1166666666666667','60','36','97','0','sleeping','2022-03-29 1:5:59'),(999,1,'8.783333333333333','60','38','92','0','sleeping','2022-03-29 1:6:0'),(1000,2,'None','61','37','96','10','walking','2022-03-29 1:6:0'),(1001,1,'8.8','60','43','94','0','sleeping','2022-03-29 1:6:2'),(1002,2,'1.1333333333333333','55','50','96','0','sleeping','2022-03-29 1:6:2'),(1003,1,'8.816666666666666','60','41','93','0','sleeping','2022-03-29 1:6:3'),(1004,2,'None','61','50','99','10','sitting','2022-03-29 1:6:3'),(1005,1,'8.833333333333334','56','36','100','0','sleeping','2022-03-29 1:6:4'),(1006,2,'None','61','49','91','4','sitting','2022-03-29 1:6:4'),(1007,1,'8.85','58','43','91','0','sleeping','2022-03-29 1:6:5'),(1008,2,'1.15','58','40','91','0','sleeping','2022-03-29 1:6:5'),(1009,1,'8.866666666666667','56','39','99','0','sleeping','2022-03-29 1:6:6'),(1010,2,'None','63','50','90','4','sitting','2022-03-29 1:6:6'),(1011,1,'None','61','46','97','10','walking','2022-03-29 1:6:7'),(1012,2,'None','62','48','100','8','running','2022-03-29 1:6:7'),(1013,1,'8.883333333333333','57','43','99','0','sleeping','2022-03-29 1:6:8'),(1014,2,'1.1666666666666667','56','37','100','0','sleeping','2022-03-29 1:6:8'),(1015,1,'None','64','42','99','5','running','2022-03-29 1:6:9'),(1016,2,'1.1833333333333333','58','37','91','0','sleeping','2022-03-29 1:6:9'),(1017,1,'None','61','41','94','8','walking','2022-03-29 1:6:10'),(1018,2,'1.2','55','43','91','0','sleeping','2022-03-29 1:6:10'),(1019,1,'8.9','58','47','92','0','sleeping','2022-03-29 1:6:14'),(1020,2,'1.2166666666666666','55','47','93','0','sleeping','2022-03-29 1:6:15'),(1021,1,'None','61','41','100','8','sitting','2022-03-29 1:6:20'),(1022,2,'None','61','40','96','10','running','2022-03-29 1:6:21'),(1023,1,'8.916666666666666','56','48','98','0','sleeping','2022-03-29 1:6:26'),(1024,2,'1.2333333333333334','59','43','99','0','sleeping','2022-03-29 1:6:27'),(1025,1,'8.933333333333334','58','46','94','0','sleeping','2022-03-29 1:6:32'),(1026,2,'1.25','57','42','91','0','sleeping','2022-03-29 1:6:33'),(1027,1,'None','63','49','91','5','sitting','2022-03-29 1:6:39'),(1028,2,'None','61','47','94','10','running','2022-03-29 1:6:40'),(1029,1,'None','64','46','90','9','running','2022-03-29 1:6:46'),(1030,2,'1.2666666666666666','59','41','97','0','sleeping','2022-03-29 1:6:47'),(1031,1,'None','64','37','92','5','sitting','2022-03-29 1:6:51'),(1032,2,'1.2833333333333334','55','42','96','0','sleeping','2022-03-29 1:6:52'),(1033,1,'8.95','60','46','93','0','sleeping','2022-03-29 1:6:58'),(1034,2,'None','65','48','99','4','sitting','2022-03-29 1:6:59'),(1035,1,'None','65','41','95','10','walking','2022-03-29 1:7:4'),(1036,2,'1.3','55','48','98','0','sleeping','2022-03-29 1:7:7'),(1037,1,'8.966666666666667','55','43','97','0','sleeping','2022-03-29 1:7:15'),(1038,2,'None','64','47','94','4','sitting','2022-03-29 1:7:17'),(1039,1,'8.983333333333333','59','48','99','0','sleeping','2022-03-29 1:7:23'),(1040,2,'None','62','47','93','6','walking','2022-03-29 1:7:25'),(1041,1,'9','55','43','94','0','sleeping','2022-03-29 1:7:32'),(1042,2,'None','64','40','95','10','running','2022-03-29 1:7:33'),(1043,1,'None','65','47','97','5','walking','2022-03-29 1:7:38'),(1044,2,'1.3166666666666667','58','44','90','0','sleeping','2022-03-29 1:7:39'),(1045,1,'None','65','41','91','5','walking','2022-03-29 1:7:45'),(1046,2,'1.3333333333333333','59','41','99','0','sleeping','2022-03-29 1:7:46'),(1047,1,'9.016666666666667','60','49','99','0','sleeping','2022-03-29 1:7:51'),(1048,2,'1.35','55','50','100','0','sleeping','2022-03-29 1:7:52'),(1049,1,'None','61','39','98','10','running','2022-03-29 1:7:56'),(1050,2,'1.3666666666666667','60','49','100','0','sleeping','2022-03-29 1:7:57'),(1051,1,'None','62','40','94','9','sitting','2022-03-29 1:8:4'),(1052,2,'1.3833333333333333','57','45','94','0','sleeping','2022-03-29 1:8:5'),(1053,1,'None','62','37','98','8','running','2022-03-29 1:8:10'),(1054,2,'None','63','39','92','6','running','2022-03-29 1:8:12'),(1055,1,'None','65','46','91','6','walking','2022-03-29 1:8:17'),(1056,2,'1.4','59','45','90','0','sleeping','2022-03-29 1:8:19'),(1057,1,'None','62','41','100','5','running','2022-03-29 1:8:26'),(1058,2,'1.4166666666666667','58','43','95','0','sleeping','2022-03-29 1:8:26'),(1059,1,'9.033333333333333','56','39','93','0','sleeping','2022-03-29 1:8:33'),(1060,2,'None','64','47','96','7','walking','2022-03-29 1:8:34'),(1061,1,'9.05','55','44','100','0','sleeping','2022-03-29 1:8:39'),(1062,2,'1.4333333333333333','55','39','93','0','sleeping','2022-03-29 1:8:40'),(1063,1,'9.066666666666666','56','41','96','0','sleeping','2022-03-29 1:8:48'),(1064,2,'None','61','41','92','8','running','2022-03-29 1:8:48'),(1065,1,'9.083333333333334','59','38','98','0','sleeping','2022-03-29 1:8:53'),(1066,2,'1.45','56','45','99','0','sleeping','2022-03-29 1:8:54'),(1067,1,'None','62','47','93','8','walking','2022-03-29 1:9:1'),(1068,2,'1.4666666666666666','58','49','93','0','sleeping','2022-03-29 1:9:2'),(1069,1,'9.1','58','37','93','0','sleeping','2022-03-29 1:9:10'),(1070,2,'None','62','44','94','7','walking','2022-03-29 1:9:11'),(1071,1,'9.116666666666667','59','46','99','0','sleeping','2022-03-29 1:9:17'),(1072,2,'None','61','43','96','10','running','2022-03-29 1:9:18'),(1073,1,'None','62','38','91','6','sitting','2022-03-29 1:9:25'),(1074,2,'1.4833333333333334','56','46','93','0','sleeping','2022-03-29 1:9:26'),(1075,1,'9.133333333333333','55','50','94','0','sleeping','2022-03-29 1:9:30'),(1076,2,'1.5','58','48','93','0','sleeping','2022-03-29 1:9:32'),(1077,1,'None','61','45','99','4','walking','2022-03-29 1:9:37'),(1078,2,'None','61','43','98','7','sitting','2022-03-29 1:9:38'),(1079,1,'None','61','39','94','5','sitting','2022-03-29 1:9:43'),(1080,2,'None','62','43','90','7','running','2022-03-29 1:9:44'),(1081,1,'9.15','57','49','97','0','sleeping','2022-03-29 1:9:50'),(1082,2,'1.5166666666666666','57','44','100','0','sleeping','2022-03-29 1:9:52'),(1083,1,'9.166666666666666','58','47','90','0','sleeping','2022-03-29 1:9:59'),(1084,2,'None','63','41','90','4','walking','2022-03-29 1:10:1'),(1085,1,'None','63','49','99','6','walking','2022-03-29 1:10:8'),(1086,2,'1.5333333333333334','56','43','90','0','sleeping','2022-03-29 1:10:9'),(1087,1,'None','64','46','94','10','running','2022-03-29 1:10:15'),(1088,2,'None','63','42','98','5','running','2022-03-29 1:10:16'),(1089,1,'None','62','40','96','10','running','2022-03-29 1:10:24'),(1090,2,'None','64','37','100','8','sitting','2022-03-29 1:10:24'),(1091,1,'9.183333333333334','56','40','90','0','sleeping','2022-03-29 1:10:31'),(1092,2,'1.55','58','41','91','0','sleeping','2022-03-29 1:10:34'),(1093,1,'9.2','58','41','98','0','sleeping','2022-03-29 1:10:40'),(1094,2,'1.5666666666666667','55','48','97','0','sleeping','2022-03-29 1:10:42'),(1095,1,'9.216666666666667','55','46','93','0','sleeping','2022-03-29 1:10:50'),(1096,2,'1.5833333333333333','60','36','96','0','sleeping','2022-03-29 1:10:52'),(1097,1,'None','61','39','98','8','walking','2022-03-29 1:11:28'),(1098,2,'1.6','60','39','90','0','sleeping','2022-03-29 1:11:28'),(1099,1,'9.233333333333333','58','36','92','0','sleeping','2022-03-29 1:12:29'),(1100,2,'1.6166666666666667','55','49','94','0','sleeping','2022-03-29 1:12:29'),(1101,1,'None','64','42','94','4','walking','2022-03-29 1:13:29'),(1102,2,'1.6333333333333333','56','41','99','0','sleeping','2022-03-29 1:13:29'),(1103,1,'None','61','43','96','6','walking','2022-03-29 1:14:29'),(1104,2,'1.65','57','49','93','0','sleeping','2022-03-29 1:14:29'),(1105,1,'None','63','49','97','4','walking','2022-03-29 1:15:29'),(1106,2,'1.6666666666666667','56','50','99','0','sleeping','2022-03-29 1:15:29'),(1107,1,'9.25','59','45','91','0','sleeping','2022-03-29 1:15:31'),(1108,2,'1.6833333333333333','58','46','91','0','sleeping','2022-03-29 1:15:31'),(1109,1,'None','64','40','96','8','sitting','2022-03-29 1:15:32'),(1110,2,'None','61','39','100','5','sitting','2022-03-29 1:15:32'),(1111,1,'9.266666666666667','55','41','95','0','sleeping','2022-03-29 1:15:33'),(1112,2,'None','62','50','92','7','running','2022-03-29 1:15:33'),(1113,1,'9.283333333333333','56','49','94','0','sleeping','2022-03-29 1:15:34'),(1114,2,'None','62','50','91','7','sitting','2022-03-29 1:15:34'),(1115,1,'9.3','57','41','98','0','sleeping','2022-03-29 1:15:35'),(1116,2,'1.7','56','50','95','0','sleeping','2022-03-29 1:15:35'),(1117,1,'9.316666666666666','60','43','92','0','sleeping','2022-03-29 1:15:36'),(1118,2,'1.7166666666666666','57','38','96','0','sleeping','2022-03-29 1:15:36'),(1119,1,'9.333333333333334','57','46','98','0','sleeping','2022-03-29 1:15:37'),(1120,2,'None','62','45','97','9','walking','2022-03-29 1:15:37'),(1121,1,'9.35','60','49','100','0','sleeping','2022-03-29 1:15:39'),(1122,2,'None','63','49','90','9','sitting','2022-03-29 1:15:39'),(1123,1,'9.366666666666667','56','37','90','0','sleeping','2022-03-29 1:15:40'),(1124,2,'None','63','39','96','8','walking','2022-03-29 1:15:40'),(1125,1,'9.383333333333333','60','42','93','0','sleeping','2022-03-29 1:15:41'),(1126,2,'1.7333333333333334','59','43','95','0','sleeping','2022-03-29 1:15:41'),(1127,1,'None','62','49','100','4','sitting','2022-03-29 1:15:42'),(1128,2,'None','64','36','98','5','running','2022-03-29 1:15:42'),(1129,1,'None','65','48','98','5','walking','2022-03-29 1:15:43'),(1130,2,'1.75','55','42','94','0','sleeping','2022-03-29 1:15:43'),(1131,1,'None','62','47','98','7','running','2022-03-29 1:15:44'),(1132,2,'None','63','37','90','10','sitting','2022-03-29 1:15:44'),(1133,1,'None','63','37','99','8','sitting','2022-03-29 1:15:45'),(1134,2,'1.7666666666666666','58','37','91','0','sleeping','2022-03-29 1:15:45'),(1135,1,'None','61','49','90','9','sitting','2022-03-29 1:15:46'),(1136,2,'1.7833333333333334','58','45','97','0','sleeping','2022-03-29 1:15:46'),(1137,1,'None','63','39','97','8','running','2022-03-29 1:15:47'),(1138,2,'None','61','36','93','6','running','2022-03-29 1:15:47'),(1139,1,'9.4','58','39','93','0','sleeping','2022-03-29 1:15:48'),(1140,2,'1.8','57','39','91','0','sleeping','2022-03-29 1:15:48'),(1141,1,'None','61','37','96','9','sitting','2022-03-29 1:15:49'),(1142,2,'1.8166666666666667','60','36','90','0','sleeping','2022-03-29 1:15:49'),(1143,1,'None','64','50','92','5','running','2022-03-29 1:15:50'),(1144,2,'1.8333333333333333','56','41','97','0','sleeping','2022-03-29 1:15:50'),(1145,1,'9.416666666666666','58','47','90','0','sleeping','2022-03-29 1:15:51'),(1146,2,'1.85','58','38','91','0','sleeping','2022-03-29 1:15:51'),(1147,1,'9.433333333333334','60','38','99','0','sleeping','2022-03-29 1:15:52'),(1148,2,'None','61','49','95','6','running','2022-03-29 1:15:52'),(1149,1,'9.45','57','42','90','0','sleeping','2022-03-29 1:15:53'),(1150,2,'1.8666666666666667','55','49','92','0','sleeping','2022-03-29 1:15:53'),(1151,1,'9.466666666666667','57','36','92','0','sleeping','2022-03-29 1:15:54'),(1152,2,'None','65','46','91','4','walking','2022-03-29 1:15:54'),(1153,1,'9.483333333333333','56','45','99','0','sleeping','2022-03-29 1:15:55'),(1154,2,'None','62','49','99','10','sitting','2022-03-29 1:15:55'),(1155,1,'None','62','36','99','8','sitting','2022-03-29 1:15:56'),(1156,2,'1.8833333333333333','56','40','95','0','sleeping','2022-03-29 1:15:56'),(1157,1,'9.5','57','39','99','0','sleeping','2022-03-29 1:15:57'),(1158,2,'1.9','58','49','95','0','sleeping','2022-03-29 1:15:57'),(1159,1,'9.516666666666667','57','39','90','0','sleeping','2022-03-29 1:15:58'),(1160,2,'None','63','37','99','5','sitting','2022-03-29 1:15:58'),(1161,1,'None','63','46','99','6','walking','2022-03-29 1:15:59'),(1162,2,'1.9166666666666667','57','37','94','0','sleeping','2022-03-29 1:15:59'),(1163,1,'9.533333333333333','57','38','92','0','sleeping','2022-03-29 1:16:0'),(1164,2,'1.9333333333333333','57','37','97','0','sleeping','2022-03-29 1:16:0'),(1165,1,'9.55','58','41','94','0','sleeping','2022-03-29 1:16:1'),(1166,2,'None','62','38','93','7','running','2022-03-29 1:16:1'),(1167,1,'None','64','50','95','7','walking','2022-03-29 1:16:2'),(1168,2,'1.95','58','36','95','0','sleeping','2022-03-29 1:16:2'),(1169,1,'None','64','40','97','10','sitting','2022-03-29 1:16:3'),(1170,2,'None','65','42','99','6','running','2022-03-29 1:16:3'),(1171,1,'9.566666666666666','57','47','90','0','sleeping','2022-03-29 1:16:4'),(1172,2,'None','64','45','93','5','walking','2022-03-29 1:16:4'),(1173,1,'9.583333333333334','55','49','93','0','sleeping','2022-03-29 1:16:5'),(1174,2,'None','62','40','95','10','running','2022-03-29 1:16:5'),(1175,1,'9.6','57','44','91','0','sleeping','2022-03-29 1:16:6'),(1176,2,'None','63','50','97','5','sitting','2022-03-29 1:16:6'),(1177,1,'None','65','42','100','6','running','2022-03-29 1:16:7'),(1178,2,'None','65','36','92','10','running','2022-03-29 1:16:7'),(1179,1,'None','65','47','94','4','running','2022-03-29 1:16:8'),(1180,2,'None','64','47','91','4','running','2022-03-29 1:16:8'),(1181,1,'None','64','37','93','7','running','2022-03-29 1:16:9'),(1182,2,'None','65','49','98','6','running','2022-03-29 1:16:9'),(1183,1,'None','65','37','95','10','walking','2022-03-29 1:16:10'),(1184,2,'1.9666666666666666','55','39','99','0','sleeping','2022-03-29 1:16:10'),(1185,1,'9.616666666666667','58','37','99','0','sleeping','2022-03-29 1:16:11'),(1186,2,'1.9833333333333334','55','37','94','0','sleeping','2022-03-29 1:16:11'),(1187,1,'None','63','39','92','6','sitting','2022-03-29 1:16:12'),(1188,2,'2','59','36','100','0','sleeping','2022-03-29 1:16:12'),(1189,1,'None','65','48','94','9','sitting','2022-03-29 1:16:13'),(1190,2,'2.0166666666666666','58','46','95','0','sleeping','2022-03-29 1:16:13'),(1191,1,'9.633333333333333','59','40','90','0','sleeping','2022-03-29 1:16:14'),(1192,2,'2.033333333333333','55','43','93','0','sleeping','2022-03-29 1:16:14'),(1193,1,'None','65','45','93','9','running','2022-03-29 1:16:15'),(1194,2,'None','63','36','97','5','running','2022-03-29 1:16:15'),(1195,1,'9.65','57','44','93','0','sleeping','2022-03-29 1:16:16'),(1196,2,'None','61','41','90','10','running','2022-03-29 1:16:16'),(1197,1,'9.666666666666666','55','40','98','0','sleeping','2022-03-29 1:16:17'),(1198,2,'2.05','55','43','99','0','sleeping','2022-03-29 1:16:17'),(1199,1,'9.683333333333334','56','49','95','0','sleeping','2022-03-29 1:16:18'),(1200,2,'2.066666666666667','57','48','99','0','sleeping','2022-03-29 1:16:18'),(1201,1,'9.7','58','45','96','0','sleeping','2022-03-29 1:16:19'),(1202,2,'2.0833333333333335','57','40','98','0','sleeping','2022-03-29 1:16:19'),(1203,1,'None','61','44','93','7','sitting','2022-03-29 1:16:20'),(1204,2,'2.1','55','40','96','0','sleeping','2022-03-29 1:16:20'),(1205,1,'9.716666666666667','57','47','96','0','sleeping','2022-03-29 1:16:21'),(1206,2,'2.1166666666666667','58','45','94','0','sleeping','2022-03-29 1:16:21'),(1207,1,'9.733333333333333','56','36','90','0','sleeping','2022-03-29 1:16:22'),(1208,2,'2.1333333333333333','56','49','96','0','sleeping','2022-03-29 1:16:22'),(1209,1,'None','64','44','92','6','sitting','2022-03-29 1:16:23'),(1210,2,'2.15','58','42','90','0','sleeping','2022-03-29 1:16:23'),(1211,1,'9.75','55','41','92','0','sleeping','2022-03-29 1:16:24'),(1212,2,'2.1666666666666665','59','39','96','0','sleeping','2022-03-29 1:16:24'),(1213,1,'9.766666666666667','59','47','91','0','sleeping','2022-03-29 1:16:25'),(1214,2,'2.183333333333333','56','47','98','0','sleeping','2022-03-29 1:16:25'),(1215,1,'None','63','46','99','6','sitting','2022-03-29 1:16:26'),(1216,2,'None','61','45','91','10','sitting','2022-03-29 1:16:26'),(1217,1,'None','64','36','95','5','walking','2022-03-29 1:16:27'),(1218,2,'2.2','59','42','93','0','sleeping','2022-03-29 1:16:27'),(1219,1,'9.783333333333333','57','47','93','0','sleeping','2022-03-29 1:16:28'),(1220,2,'None','63','41','97','8','walking','2022-03-29 1:16:28'),(1221,1,'None','63','41','97','8','walking','2022-03-29 1:16:29'),(1222,2,'2.216666666666667','59','41','93','0','sleeping','2022-03-29 1:16:29'),(1223,1,'9.8','59','39','92','0','sleeping','2022-03-29 1:16:30'),(1224,2,'2.2333333333333334','57','40','99','0','sleeping','2022-03-29 1:16:30'),(1225,1,'None','62','37','96','10','running','2022-03-29 1:16:31'),(1226,2,'2.25','60','41','96','0','sleeping','2022-03-29 1:16:31'),(1227,1,'None','65','39','93','8','walking','2022-03-29 1:16:32'),(1228,2,'2.2666666666666666','58','41','95','0','sleeping','2022-03-29 1:16:32'),(1229,1,'9.816666666666666','58','45','100','0','sleeping','2022-03-29 1:16:33'),(1230,2,'2.283333333333333','55','49','91','0','sleeping','2022-03-29 1:16:33'),(1231,1,'None','61','41','97','7','running','2022-03-29 1:16:34'),(1232,2,'2.3','57','47','99','0','sleeping','2022-03-29 1:16:34'),(1233,1,'None','65','41','92','5','sitting','2022-03-29 1:16:35'),(1234,2,'None','61','50','99','8','sitting','2022-03-29 1:16:35'),(1235,1,'9.833333333333334','59','38','95','0','sleeping','2022-03-29 1:16:36'),(1236,2,'None','61','50','92','8','running','2022-03-29 1:16:36'),(1237,1,'9.85','55','50','98','0','sleeping','2022-03-29 1:16:37'),(1238,2,'None','65','45','94','8','sitting','2022-03-29 1:16:37'),(1239,1,'None','63','38','94','6','running','2022-03-29 1:16:38'),(1240,2,'2.316666666666667','58','47','99','0','sleeping','2022-03-29 1:16:38'),(1241,1,'None','64','45','91','10','running','2022-03-29 1:16:44'),(1242,2,'2.3333333333333335','56','43','90','0','sleeping','2022-03-29 1:16:44'),(1243,1,'None','61','36','92','7','running','2022-03-29 1:16:51'),(1244,2,'2.35','58','44','94','0','sleeping','2022-03-29 1:16:52'),(1245,1,'None','62','36','98','5','running','2022-03-29 1:16:58'),(1246,2,'2.3666666666666667','59','42','93','0','sleeping','2022-03-29 1:16:59'),(1247,1,'None','61','39','97','9','sitting','2022-03-29 1:17:6'),(1248,2,'2.3833333333333333','58','36','97','0','sleeping','2022-03-29 1:17:9'),(1249,1,'9.866666666666667','58','40','99','0','sleeping','2022-03-29 1:17:24'),(1250,2,'None','65','43','95','7','sitting','2022-03-29 1:17:26'),(1251,1,'9.883333333333333','56','41','91','0','sleeping','2022-03-29 1:17:35'),(1252,2,'None','64','43','90','6','running','2022-03-29 1:17:37'),(1253,1,'None','62','42','90','5','running','2022-03-29 1:17:55'),(1254,2,'2.4','56','47','97','0','sleeping','2022-03-29 1:17:56'),(1255,1,'9.9','55','40','93','0','sleeping','2022-03-29 1:18:4'),(1256,2,'2.4166666666666665','60','40','94','0','sleeping','2022-03-29 1:18:5'),(1257,1,'None','62','44','90','10','running','2022-03-29 1:18:16'),(1258,2,'None','65','46','98','7','sitting','2022-03-29 1:18:19'),(1259,1,'None','62','48','96','9','running','2022-03-29 1:18:28'),(1260,2,'2.433333333333333','59','43','94','0','sleeping','2022-03-29 1:18:30'),(1261,1,'None','62','42','97','10','running','2022-03-29 1:18:37'),(1262,2,'None','63','38','90','5','walking','2022-03-29 1:18:39'),(1263,1,'None','65','39','90','10','running','2022-03-29 1:18:47'),(1264,2,'None','61','43','98','6','walking','2022-03-29 1:18:49'),(1265,1,'None','63','50','96','9','walking','2022-03-29 1:18:58'),(1266,2,'2.45','57','48','94','0','sleeping','2022-03-29 1:18:59'),(1267,1,'None','63','42','94','9','walking','2022-03-29 1:19:5'),(1268,2,'None','64','47','95','5','sitting','2022-03-29 1:19:7'),(1269,1,'None','65','44','99','6','sitting','2022-03-29 1:19:12'),(1270,2,'2.466666666666667','59','48','91','0','sleeping','2022-03-29 1:19:13'),(1271,1,'None','65','38','93','9','running','2022-03-29 1:19:20'),(1272,2,'2.4833333333333334','59','43','91','0','sleeping','2022-03-29 1:19:21'),(1273,1,'9.916666666666666','59','38','93','0','sleeping','2022-03-29 1:19:28'),(1274,2,'2.5','56','43','100','0','sleeping','2022-03-29 1:19:29'),(1275,1,'9.933333333333334','56','39','91','0','sleeping','2022-03-29 1:19:36'),(1276,2,'None','62','36','97','4','walking','2022-03-29 1:19:38'),(1277,1,'None','64','40','99','7','running','2022-03-29 1:19:45'),(1278,2,'None','61','42','92','7','walking','2022-03-29 1:19:47'),(1279,1,'9.95','58','41','94','0','sleeping','2022-03-29 1:19:54'),(1280,2,'2.5166666666666666','59','50','100','0','sleeping','2022-03-29 1:19:56'),(1281,1,'None','65','38','97','8','walking','2022-03-29 1:20:2'),(1282,2,'2.533333333333333','58','41','93','0','sleeping','2022-03-29 1:20:5'),(1283,1,'9.966666666666667','55','37','95','0','sleeping','2022-03-29 1:20:11'),(1284,2,'2.55','57','41','100','0','sleeping','2022-03-29 1:20:13'),(1285,1,'9.983333333333333','59','49','93','0','sleeping','2022-03-29 1:20:20'),(1286,2,'2.566666666666667','59','45','98','0','sleeping','2022-03-29 1:20:22'),(1287,1,'10','56','39','96','0','sleeping','2022-03-29 1:20:29'),(1288,2,'None','64','49','90','7','sitting','2022-03-29 1:20:30'),(1289,1,'None','62','38','97','8','walking','2022-03-29 1:21:25'),(1290,2,'None','62','44','92','9','walking','2022-03-29 1:21:25'),(1291,2,'2.5833333333333335','56','45','97','0','sleeping','2022-03-29 1:21:25'),(1292,1,'10.016666666666667','56','39','94','0','sleeping','2022-03-29 1:21:26'),(1293,2,'None','64','42','99','4','running','2022-03-29 1:21:26'),(1294,1,'10.033333333333333','60','48','98','0','sleeping','2022-03-29 1:21:27'),(1295,2,'None','65','40','93','6','walking','2022-03-29 1:21:27'),(1296,1,'10.05','58','45','95','0','sleeping','2022-03-29 1:21:28'),(1297,2,'None','63','42','94','10','walking','2022-03-29 1:21:28'),(1298,1,'10.066666666666666','58','38','94','0','sleeping','2022-03-29 1:21:29'),(1299,2,'2.6','58','38','94','0','sleeping','2022-03-29 1:21:29'),(1300,1,'10.083333333333334','58','36','94','0','sleeping','2022-03-29 1:21:30'),(1301,2,'None','65','47','98','5','sitting','2022-03-29 1:21:30'),(1302,1,'10.1','56','49','96','0','sleeping','2022-03-29 1:21:31'),(1303,2,'2.6166666666666667','60','41','94','0','sleeping','2022-03-29 1:21:31'),(1304,1,'10.116666666666667','59','37','97','0','sleeping','2022-03-29 1:21:32'),(1305,2,'2.6333333333333333','59','39','97','0','sleeping','2022-03-29 1:21:32'),(1306,1,'None','61','41','96','10','walking','2022-03-29 1:21:33'),(1307,2,'None','61','40','98','9','walking','2022-03-29 1:21:33'),(1308,1,'None','63','43','91','8','walking','2022-03-29 1:21:34'),(1309,2,'None','61','47','90','4','sitting','2022-03-29 1:21:34'),(1310,1,'10.133333333333333','58','44','99','0','sleeping','2022-03-29 1:21:35'),(1311,2,'None','63','50','96','7','walking','2022-03-29 1:21:35'),(1312,1,'10.15','56','45','98','0','sleeping','2022-03-29 1:21:36'),(1313,2,'None','64','38','93','5','running','2022-03-29 1:21:36'),(1314,1,'None','62','46','99','10','sitting','2022-03-29 1:21:37'),(1315,2,'None','63','42','100','5','running','2022-03-29 1:21:37'),(1316,1,'None','64','44','93','5','running','2022-03-29 1:21:39'),(1317,2,'2.65','56','42','97','0','sleeping','2022-03-29 1:21:39'),(1318,1,'10.166666666666666','56','42','96','0','sleeping','2022-03-29 1:21:40'),(1319,2,'2.6666666666666665','60','40','96','0','sleeping','2022-03-29 1:21:40'),(1320,1,'None','65','38','96','9','running','2022-03-29 1:21:41'),(1321,2,'2.683333333333333','57','39','97','0','sleeping','2022-03-29 1:21:41'),(1322,1,'None','64','39','99','7','sitting','2022-03-29 1:21:42'),(1323,2,'2.7','56','43','92','0','sleeping','2022-03-29 1:21:42'),(1324,1,'None','61','48','100','8','walking','2022-03-29 1:21:43'),(1325,2,'2.716666666666667','55','49','91','0','sleeping','2022-03-29 1:21:43'),(1326,1,'None','62','47','99','4','running','2022-03-29 1:21:44'),(1327,2,'2.7333333333333334','60','43','96','0','sleeping','2022-03-29 1:21:44'),(1328,1,'10.183333333333334','59','45','98','0','sleeping','2022-03-29 1:21:45'),(1329,2,'None','62','49','90','4','sitting','2022-03-29 1:21:45'),(1330,1,'10.2','58','43','99','0','sleeping','2022-03-29 1:21:46'),(1331,2,'2.75','58','36','97','0','sleeping','2022-03-29 1:21:46'),(1332,1,'10.216666666666667','60','48','92','0','sleeping','2022-03-29 1:21:47'),(1333,2,'2.7666666666666666','56','44','90','0','sleeping','2022-03-29 1:21:47'),(1334,1,'None','64','37','92','9','running','2022-03-29 1:21:57'),(1335,2,'2.783333333333333','58','45','97','0','sleeping','2022-03-29 1:21:57'),(1336,1,'None','61','43','94','9','walking','2022-03-29 1:22:4'),(1337,2,'2.8','59','47','96','0','sleeping','2022-03-29 1:22:5'),(1338,1,'10.233333333333333','60','36','98','0','sleeping','2022-03-29 1:22:12'),(1339,2,'None','64','48','90','9','walking','2022-03-29 1:22:14'),(1340,1,'None','64','45','96','6','sitting','2022-03-29 1:22:21'),(1341,2,'2.816666666666667','58','44','93','0','sleeping','2022-03-29 1:22:23'),(1342,1,'10.25','60','50','98','0','sleeping','2022-03-29 1:22:30'),(1343,2,'2.8333333333333335','59','44','91','0','sleeping','2022-03-29 1:22:33'),(1344,1,'None','65','39','100','4','sitting','2022-03-29 1:22:41'),(1345,2,'None','65','40','98','4','running','2022-03-29 1:22:43'),(1346,1,'10.266666666666667','55','39','98','0','sleeping','2022-03-29 1:22:50'),(1347,2,'None','65','39','97','5','walking','2022-03-29 1:22:51'),(1348,1,'10.283333333333333','55','42','94','0','sleeping','2022-03-29 1:23:0'),(1349,2,'None','61','38','100','7','walking','2022-03-29 1:23:1'),(1350,1,'10.3','56','44','94','0','sleeping','2022-03-29 1:23:10'),(1351,2,'2.85','58','48','93','0','sleeping','2022-03-29 1:23:12'),(1352,1,'10.316666666666666','58','45','94','0','sleeping','2022-03-29 1:23:19'),(1353,2,'2.8666666666666667','57','40','99','0','sleeping','2022-03-29 1:23:20'),(1354,1,'10.333333333333334','59','43','97','0','sleeping','2022-03-29 1:23:31'),(1355,2,'None','64','49','93','4','running','2022-03-29 1:23:33'),(1356,1,'None','65','37','94','6','running','2022-03-29 1:23:42'),(1357,2,'2.8833333333333333','56','45','94','0','sleeping','2022-03-29 1:23:44'),(1358,1,'10.35','58','45','92','0','sleeping','2022-03-29 1:23:51'),(1359,2,'2.9','60','43','97','0','sleeping','2022-03-29 1:23:54'),(1360,1,'10.366666666666667','57','43','95','0','sleeping','2022-03-29 1:24:2'),(1361,2,'None','63','41','99','9','walking','2022-03-29 1:24:5'),(1362,1,'None','61','41','92','9','walking','2022-03-29 1:24:14'),(1363,2,'None','61','41','91','8','running','2022-03-29 1:24:15'),(1364,1,'10.383333333333333','59','36','97','0','sleeping','2022-03-29 1:24:24'),(1365,2,'None','64','43','100','7','sitting','2022-03-29 1:24:25'),(1366,1,'10.4','57','46','94','0','sleeping','2022-03-29 1:24:34'),(1367,2,'None','65','42','97','10','walking','2022-03-29 1:24:36'),(1368,1,'10.416666666666666','59','48','98','0','sleeping','2022-03-29 1:24:43'),(1369,2,'None','62','36','97','6','sitting','2022-03-29 1:24:47'),(1370,1,'10.433333333333334','55','50','94','0','sleeping','2022-03-29 1:24:54'),(1371,2,'2.9166666666666665','55','36','96','0','sleeping','2022-03-29 1:24:59'),(1372,1,'10.45','58','41','92','0','sleeping','2022-03-29 1:25:44'),(1373,2,'2.933333333333333','56','50','95','0','sleeping','2022-03-29 1:25:47'),(1374,1,'None','61','48','94','10','walking','2022-03-29 1:26:1'),(1375,2,'2.95','58','39','93','0','sleeping','2022-03-29 1:26:6'),(1376,1,'None','65','39','95','6','running','2022-03-29 1:26:31'),(1377,2,'2.966666666666667','57','49','98','0','sleeping','2022-03-29 1:26:35'),(1378,1,'10.466666666666667','59','40','92','0','sleeping','2022-03-29 1:27:29'),(1379,2,'2.9833333333333334','60','48','92','0','sleeping','2022-03-29 1:27:29'),(1380,1,'10.483333333333333','57','42','99','0','sleeping','2022-03-29 1:28:29'),(1381,2,'3','55','45','90','0','sleeping','2022-03-29 1:28:29'),(1382,2,'3.0166666666666666','55','45','91','0','sleeping','2022-03-29 1:29:29'),(1383,1,'10.5','58','39','90','0','sleeping','2022-03-29 1:29:29'),(1384,1,'10.516666666666667','60','39','93','0','sleeping','2022-03-29 1:30:29'),(1385,2,'3.033333333333333','56','47','97','0','sleeping','2022-03-29 1:30:29'),(1386,1,'None','65','41','97','9','walking','2022-03-29 1:31:29'),(1387,2,'None','62','36','90','7','walking','2022-03-29 1:31:29'),(1388,2,'3.05','56','43','97','0','sleeping','2022-03-29 1:32:29'),(1389,1,'10.533333333333333','56','41','90','0','sleeping','2022-03-29 1:32:29'),(1390,2,'3.066666666666667','60','39','97','0','sleeping','2022-03-29 1:33:29'),(1391,1,'None','62','44','91','5','walking','2022-03-29 1:33:29'),(1392,1,'None','65','36','94','7','sitting','2022-03-29 1:34:29'),(1393,2,'None','61','46','95','10','sitting','2022-03-29 1:34:29'),(1394,2,'None','62','38','93','9','sitting','2022-03-29 1:35:29'),(1395,1,'None','65','38','100','6','walking','2022-03-29 1:35:29'),(1396,1,'10.55','60','37','93','0','sleeping','2022-03-29 1:36:29'),(1397,2,'None','62','42','99','9','walking','2022-03-29 1:36:29'),(1398,2,'None','64','43','92','9','running','2022-03-29 1:37:29'),(1399,1,'10.566666666666666','56','49','93','0','sleeping','2022-03-29 1:37:29'),(1400,1,'None','63','41','96','5','walking','2022-03-29 1:38:29'),(1401,2,'3.0833333333333335','55','40','93','0','sleeping','2022-03-29 1:38:29'),(1402,2,'None','63','40','91','4','walking','2022-03-29 1:39:29'),(1403,1,'10.583333333333334','60','42','92','0','sleeping','2022-03-29 1:39:29'),(1404,1,'None','65','43','93','5','running','2022-03-29 1:40:29'),(1405,2,'3.1','59','45','95','0','sleeping','2022-03-29 1:40:29'),(1406,2,'3.1166666666666667','58','39','100','0','sleeping','2022-03-29 1:41:29'),(1407,1,'None','62','38','95','10','sitting','2022-03-29 1:41:29'),(1408,2,'None','62','45','94','8','running','2022-03-29 1:42:29'),(1409,1,'10.6','57','49','90','0','sleeping','2022-03-29 1:42:29'),(1410,1,'10.616666666666667','58','48','93','0','sleeping','2022-03-29 1:43:29'),(1411,2,'None','65','50','93','8','walking','2022-03-29 1:43:29'),(1412,1,'None','62','39','94','4','walking','2022-03-29 1:44:29'),(1413,2,'None','65','36','97','7','sitting','2022-03-29 1:44:29'),(1414,1,'10.633333333333333','59','40','98','0','sleeping','2022-03-29 1:45:29'),(1415,2,'3.1333333333333333','58','47','96','0','sleeping','2022-03-29 1:45:29'),(1416,1,'10.65','59','50','98','0','sleeping','2022-03-29 1:46:29'),(1417,2,'3.15','59','50','92','0','sleeping','2022-03-29 1:46:29'),(1418,2,'None','65','37','95','6','sitting','2022-03-29 1:47:29'),(1419,1,'None','64','44','100','5','sitting','2022-03-29 1:47:29'),(1420,1,'None','64','44','100','6','sitting','2022-03-29 1:48:29'),(1421,2,'3.1666666666666665','55','44','99','0','sleeping','2022-03-29 1:48:29'),(1422,1,'None','61','40','92','9','walking','2022-03-29 1:49:29'),(1423,2,'None','62','36','100','9','running','2022-03-29 1:49:29'),(1424,1,'None','65','41','97','5','running','2022-03-29 1:50:29'),(1425,2,'3.183333333333333','58','42','90','0','sleeping','2022-03-29 1:50:29'),(1426,2,'None','63','37','97','8','running','2022-03-29 1:51:29'),(1427,1,'10.666666666666666','60','38','97','0','sleeping','2022-03-29 1:51:29'),(1428,1,'10.683333333333334','55','38','90','0','sleeping','2022-03-29 1:52:29'),(1429,2,'3.2','59','49','94','0','sleeping','2022-03-29 1:52:29'),(1430,2,'3.216666666666667','55','46','94','0','sleeping','2022-03-29 1:53:29'),(1431,1,'10.7','55','36','96','0','sleeping','2022-03-29 1:53:29'),(1432,1,'10.716666666666667','59','45','98','0','sleeping','2022-03-29 1:54:29'),(1433,2,'3.2333333333333334','59','46','96','0','sleeping','2022-03-29 1:54:29'),(1434,2,'3.25','60','40','99','0','sleeping','2022-03-29 1:55:29'),(1435,1,'None','65','49','91','9','sitting','2022-03-29 1:55:29'),(1436,1,'None','62','42','100','9','sitting','2022-03-29 1:56:29'),(1437,2,'None','63','40','98','5','sitting','2022-03-29 1:56:29'),(1438,2,'3.2666666666666666','58','47','97','0','sleeping','2022-03-29 1:57:29'),(1439,1,'None','63','50','95','9','sitting','2022-03-29 1:57:29'),(1440,1,'None','65','37','96','4','running','2022-03-29 1:58:29'),(1441,2,'3.283333333333333','58','44','95','0','sleeping','2022-03-29 1:58:29'),(1442,1,'10.733333333333333','55','43','94','0','sleeping','2022-03-29 1:59:29'),(1443,2,'None','65','37','97','6','walking','2022-03-29 1:59:29'),(1444,1,'10.75','59','49','98','0','sleeping','2022-03-29 2:0:29'),(1445,2,'3.3','58','45','90','0','sleeping','2022-03-29 2:0:29'),(1446,2,'3.316666666666667','58','36','96','0','sleeping','2022-03-29 2:1:29'),(1447,1,'None','63','47','94','4','walking','2022-03-29 2:1:29'),(1448,1,'None','62','37','96','9','walking','2022-03-29 2:2:29'),(1449,2,'3.3333333333333335','55','45','91','0','sleeping','2022-03-29 2:2:29'),(1450,1,'10.766666666666667','56','40','100','0','sleeping','2022-03-29 2:3:29'),(1451,2,'None','64','43','95','7','sitting','2022-03-29 2:3:29'),(1452,2,'3.35','57','50','94','0','sleeping','2022-03-29 2:4:29'),(1453,1,'10.783333333333333','58','40','98','0','sleeping','2022-03-29 2:4:29'),(1454,2,'3.3666666666666667','58','46','92','0','sleeping','2022-03-29 2:5:29'),(1455,1,'10.8','58','37','97','0','sleeping','2022-03-29 2:5:29'),(1456,1,'None','64','46','100','7','walking','2022-03-29 2:6:29'),(1457,2,'3.3833333333333333','60','43','95','0','sleeping','2022-03-29 2:6:29'),(1458,1,'None','65','41','100','10','sitting','2022-03-29 2:7:29'),(1459,2,'None','62','46','99','6','sitting','2022-03-29 2:7:29'),(1460,1,'10.816666666666666','59','44','97','0','sleeping','2022-03-29 2:8:29'),(1461,2,'3.4','58','37','98','0','sleeping','2022-03-29 2:8:29'),(1462,2,'None','62','38','96','5','running','2022-03-29 2:9:29'),(1463,1,'None','64','50','96','6','sitting','2022-03-29 2:9:29'),(1464,1,'10.833333333333334','60','49','94','0','sleeping','2022-03-29 2:10:29'),(1465,2,'3.4166666666666665','60','37','97','0','sleeping','2022-03-29 2:10:29'),(1466,2,'3.433333333333333','57','50','92','0','sleeping','2022-03-29 2:11:29'),(1467,1,'10.85','55','42','93','0','sleeping','2022-03-29 2:11:29'),(1468,1,'None','63','49','99','7','walking','2022-03-29 2:12:29'),(1469,2,'3.45','60','41','100','0','sleeping','2022-03-29 2:12:29'),(1470,1,'None','65','48','90','9','walking','2022-03-29 2:13:29'),(1471,2,'3.466666666666667','59','46','97','0','sleeping','2022-03-29 2:13:29'),(1472,1,'10.866666666666667','57','44','91','0','sleeping','2022-03-29 2:14:29'),(1473,2,'3.4833333333333334','55','37','93','0','sleeping','2022-03-29 2:14:29'),(1474,1,'10.883333333333333','55','36','90','0','sleeping','2022-03-29 2:15:29'),(1475,2,'3.5','55','36','90','0','sleeping','2022-03-29 2:15:29'),(1476,1,'10.9','55','48','91','0','sleeping','2022-03-29 2:16:29'),(1477,2,'3.5166666666666666','58','46','100','0','sleeping','2022-03-29 2:16:29'),(1478,2,'None','61','40','90','8','running','2022-03-29 2:17:29'),(1479,1,'10.916666666666666','60','43','100','0','sleeping','2022-03-29 2:17:29'),(1480,1,'10.933333333333334','60','47','92','0','sleeping','2022-03-29 2:18:29'),(1481,2,'3.533333333333333','60','46','90','0','sleeping','2022-03-29 2:18:29'),(1482,1,'None','65','48','99','9','walking','2022-03-29 2:19:29'),(1483,2,'None','61','48','90','7','running','2022-03-29 2:19:29'),(1484,2,'None','63','40','93','4','walking','2022-03-29 2:20:29'),(1485,1,'None','62','47','99','7','walking','2022-03-29 2:20:29'),(1486,2,'3.55','60','40','100','0','sleeping','2022-03-29 2:21:29'),(1487,1,'10.95','56','50','90','0','sleeping','2022-03-29 2:21:29'),(1488,1,'10.966666666666667','60','46','90','0','sleeping','2022-03-29 2:22:29'),(1489,2,'3.566666666666667','60','37','95','0','sleeping','2022-03-29 2:22:29'),(1490,1,'10.983333333333333','60','47','98','0','sleeping','2022-03-29 2:23:29'),(1491,2,'None','64','45','96','5','sitting','2022-03-29 2:23:29'),(1492,1,'None','62','39','100','8','walking','2022-03-29 2:24:29'),(1493,2,'3.5833333333333335','58','48','91','0','sleeping','2022-03-29 2:24:29'),(1494,1,'None','65','48','99','10','running','2022-03-29 2:25:29'),(1495,2,'3.6','57','36','90','0','sleeping','2022-03-29 2:25:29'),(1496,1,'11','55','42','95','0','sleeping','2022-03-29 2:26:29'),(1497,2,'None','61','41','99','7','sitting','2022-03-29 2:26:29'),(1498,1,'11.016666666666667','60','42','99','0','sleeping','2022-03-29 2:27:29'),(1499,2,'None','61','46','91','6','walking','2022-03-29 2:27:29'),(1500,1,'11.033333333333333','55','48','93','0','sleeping','2022-03-29 2:28:29'),(1501,2,'None','65','50','90','7','running','2022-03-29 2:28:29'),(1502,1,'11.05','56','37','96','0','sleeping','2022-03-29 2:29:29'),(1503,2,'None','64','39','91','4','sitting','2022-03-29 2:29:29'),(1504,2,'None','64','37','93','4','walking','2022-03-29 2:30:29'),(1505,1,'None','64','37','90','10','sitting','2022-03-29 2:30:29'),(1506,1,'11.066666666666666','57','37','92','0','sleeping','2022-03-29 2:31:29'),(1507,2,'None','61','39','92','9','sitting','2022-03-29 2:31:29'),(1508,1,'None','64','40','100','8','sitting','2022-03-29 2:32:29'),(1509,2,'None','62','43','100','8','walking','2022-03-29 2:32:29'),(1510,2,'3.6166666666666667','55','50','93','0','sleeping','2022-03-29 2:33:29'),(1511,1,'11.083333333333334','58','50','91','0','sleeping','2022-03-29 2:33:29'),(1512,1,'11.1','60','47','98','0','sleeping','2022-03-29 2:34:29'),(1513,2,'None','62','44','92','6','walking','2022-03-29 2:34:29'),(1514,1,'11.116666666666667','57','43','94','0','sleeping','2022-03-29 2:35:29'),(1515,2,'None','63','48','90','6','running','2022-03-29 2:35:29'),(1516,1,'None','62','50','94','5','running','2022-03-29 2:36:29'),(1517,2,'None','64','42','92','5','running','2022-03-29 2:36:29'),(1518,1,'11.133333333333333','56','40','99','0','sleeping','2022-03-29 2:37:29'),(1519,2,'None','61','37','98','8','sitting','2022-03-29 2:37:29'),(1520,1,'None','65','44','99','4','sitting','2022-03-29 2:38:29'),(1521,2,'None','65','40','93','10','sitting','2022-03-29 2:38:29'),(1522,1,'None','65','37','90','7','sitting','2022-03-29 2:39:29'),(1523,2,'3.6333333333333333','60','48','93','0','sleeping','2022-03-29 2:39:29'),(1524,1,'None','62','40','97','9','walking','2022-03-29 2:40:29'),(1525,2,'None','63','44','92','10','running','2022-03-29 2:40:29'),(1526,1,'None','65','40','93','6','walking','2022-03-29 2:41:29'),(1527,2,'None','63','46','99','5','sitting','2022-03-29 2:41:29'),(1528,1,'None','65','37','91','5','sitting','2022-03-29 2:42:29'),(1529,2,'None','62','45','96','8','walking','2022-03-29 2:42:29'),(1530,1,'11.15','60','42','99','0','sleeping','2022-03-29 2:43:29'),(1531,2,'3.65','60','44','96','0','sleeping','2022-03-29 2:43:29'),(1532,2,'3.6666666666666665','59','47','98','0','sleeping','2022-03-29 2:44:29'),(1533,1,'None','62','41','92','9','walking','2022-03-29 2:44:29'),(1534,2,'3.683333333333333','57','46','90','0','sleeping','2022-03-29 2:45:29'),(1535,1,'11.166666666666666','60','50','95','0','sleeping','2022-03-29 2:45:29'),(1536,1,'None','65','42','99','9','sitting','2022-03-29 2:46:29'),(1537,2,'3.7','56','40','93','0','sleeping','2022-03-29 2:46:29'),(1538,1,'None','64','42','92','10','running','2022-03-29 2:47:28'),(1539,2,'None','61','45','96','6','running','2022-03-29 2:47:29'),(1540,1,'11.183333333333334','59','38','99','0','sleeping','2022-03-29 2:48:29'),(1541,2,'3.716666666666667','60','43','94','0','sleeping','2022-03-29 2:48:29'),(1542,1,'11.2','59','45','94','0','sleeping','2022-03-29 2:49:29'),(1543,2,'None','62','37','90','9','sitting','2022-03-29 2:49:29'),(1544,1,'None','64','45','92','4','sitting','2022-03-29 2:50:29'),(1545,2,'None','62','45','98','8','walking','2022-03-29 2:50:29'),(1546,1,'11.216666666666667','60','46','93','0','sleeping','2022-03-29 2:51:29'),(1547,2,'3.7333333333333334','55','45','100','0','sleeping','2022-03-29 2:51:29'),(1548,1,'None','63','39','91','7','running','2022-03-29 2:52:29'),(1549,2,'None','61','42','96','4','sitting','2022-03-29 2:52:29'),(1550,1,'None','61','38','100','5','sitting','2022-03-29 2:53:29'),(1551,2,'3.75','60','40','91','0','sleeping','2022-03-29 2:53:29'),(1552,1,'11.233333333333333','55','50','95','0','sleeping','2022-03-29 2:54:29'),(1553,2,'3.7666666666666666','58','46','98','0','sleeping','2022-03-29 2:54:29'),(1554,2,'None','61','44','94','6','running','2022-03-29 2:55:29'),(1555,1,'11.25','59','40','93','0','sleeping','2022-03-29 2:55:29'),(1556,2,'3.783333333333333','55','37','96','0','sleeping','2022-03-29 2:56:29'),(1557,1,'11.266666666666667','55','37','91','0','sleeping','2022-03-29 2:56:29'),(1558,1,'11.283333333333333','60','49','96','0','sleeping','2022-03-29 2:57:29'),(1559,2,'3.8','57','41','93','0','sleeping','2022-03-29 2:57:29'),(1560,1,'None','63','38','97','7','walking','2022-03-29 2:58:29'),(1561,2,'None','62','42','90','9','walking','2022-03-29 2:58:29'),(1562,1,'11.3','57','41','91','0','sleeping','2022-03-29 2:59:29'),(1563,2,'3.816666666666667','57','39','98','0','sleeping','2022-03-29 2:59:29'),(1564,2,'None','61','47','95','5','running','2022-03-29 3:0:29'),(1565,1,'None','64','43','99','9','walking','2022-03-29 3:0:29'),(1566,2,'3.8333333333333335','56','50','91','0','sleeping','2022-03-29 3:1:29'),(1567,1,'11.316666666666666','60','43','96','0','sleeping','2022-03-29 3:1:29'),(1568,2,'3.85','58','42','95','0','sleeping','2022-03-29 3:2:29'),(1569,1,'None','64','48','92','7','walking','2022-03-29 3:2:29'),(1570,2,'3.8666666666666667','59','39','98','0','sleeping','2022-03-29 3:3:29'),(1571,1,'None','62','49','98','7','sitting','2022-03-29 3:3:29'),(1572,1,'11.333333333333334','58','38','97','0','sleeping','2022-03-29 3:4:18'),(1573,2,'3.8833333333333333','55','43','92','0','sleeping','2022-03-29 3:4:18'),(1574,2,'3.9','57','42','92','0','sleeping','2022-03-29 3:4:18'),(1575,1,'None','65','42','93','7','sitting','2022-03-29 3:4:19'),(1576,2,'3.9166666666666665','58','44','100','0','sleeping','2022-03-29 3:4:19'),(1577,1,'11.35','57','49','90','0','sleeping','2022-03-29 3:4:20'),(1578,2,'None','65','37','94','4','walking','2022-03-29 3:4:20'),(1579,1,'None','61','41','95','9','sitting','2022-03-29 3:4:22'),(1580,2,'None','65','44','100','7','running','2022-03-29 3:4:22'),(1581,1,'None','62','38','97','7','walking','2022-03-29 3:4:22'),(1582,2,'None','65','37','96','6','walking','2022-03-29 3:4:22'),(1583,1,'None','63','40','99','9','sitting','2022-03-29 3:4:24'),(1584,2,'3.933333333333333','56','50','98','0','sleeping','2022-03-29 3:4:24'),(1585,1,'11.366666666666667','57','47','99','0','sleeping','2022-03-29 3:4:25'),(1586,2,'3.95','55','46','93','0','sleeping','2022-03-29 3:4:25'),(1587,1,'None','75','40','91','7','running','2022-03-29 20:39:30'),(1588,1,'None','75','48','91','5','running','2022-03-29 20:39:31'),(1589,1,'None','93','45','91','10','sitting','2022-03-29 20:39:32'),(1590,1,'None','81','49','98','5','walking','2022-03-29 20:39:33'),(1591,1,'None','76','46','100','5','walking','2022-03-29 20:39:34'),(1592,1,'None','87','38','97','8','walking','2022-03-29 20:39:35'),(1593,1,'None','82','38','97','5','walking','2022-03-29 20:39:36'),(1594,1,'None','91','39','91','9','sitting','2022-03-29 20:39:37'),(1595,1,'None','87','47','91','9','running','2022-03-29 20:39:38'),(1596,1,'None','81','36','93','5','walking','2022-03-29 20:39:40'),(1597,1,'None','72','44','91','6','walking','2022-03-29 20:39:41'),(1598,1,'None','71','46','91','4','walking','2022-03-29 20:39:41'),(1599,1,'None','86','38','94','5','walking','2022-03-29 20:39:42'),(1600,1,'None','73','40','100','4','sitting','2022-03-29 20:39:43'),(1601,1,'None','85','40','97','4','sitting','2022-03-29 20:39:44');
+/*!40000 ALTER TABLE `patient_analysis_data` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `patient_data`
+--
 
-<div id='pma_navigation_tree_content'>
-  <ul>
-    <li class="first new_database italics"><div class='block'><i class='first'></i></div><div class="block second"><a href='index.php?route=/server/databases&server=1'><img src="themes/dot.gif" title="" alt="" class="icon ic_b_newdb"></a></div><a class='hover_show_full' href='index.php?route=/server/databases&server=1' title='New'>New</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.Z3JvY2VyeQ==" data-vpath="cm9vdA==.Z3JvY2VyeQ==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=grocery&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=grocery' title='Structure'>grocery</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-vpath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=information_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=information_schema' title='Structure'>information_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.bWlvdA==" data-vpath="cm9vdA==.bWlvdA==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=miot&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=miot' title='Structure'>miot</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.bXlzcWw=" data-vpath="cm9vdA==.bXlzcWw=" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=mysql&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=mysql' title='Structure'>mysql</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-vpath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=performance_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=performance_schema' title='Structure'>performance_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGhwbXlhZG1pbg==" data-vpath="cm9vdA==.cGhwbXlhZG1pbg==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=phpmyadmin&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=phpmyadmin' title='Structure'>phpmyadmin</a><div class="clearfloat"></div></li><li class="last database"><div class='block'><i></i><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.dGVzdA==" data-vpath="cm9vdA==.dGVzdA==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=test&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=test' title='Structure'>test</a><div class="clearfloat"></div></li>
-  </ul>
-</div>
+DROP TABLE IF EXISTS `patient_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `patient_data` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `patient_name` varchar(40) NOT NULL,
+  `patient_age` tinyint(4) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `blood_group` varchar(5) NOT NULL,
+  `weight` double NOT NULL,
+  `height` double NOT NULL,
+  `dob` varchar(10) NOT NULL,
+  `reg_date` varchar(10) NOT NULL DEFAULT current_timestamp(),
+  `profile_img` text NOT NULL,
+  `address` text NOT NULL,
+  `contact_no` varchar(13) NOT NULL,
+  `doctor_id` smallint(6) NOT NULL,
+  `bed_id` smallint(6) NOT NULL,
+  `disease_id` smallint(6) NOT NULL,
+  `prescription` text NOT NULL,
+  `reports` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `doctor_id_constraint` (`doctor_id`),
+  KEY `bed_id_constraint` (`bed_id`),
+  KEY `disease_id_constraint` (`disease_id`),
+  KEY `document_id_constraint` (`prescription`(768)),
+  CONSTRAINT `bed_id_constraint` FOREIGN KEY (`bed_id`) REFERENCES `bed_data` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `disease_id_constraint` FOREIGN KEY (`disease_id`) REFERENCES `disease_data` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `doctor_id_constraint` FOREIGN KEY (`doctor_id`) REFERENCES `doctor_data` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `patient_data`
+--
 
-      </div>
+LOCK TABLES `patient_data` WRITE;
+/*!40000 ALTER TABLE `patient_data` DISABLE KEYS */;
+INSERT INTO `patient_data` VALUES (1,'Ved Bohir',22,'male','O-ve',60,140,'2022-04-08','2022-03-22','https://media.istockphoto.com/photos/grilled-chicken-meat-and-fresh-vegetable-salad-of-tomato-avocado-and-picture-id1295633127?b=1&k=20&m=1295633127&s=170667a&w=0&h=VDkBqjm0RShberDPMJ_L-LHX1rZ5v8yNvq0I0UxXquM=','Vashi','9892548375',1,7,11,'./assets/docs/prescription/1_pre.pdf','./assets/docs/reports/1_rep.pdf'),(2,'Kshitij Alav',16,'male','AB+ve',69,145,'2015-05-22','2022-03-22','https://media.istockphoto.com/photos/whole-cross-section-and-quarter-of-fresh-organic-navel-orange-with-picture-id1227301369?b=1&k=20&m=1227301369&s=170667a&w=0&h=7WdK1RQTLuCn5tuNe25Z999THYzj8yijmk0MaRE-SD0=','Airoli','8779914015',2,4,5,'./assets/docs/prescription/2_pre.pdf','./assets/docs/reports/2_rep.pdf');
+/*!40000 ALTER TABLE `patient_data` ENABLE KEYS */;
+UNLOCK TABLES;
 
-      <div id="pma_navi_settings_container">
-                  <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="index.php&#x3F;route&#x3D;&#x25;2Fexport&amp;server&#x3D;1" class="config-form disableAjax">
-  <input type="hidden" name="tab_hash" value="">
-      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
-    <input type="hidden" name="token" value="416127394c6d6c2a74714c263270755b">
-  <input type="hidden" name="submit_save" value="Navi">
-<ul class="tabs responsivetable row">
-      <li><a href="#Navi_panel">Navigation panel</a></li>
-      <li><a href="#Navi_tree">Navigation tree</a></li>
-      <li><a href="#Navi_servers">Servers</a></li>
-      <li><a href="#Navi_databases">Databases</a></li>
-      <li><a href="#Navi_tables">Tables</a></li>
-  </ul>
-<div class="tabs_contents col">
-<fieldset class="optbox" id="Navi_panel">
-<legend>Navigation panel</legend>
-    <p>Customize appearance of the navigation panel.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="ShowDatabasesNavigationAsTree">Show databases navigation as tree</label><span class="doc"><a href="./doc/html/config.html#cfg_ShowDatabasesNavigationAsTree" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>In the navigation panel, replaces the database tree with a selector</small></th><td><span class="checkbox"><input type="checkbox" name="ShowDatabasesNavigationAsTree" id="ShowDatabasesNavigationAsTree" checked="checked"></span><a class="restore-default hide" href="#ShowDatabasesNavigationAsTree" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLinkWithMainPanel">Link with main panel</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLinkWithMainPanel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Link with main panel by highlighting the current database or table.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationLinkWithMainPanel" id="NavigationLinkWithMainPanel" checked="checked"></span><a class="restore-default hide" href="#NavigationLinkWithMainPanel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationDisplayLogo">Display logo</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayLogo" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show logo in navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayLogo" id="NavigationDisplayLogo" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayLogo" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLink">Logo link URL</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLink" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>URL where logo in the navigation panel will point to.</small></th><td><input type="text" class="w-75" name="NavigationLogoLink" id="NavigationLogoLink" value="index.php"><a class="restore-default hide" href="#NavigationLogoLink" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLinkWindow">Logo link target</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLinkWindow" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Open the linked page in the main window (<code>main</code>) or in a new one (<code>new</code>).</small></th><td><select class="w-75" name="NavigationLogoLinkWindow" id="NavigationLogoLinkWindow"><option value="main" selected="selected">main</option><option value="new">new</option></select><a class="restore-default hide" href="#NavigationLogoLinkWindow" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreePointerEnable">Enable highlighting</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreePointerEnable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Highlight server under the mouse cursor.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreePointerEnable" id="NavigationTreePointerEnable" checked="checked"></span><a class="restore-default hide" href="#NavigationTreePointerEnable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="FirstLevelNavigationItems">Maximum items on first level</label><span class="doc"><a href="./doc/html/config.html#cfg_FirstLevelNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page on the first level of the navigation tree.</small></th><td><input type="number" name="FirstLevelNavigationItems" id="FirstLevelNavigationItems" value="100"><a class="restore-default hide" href="#FirstLevelNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDisplayItemFilterMinimum">Minimum number of items to display the filter box</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayItemFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Defines the minimum number of items (tables, views, routines and events) to display a filter box.</small></th><td><input type="number" name="NavigationTreeDisplayItemFilterMinimum" id="NavigationTreeDisplayItemFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayItemFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumRecentTables">Recently used tables</label><span class="doc"><a href="./doc/html/config.html#cfg_NumRecentTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of recently used tables; set 0 to disable.</small></th><td><input type="number" name="NumRecentTables" id="NumRecentTables" value="10"><a class="restore-default hide" href="#NumRecentTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumFavoriteTables">Favorite tables</label><span class="doc"><a href="./doc/html/config.html#cfg_NumFavoriteTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of favorite tables; set 0 to disable.</small></th><td><input type="number" name="NumFavoriteTables" id="NumFavoriteTables" value="10"><a class="restore-default hide" href="#NumFavoriteTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationWidth">Navigation panel width</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationWidth" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Set to 0 to collapse navigation panel.</small></th><td><input type="number" name="NavigationWidth" id="NavigationWidth" value="240"><a class="restore-default hide" href="#NavigationWidth" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tree">
-<legend>Navigation tree</legend>
-    <p>Customize the navigation tree.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="MaxNavigationItems">Maximum items in branch</label><span class="doc"><a href="./doc/html/config.html#cfg_MaxNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page of the navigation tree.</small></th><td><input type="number" name="MaxNavigationItems" id="MaxNavigationItems" value="50"><a class="restore-default hide" href="#MaxNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableGrouping">Group items in the tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableGrouping" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableGrouping" id="NavigationTreeEnableGrouping" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableGrouping" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableExpansion">Enable navigation tree expansion</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableExpansion" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to offer the possibility of tree expansion in the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableExpansion" id="NavigationTreeEnableExpansion" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableExpansion" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowTables">Show tables in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show tables under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowTables" id="NavigationTreeShowTables" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowViews">Show views in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowViews" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show views under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowViews" id="NavigationTreeShowViews" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowViews" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowFunctions">Show functions in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowFunctions" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show functions under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowFunctions" id="NavigationTreeShowFunctions" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowFunctions" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowProcedures">Show procedures in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowProcedures" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show procedures under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowProcedures" id="NavigationTreeShowProcedures" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowProcedures" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowEvents">Show events in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowEvents" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show events under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowEvents" id="NavigationTreeShowEvents" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowEvents" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeAutoexpandSingleDb">Expand single database</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeAutoexpandSingleDb" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to expand single database in the navigation tree automatically.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeAutoexpandSingleDb" id="NavigationTreeAutoexpandSingleDb" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeAutoexpandSingleDb" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_servers">
-<legend>Servers</legend>
-    <p>Servers display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationDisplayServers">Display servers selection</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayServers" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Display server choice at the top of the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayServers" id="NavigationDisplayServers" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayServers" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="DisplayServersList">Display servers as a list</label><span class="doc"><a href="./doc/html/config.html#cfg_DisplayServersList" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show server listing as a list instead of a drop down.</small></th><td><span class="checkbox"><input type="checkbox" name="DisplayServersList" id="DisplayServersList"></span><a class="restore-default hide" href="#DisplayServersList" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_databases">
-<legend>Databases</legend>
-    <p>Databases display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDisplayDbFilterMinimum">Minimum number of databases to display the database filter box</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayDbFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeDisplayDbFilterMinimum" id="NavigationTreeDisplayDbFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayDbFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDbSeparator">Database tree separator</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDbSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates databases into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeDbSeparator" id="NavigationTreeDbSeparator" value="_"><a class="restore-default hide" href="#NavigationTreeDbSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tables">
-<legend>Tables</legend>
-    <p>Tables display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDefaultTabTable">Target for quick access icon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable" id="NavigationTreeDefaultTabTable"><option value="structure" selected="selected">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDefaultTabTable2">Target for second quick access icon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable2" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable2" id="NavigationTreeDefaultTabTable2"><option value="" selected="selected"></option><option value="structure">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable2" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableSeparator">Table tree separator</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates tables into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeTableSeparator" id="NavigationTreeTableSeparator" value="__"><a class="restore-default hide" href="#NavigationTreeTableSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableLevel">Maximum table tree depth</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableLevel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeTableLevel" id="NavigationTreeTableLevel" value="1"><a class="restore-default hide" href="#NavigationTreeTableLevel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-</div>
-</form>
-<script type="text/javascript">
-    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
-        configInlineParams = [];
-    }
-    configInlineParams.push(function () {
-        registerFieldValidator('FirstLevelNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeDisplayItemFilterMinimum', 'validatePositiveNumber', true);
-registerFieldValidator('NumRecentTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NumFavoriteTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NavigationWidth', 'validateNonNegativeNumber', true);
-registerFieldValidator('MaxNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeTableLevel', 'validatePositiveNumber', true);
-$.extend(Messages, {
-	'error_nan_p': 'Not a positive number!',
-	'error_nan_nneg': 'Not a non-negative number!',
-	'error_incorrect_port': 'Not a valid port number!',
-	'error_invalid_value': 'Incorrect value!',
-	'error_value_lte': 'Value must be less than or equal to %s!'});
-$.extend(defaultValues, {
-	'ShowDatabasesNavigationAsTree': true,
-	'NavigationLinkWithMainPanel': true,
-	'NavigationDisplayLogo': true,
-	'NavigationLogoLink': 'index.php',
-	'NavigationLogoLinkWindow': ['main'],
-	'NavigationTreePointerEnable': true,
-	'FirstLevelNavigationItems': '100',
-	'NavigationTreeDisplayItemFilterMinimum': '30',
-	'NumRecentTables': '10',
-	'NumFavoriteTables': '10',
-	'NavigationWidth': '240',
-	'MaxNavigationItems': '50',
-	'NavigationTreeEnableGrouping': true,
-	'NavigationTreeEnableExpansion': true,
-	'NavigationTreeShowTables': true,
-	'NavigationTreeShowViews': true,
-	'NavigationTreeShowFunctions': true,
-	'NavigationTreeShowProcedures': true,
-	'NavigationTreeShowEvents': true,
-	'NavigationTreeAutoexpandSingleDb': true,
-	'NavigationDisplayServers': true,
-	'DisplayServersList': false,
-	'NavigationTreeDisplayDbFilterMinimum': '30',
-	'NavigationTreeDbSeparator': '_',
-	'NavigationTreeDefaultTabTable': ['structure'],
-	'NavigationTreeDefaultTabTable2': [''],
-	'NavigationTreeTableSeparator': '__',
-	'NavigationTreeTableLevel': '1'});
-    });
-    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
-        loadInlineConfig();
-    }
-</script>
-</div></div>
-              </div>
-    </div>
+--
+-- Table structure for table `patient_doc`
+--
 
-          <div class="pma_drop_handler">
-        Drop files here      </div>
-      <div class="pma_sql_import_status">
-        <h2>
-          SQL upload          ( <span class="pma_import_count">0</span> )
-          <span class="close">x</span>
-          <span class="minimize">-</span>
-        </h2>
-        <div></div>
-      </div>
-      </div>
+DROP TABLE IF EXISTS `patient_doc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `patient_doc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prescription` text NOT NULL,
+  `reports` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-  
-  <div id="prefs_autoload" class="alert alert-primary print_ignore hide" role="alert">
-    <form action="index.php?route=/preferences/manage" method="post" class="disableAjax">
-        <input type="hidden" name="token" value="416127394c6d6c2a74714c263270755b">
-        <input type="hidden" name="json" value="">
-        <input type="hidden" name="submit_import" value="1">
-        <input type="hidden" name="return_url" value="index.php?route=%2Fexport">
-        Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?        <br>
-        <a href="#yes">Yes</a>
-        / <a href="#no">No</a>
-        / <a href="#delete">Delete settings</a>
-    </form>
-</div>
+--
+-- Dumping data for table `patient_doc`
+--
 
+LOCK TABLES `patient_doc` WRITE;
+/*!40000 ALTER TABLE `patient_doc` DISABLE KEYS */;
+INSERT INTO `patient_doc` VALUES (1,'./assets/docs/prescription/1_pre.pdf','./assets/docs/reports/1_rep.pdf'),(2,'./assets/docs/prescription/2_pre.pdf','./assets/docs/reports/2_rep.pdf');
+/*!40000 ALTER TABLE `patient_doc` ENABLE KEYS */;
+UNLOCK TABLES;
 
-  
-      <noscript>
-      <div class="alert alert-danger" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Javascript must be enabled past this point!
-</div>
+--
+-- Table structure for table `user_data`
+--
 
-    </noscript>
-  
-      <div id="floating_menubar"></div>
-<nav id="server-breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <img src="themes/dot.gif" title="" alt="" class="icon ic_s_host">
-      <a href="index.php?route=/" data-raw-text="127.0.0.1">
-        Server:        127.0.0.1
-      </a>
-    </li>
+DROP TABLE IF EXISTS `user_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_data` (
+  `id` smallint(11) NOT NULL AUTO_INCREMENT,
+  `user_type` varchar(50) NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-      </ol>
-</nav>
-<div id="topmenucontainer" class="menucontainer">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation" aria-controls="navbarNav" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul id="topmenu" class="navbar-nav">
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/databases">
-              <img src="themes/dot.gif" title="Databases" alt="Databases" class="icon ic_s_db">&nbsp;Databases
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/sql">
-              <img src="themes/dot.gif" title="SQL" alt="SQL" class="icon ic_b_sql">&nbsp;SQL
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/status">
-              <img src="themes/dot.gif" title="Status" alt="Status" class="icon ic_s_status">&nbsp;Status
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/privileges&viewing_mode=server">
-              <img src="themes/dot.gif" title="User accounts" alt="User accounts" class="icon ic_s_rights">&nbsp;User accounts
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/export">
-              <img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/import">
-              <img src="themes/dot.gif" title="Import" alt="Import" class="icon ic_b_import">&nbsp;Import
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/preferences/manage">
-              <img src="themes/dot.gif" title="Settings" alt="Settings" class="icon ic_b_tblops">&nbsp;Settings
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/replication">
-              <img src="themes/dot.gif" title="Replication" alt="Replication" class="icon ic_s_replication">&nbsp;Replication
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/variables">
-              <img src="themes/dot.gif" title="Variables" alt="Variables" class="icon ic_s_vars">&nbsp;Variables
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/collations">
-              <img src="themes/dot.gif" title="Charsets" alt="Charsets" class="icon ic_s_asci">&nbsp;Charsets
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/engines">
-              <img src="themes/dot.gif" title="Engines" alt="Engines" class="icon ic_b_engine">&nbsp;Engines
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/plugins">
-              <img src="themes/dot.gif" title="Plugins" alt="Plugins" class="icon ic_b_plugin">&nbsp;Plugins
-                          </a>
-          </li>
-              </ul>
-    </div>
-  </nav>
-</div>
+--
+-- Dumping data for table `user_data`
+--
 
-    <span id="page_nav_icons">
-      <span id="lock_page_icon"></span>
-      <span id="page_settings_icon">
-        <img src="themes/dot.gif" title="Page-related settings" alt="Page-related settings" class="icon ic_s_cog">
-      </span>
-      <a id="goto_pagetop" href="#"><img src="themes/dot.gif" title="Click on the bar to scroll to top of page" alt="Click on the bar to scroll to top of page" class="icon ic_s_top"></a>
-    </span>
-  
-  <div id="pma_console_container">
-    <div id="pma_console">
-                <div class="toolbar collapsed">
-                    <div class="switch_button console_switch">
-            <img src="themes/dot.gif" title="SQL Query Console" alt="SQL Query Console" class="icon ic_console">
-            <span>Console</span>
-        </div>
-                            <div class="button clear">
-            
-            <span>Clear</span>
-        </div>
-                            <div class="button history">
-            
-            <span>History</span>
-        </div>
-                            <div class="button options">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button bookmarks">
-            
-            <span>Bookmarks</span>
-        </div>
-                            <div class="button debug hide">
-            
-            <span>Debug SQL</span>
-        </div>
-            </div>
-                <div class="content">
-            <div class="console_message_container">
-                <div class="message welcome">
-                    <span id="instructions-0">
-                        Press Ctrl+Enter to execute query                    </span>
-                    <span class="hide" id="instructions-1">
-                        Press Enter to execute query                    </span>
-                </div>
-                            </div><!-- console_message_container -->
-            <div class="query_input">
-                <span class="console_query_input"></span>
-            </div>
-        </div><!-- message end -->
-                <div class="mid_layer"></div>
-                <div class="card" id="debug_console">
-            <div class="toolbar ">
-                    <div class="button order order_asc">
-            
-            <span>ascending</span>
-        </div>
-                            <div class="button order order_desc">
-            
-            <span>descending</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order:</span>
-        </div>
-                            <div class="switch_button">
-            
-            <span>Debug SQL</span>
-        </div>
-                            <div class="button order_by sort_count">
-            
-            <span>Count</span>
-        </div>
-                            <div class="button order_by sort_exec">
-            
-            <span>Execution order</span>
-        </div>
-                            <div class="button order_by sort_time">
-            
-            <span>Time taken</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order by:</span>
-        </div>
-                            <div class="button group_queries">
-            
-            <span>Group queries</span>
-        </div>
-                            <div class="button ungroup_queries">
-            
-            <span>Ungroup queries</span>
-        </div>
-            </div>
-            <div class="content debug">
-                <div class="message welcome"></div>
-                <div class="debugLog"></div>
-            </div> <!-- Content -->
-            <div class="templates">
-                <div class="debug_query action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action dbg_show_trace">
-            Show trace
-                    </span>
-                            <span class="action dbg_hide_trace">
-            Hide trace
-                    </span>
-                            <span class="text count hide">
-            Count
-                    </span>
-                            <span class="text time">
-            Time taken
-                    </span>
-            </div>
-            </div> <!-- Template -->
-        </div> <!-- Debug SQL card -->
-                        <div class="card" id="pma_console_options">
-            <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button default">
-            
-            <span>Set default</span>
-        </div>
-            </div>
-            <div class="content">
-                <label>
-                    <input type="checkbox" name="always_expand">Always expand query messages                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="start_history">Show query history at start                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="current_query">Show current browsing query                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="enter_executes">
-                        Execute queries on Enter and insert new line with Shift + Enter. To make this permanent, view settings.                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="dark_theme">Switch to dark theme                </label>
-                <br>
-            </div>
-        </div> <!-- Options card -->
-        <div class="templates">
-                        <div class="query_actions">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span></span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span></span>
-                    </span>
-            </div>
-        </div>
-    </div> <!-- #console end -->
-</div> <!-- #console_container end -->
+LOCK TABLES `user_data` WRITE;
+/*!40000 ALTER TABLE `user_data` DISABLE KEYS */;
+INSERT INTO `user_data` VALUES (1,'doctor','1','admin@123'),(2,'guardian','12','admin#123');
+/*!40000 ALTER TABLE `user_data` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-  <div id="page_content">
-    
-
-    
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-        html {
-            padding: 0;
-            margin: 0;
-        }
-        body  {
-            font-family: sans-serif;
-            font-size: small;
-            color: #000000;
-            background-color: #F5F5F5;
-            margin: 1em;
-        }
-        h1 {
-            margin: 0;
-            padding: 0.3em;
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #ff0000;
-        }
-        p {
-            margin: 0;
-            padding: 0.5em;
-            border: 0.1em solid red;
-            background-color: #ffeeee;
-        }
-    </style>
-</head>
-<body>
-<h1>phpMyAdmin - Error</h1>
-<p>index.php: Missing parameter: what<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br>index.php: Missing parameter: export_type<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br></p>
-</body>
-</html>
-  </div>
-  <div id="selflink" class="print_ignore"><a href="index.php?route=%2Fexport&amp;server=1" title="Open new phpMyAdmin window" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" class="icon ic_window-new"></a></div>
-
-  <div class="clearfloat" id="pma_errors">
-    
-  </div>
-
-  
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-var debugSQLInfo = 'null';
-
-// ]]>
-</script>
-
-
-  
-  
-  </body>
-</html>
+-- Dump completed on 2022-03-29 21:01:22

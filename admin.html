@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/main.css">
+  <script src="https://kit.fontawesome.com/728dc9daba.js" crossorigin="anonymous"></script>
 
-  <script src="./assets/js/crud.js"></script>
 
 </head>
 
@@ -121,7 +121,7 @@
           <section id="unsetSection"></section>
 
           <section id="registration">
-            
+
 
 
             <div class="row">
@@ -255,7 +255,7 @@
 
 
           <section id="updateinfo">
-            
+
 
 
             <div class="row">
@@ -304,7 +304,7 @@
                       <input type="number" placeholder="Weight" id="weight" name="user_weight" />
                     </div>
 
-                   <!--  <div class="parent">
+                    <!--  <div class="parent">
                       <label for="age">Age:</label>
                       <input type="number" placeholder="Age" id="age" name="age" />
                     </div>
@@ -351,28 +351,16 @@
                       </div> -->
 
                     <div class="parent">
-                        <label for="medicalReports"
-                          >Medical Reports Upload:</label
-                        >
-                        <input
-                          type="file"
-                          placeholder="Medical Reports Upload"
-                          name="medicalReports"
-                          id="medicalReports"
-                        />
-                      </div>
+                      <label for="medicalReports">Medical Reports Upload:</label>
+                      <input type="file" placeholder="Medical Reports Upload" name="medicalReports"
+                        id="medicalReports" />
+                    </div>
 
                     <div class="parent">
-                        <label for="prescriptionUpload"
-                          >Current Prescription Upload:</label
-                        >
-                        <input
-                          type="file"
-                          name="prescriptionUpload"
-                          placeholder="Current Prescription Upload"
-                          id="prescriptionUpload"
-                        />
-                      </div>
+                      <label for="prescriptionUpload">Current Prescription Upload:</label>
+                      <input type="file" name="prescriptionUpload" placeholder="Current Prescription Upload"
+                        id="prescriptionUpload" />
+                    </div>
 
                     <!-- <div class="parent">
                       <label for="doctorAssigned">Doctor Assigned:</label>
@@ -394,17 +382,47 @@
 
           <section id="patientcards">
 
-          
-            <div class="container">
-               <!-- Team item -->
-              <div class="row text-center" id="parent_card">
-               
-              </div>
-               <!-- End -->
-               <!-- New card Start-->
 
-              
-               <!-- New card End -->
+            <div class="container">
+              <!-- Team item -->
+              <!-- <div class="row text-center" id="parent_card">
+               
+              </div> -->
+              <!-- End -->
+              <!-- New card Start-->
+
+              <div id="parent_generate_card">
+                <!-- <div class="p_cards">
+
+
+                  <div class="vitals">
+                    <i class="fa fa-tint" style="color:#e94545; "></i>
+                    <span id="pulse" class="vital_info">72</span>
+
+                    <i class="fa fa-temperature-low" style="color: #f1be32 ;"></i>
+                    <span id="temp" class="vital_info">72</span>
+
+                    <i class="fa fa-lungs" style="color: #329bf1 ;"></i>
+                    <span id="oxy" class="vital_info">72</span>
+
+                  </div>
+
+                  <div class="movement">
+                    <img src="./assets/img/walking.svg" alt="" class="move filter-green">
+                  </div>
+
+                  <div class="clearfix"></div>
+                  <hr class="line">
+                  <div class="card_content">
+                    <h3 id="name_patient" class="name">Rugved Alav</h3>
+                    <h5 id="id" class="unique_id">1234</h5>
+                  </div>
+
+
+                </div> -->
+
+              </div>
+              <!-- New card End -->
             </div>
 
 
@@ -412,52 +430,50 @@
             <div class="wrapper">
               <!-- <a href="#demo-modal">Open Demo Modal</a> -->
               <!-- <button class="view-btn" href="#demo-modal">Update</button> -->
-          </div>
-           
-          <div id="demo-modal" class="modal">
+            </div>
+
+            <div id="demo-modal" class="modal">
               <div class="modal__content">
-                  <h1>Patients Details</h1>
-          
-                  <div class="personal">
-                    <label class="p_data" for="name">Name: </label><span class="info" id="p_name"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Blood Group: </label><span class="info"
-                      id="p_blood"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">DOB: </label><span class="info" id="p_birth"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Sex: </label><span class="info" id="p_gender"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Age: </label><span class="info" id="p_age"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Weight: </label><span class="info" id="p_weight"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">BMI: </label><span class="info" id="p_bmi"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Patient type: </label><span class="info"
-                      id="p_type"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Bed no: </label><span class="info" id="p_bed"></span><br><br>
-                  </div>
-                  <div class="personal">
-                    <label class="p_data" for="text">Admission Date: </label><span class="info" id="p_reg_date"></span>
-                  </div>
-          
-                  <div class="modal__footer">
-                    <a class="view-btn" href="#demo-modal">Update</a>
-                  </div>
-          
-                  <a href="#" class="modal__close">&times;</a>
+                <h1>Patients Details</h1>
+
+                <div class="personal">
+                  <label class="p_data" for="name">Name: </label><span class="info" id="p_name"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Blood Group: </label><span class="info" id="p_blood"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">DOB: </label><span class="info" id="p_birth"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Sex: </label><span class="info" id="p_gender"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Age: </label><span class="info" id="p_age"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Weight: </label><span class="info" id="p_weight"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">BMI: </label><span class="info" id="p_bmi"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Patient type: </label><span class="info" id="p_type"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Bed no: </label><span class="info" id="p_bed"></span><br><br>
+                </div>
+                <div class="personal">
+                  <label class="p_data" for="text">Admission Date: </label><span class="info" id="p_reg_date"></span>
+                </div>
+
+                <div class="modal__footer">
+                  <a class="view-btn" href="#demo-modal">Update</a>
+                </div>
+
+                <a href="#" class="modal__close">&times;</a>
               </div>
-          </div>
+            </div>
 
 
 
@@ -468,8 +484,29 @@
     </div>
   </div>
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="./assets/js/crud.js"></script>
+
   <script src="assets/js/controller.js"></script>
 
 </body>
 
 </html>
+
+<!-- 
+<div class="vitals">
+  <i class="fa fa-tint" style="color:#e94545;"></i>
+  <span class="vital_info" id="pulse_data.id">77</span>
+  <i class="fa fa-temperature-low" style="color:#f1be32;"></i>
+  <span class="vital_info" id="temperature_data.id">77</span>
+  <i class="fa fa-lungs" style="color:#f1be32;"></i>
+  <span class="vital_info" id="oxygen_data.id">77</span>
+</div>
+
+<div class="movement">
+  <img class="move" src="./assets/img/walking.svg"></div>
+<div class="clearfix"></div>
+<hr class="line">
+<div class="card_content">
+  <h3 class="name" id="name_patient">Rugved Alav</h3>
+  <h5 class="unique_id" id="">1234</h5>
+</div> -->

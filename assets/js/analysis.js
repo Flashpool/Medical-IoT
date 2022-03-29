@@ -129,26 +129,29 @@ el.innerHTML="";
       const intervalId = setInterval(() => {
 
         const temp_random = Math.round(get_random_numbers(36,50));
-        const pulse_random = Math.round(get_random_numbers(55,65));
+        const pulse_random = Math.round(get_random_numbers(70,95));
+        const oxygen_random = Math.round(get_random_numbers(90,100));
     
        
         const date_time= new Date();
         let time=date_time.toLocaleTimeString();
         // let time= date_time.format("dd-MM-yyyy hh:mm:ss")
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear()+'-0'+(today.getMonth()+1)+'-'+today.getDate();
         var localtime = today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
         let current_time=   date+" "+localtime
 
-     
+        
+      
 
         if(pulse_random<=60 && pulse_random>=55)
         {
+         
           sleep_seconds++;
           // console.log(sleep_hours);
 
           sleep_min=(sleep_seconds/60);
-          console.log(sleep_min+" mins - "+time+" - "+sleep_seconds);
+          console.log(sleep_min+" mins - "+current_time+" - "+sleep_seconds);
     
           post_patient_data={
             patient_id:id,
@@ -156,11 +159,35 @@ el.innerHTML="";
             temp: temp_random,
             sleepmin:sleep_min,
             current_timestamp:current_time,
+            oxygen:oxygen_random,
+            footsteps:"0",
+            movementicon:"sleeping"
+
 
           }
+        }
+        else
+          {
+            let footsteps=Math.round(get_random_numbers(4,10));
+            let position=Math.round(get_random_numbers(0,2));
+            let movementicon=["walking","running","sitting"]
+            post_patient_data={
+              patient_id:id,
+              pulse_rate: pulse_random,
+              temp: temp_random,
+              sleepmin:null,
+              current_timestamp:current_time,
+              oxygen:oxygen_random,
+              footsteps:footsteps,
+              movementicon:movementicon[position]
+  
+  
+          }
+        }
+        // console.log(post_patient_data)
           post_patients_data( post_patient_data);
 
-        }
+        
 
    
 

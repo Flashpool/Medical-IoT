@@ -3,8 +3,8 @@
 
 patient_data =[];
 vitals_data =[];
-
-
+footsteps_data =[];
+fetch_patient_id="";
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
@@ -139,7 +139,7 @@ function change_patient_data(patient_id){
 
     // let patient_image=document.getElementById('p_img');
     // patient_image.setAttribute("src",patients_data["profile_img"]);
-    
+   fetch_patient_id=patient_id;
     generate_patient_status(patient_id);
 
 }
@@ -147,13 +147,14 @@ function change_patient_data(patient_id){
 fetch_patients_data();
 
 
-function generate_patient_status(patient_id){
+function generate_patient_status(patientid){
 
+    // clearInterval(interval_status)
    
 
 
     const interval_status = setInterval(() => {
-    
+       let patient_id=patientid
   
         const temp_random = Math.round(get_random_numbers(30,36));
         const pulse_random = Math.round(get_random_numbers(70,75));
@@ -165,12 +166,13 @@ function generate_patient_status(patient_id){
             // patient_pulse=document.getElementById('pulse'+patient_id)
             // patient_oxygen=document.getElementById('oxygen'+patient_id)
 
-            get_vitals_data(patient_id);
+            get_vitals_data();
+        
             patient_temperature=document.getElementById('temp')
             patient_pulse=document.getElementById('pulse')
             patient_oxygen=document.getElementById('oxygen')
             patient_sleep=document.getElementById('sleep')
-
+            patient_footsteps=document.getElementById('foot')
     
 
             //  get_vitals_data(patient_id);
@@ -182,11 +184,13 @@ function generate_patient_status(patient_id){
             patient_temperature.innerHTML=vitals_data[0].temp;
             patient_pulse.innerHTML=vitals_data[0].pulse_rate;
             patient_sleep.innerHTML=Number(vitals_data[0].sleep_min/60).toFixed(2);
-            patient_oxygen.innerHTML=oxy_random;
-    
+            patient_oxygen.innerHTML=vitals_data[0].oxygen;
+            get_footsteps_data();
+            patient_footsteps.innerHTML=footsteps_data[0].footsteps;
+
     
       
-      },2000);
+      },1000);
     
     
     
@@ -259,31 +263,43 @@ function drawChart() {
     }
 }
 
-function get_vitals_data(id){
-    // patient_temperature=document.getElementById('temp')
-    // patient_pulse=document.getElementById('pulse')
-    // patient_oxygen=document.getElementById('oxygen')
-    // patient_sleep=document.getElementById('sleep')
+function get_vitals_data(){
+
 
     var xhr=new XMLHttpRequest();
-     xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+id,true);
+     xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+fetch_patient_id,true);
 
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    // xhr.send(JSON.stringify(id))
+
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
-            vitals_data=JSON.parse(this.responseText);
-            console.log(vitals_data);
+            vitals_data=JSON.parse(this.responseText); 
+        }   
+    }
+    xhr.send();
 
-            // patient_temperature.innerHTML=vitals_data[0].temp;
-            // patient_pulse.innerHTML=vitals_data[0].pulse_rate;
-            // patient_sleep.innerHTML=vitals_data[0].sleep_min;
-            // patient_oxygen.innerHTML=oxy_random;
+
+
+}
+
+function get_footsteps_data(){
+ 
+    var xhr=new XMLHttpRequest();
+     xhr.open("GET","http://127.0.0.1:5000/get/patient/footsteps?id="+fetch_patient_id,true);
+
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ 
+    xhr.onreadystatechange= function (){
+        if (this.readyState==4 & this.status==200){
+            footsteps_data=JSON.parse(this.responseText);
+            console.log(footsteps_data);
+
+
           
         }   
     }
     xhr.send();
-// xhr.send(JSON.stringify({"pulse_rate":pulse_random,"temp":temp_random}));
+
 
 
 

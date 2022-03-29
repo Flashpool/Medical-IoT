@@ -5,7 +5,7 @@ from tkinter import E
 from turtle import st
 from flask import Flask, jsonify,request
 import dbops
-from flask_apscheduler import APScheduler
+# from flask_apscheduler import APScheduler
 import pandas as pd
 from flask_cors import CORS, cross_origin
 import datetime
@@ -53,6 +53,9 @@ def patients_vitals_generate():
     pulse_rate=str(data['pulse_rate'])
     temp=str(data['temp'])
     sleepmin=str(data['sleepmin'])
+    oxygen=str(data['oxygen'])
+    footsteps=str(data['footsteps'])
+    movementicon=str(data['movementicon'])
     current_timestamp=str(data['current_timestamp'])
 
 
@@ -62,7 +65,7 @@ def patients_vitals_generate():
     #     print(str(pulse_random)+" : "+str(time)+" - "+str(temp_random)+" : "+sleep_min)
     try:
         
-           query= pd.DataFrame([["",patient_id,sleepmin,pulse_rate,temp,current_timestamp]],columns=["id","patient_id","sleep_min","pulse_rate","temp","current_timestamp"])
+           query= pd.DataFrame([["",patient_id,sleepmin,pulse_rate,temp,oxygen,footsteps,movementicon,current_timestamp]],columns=["id","patient_id","sleep_min","pulse_rate","temp","oxygen","footsteps","movementicon","current_timestamp"])
            with dbops.engine.begin() as connection:
              query.to_sql('patient_analysis_data',con=connection, if_exists='append',index=False)
     except Exception as e:
@@ -160,7 +163,7 @@ def vitals_status():
         return "Connection not Available, Please check your Internet."
     else:
         try:    
-            bed_query = ("SELECT * FROM `patient_analysis_data`  where patient_id='"+id+"' ORDER BY id DESC LIMIT 0, 1 ")
+            bed_query = ("SELECT * FROM `patient_analysis_data`  where patient_id='"+id+"' and NOT(sleep_min='0') ORDER BY id DESC LIMIT 0, 1 ")
             cursor.execute(bed_query)
         except Exception as e:
             return "There is some Problem in fetching data."
@@ -181,6 +184,42 @@ def vitals_status():
                 return "There is some Problem in fetching data from Server."
     return jsonify(beds)    
 
+
+@app.route('/get/patient/footsteps', methods =['GET'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
+def footsteps_count():
+    # data=request.get_json()
+    data=request.args
+
+    id=str(data.get("id"))
+    print(id)
+    try:
+        cnx = dbops.getConnection()
+        cursor = cnx.cursor()
+    except Exception as e:
+        return "Connection not Available, Please check your Internet."
+    else:
+        try:    
+            bed_query = ("SELECT SUM(footsteps) as footsteps FROM `patient_analysis_data`  where patient_id='"+id+"' ")
+            cursor.execute(bed_query)
+        except Exception as e:
+            return "There is some Problem in fetching data."
+        else:
+            try:
+                print(cursor.column_names)   
+                rows = [x for x in cursor]
+                cols = [x[0] for x in cursor.description] 
+                beds = []     
+                for row in rows:                      
+                    single_bed_data = {}
+                    for prop, val in zip(cols, row):
+                        single_bed_data [prop] = val
+                    beds.append(single_bed_data )
+                cursor.close()
+                cnx.close()
+            except Exception as e:
+                return "There is some Problem in fetching data from Server."
+    return jsonify(beds)    
     
 
 
