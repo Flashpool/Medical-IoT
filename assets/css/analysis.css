@@ -6,10 +6,10 @@
 }
 :root{
 	--bodyFont: 'Roboto', sans-serif;
-    --specialFont:'Roboto', sans-serif;   
+    --specialFont:'Mulish', sans-serif;  
     --lightGreen: #9395ed;
 	--gradientGreen: -webkit-gradient(linear, left top, right bottom, color-stop(100%,#9395ed), color-stop(0%,#6c6de3));
-	--purplegradient:background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
+	--purplegradient:linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
     --textColor: #323232;
     --white: #fff;
     --bodycolor:rgb(255, 251, 251);
@@ -185,12 +185,11 @@ body{
 	
 }
 
-
 .right-sidebar{
 	max-width: 260px;
 	width: 100%;
-	max-height: 170px;
-    height: 650px;
+	
+    height: 12em;
 	float: left;
     margin-top: 30px;
 	background-color: var(--white);
@@ -198,49 +197,30 @@ body{
 	padding: 25px;
 	/* overflow-y: scroll; */
 }
-.p-1{
-    font-weight: bolder;
-    font-size: 25px;
-    
-    font-family: var(--specialFont);
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .p-1 span{
-      margin-left: 40px;
-      font-size: 12px;
-      font-weight: 700;
-      background: white;
-      color: #b5b5b5;
-      padding: 7px 15px;
-      box-shadow: var(--shadow);
-      border-radius: 10px;
-  }
 .patient-list{
 	padding: 15px 10px;
 	margin-top: 5px;
-    background-color: var(--white);
+    background-color: var(--bodyBg);
     box-shadow: var(--shadow);
     border-radius: 10px;
  
 }
-.patient-list:hover{
+/* .phover{
 	background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
 	color: white!important;
 	box-shadow: 2px 5px 10px 3px #36d09c30;
-}
+} */
 .patient-list:active{
 	background: linear-gradient(90deg, #9395ed 0%, #6c6de3 100%);
 	color: white!important;
 	box-shadow: 2px 5px 10px 3px #36d09c30;
 }
 .p2{
-	background: var(--bodyBg);
-	padding: 5px 14px;
+	background: #9395ed;
+	padding: 5px 13px;
 	border-radius: 42px;
 	font-size: 20px;
-	color: #6c6de3;
+	color: var(--white);
 	font-weight: 800;
 	padding-bottom: 9px;
 	width: 12px;
@@ -260,6 +240,8 @@ body{
 	float: right!important;
 	font-size: 17px!important;
 }
+
+
 
 
 
