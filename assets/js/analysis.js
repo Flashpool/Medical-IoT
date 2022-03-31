@@ -1,6 +1,19 @@
 
 patient_data = [];
 
+fetch_sleep_url="http://localhost:8080/Medical-IoT/sleep.json";
+
+sleep_data=[];
+
+data_categories=[];
+
+total_sleep=[];
+
+deep_sleep=[];
+
+let  chart_sleep;
+
+
 function fetch_patients_data() {
 
   var xhr = new XMLHttpRequest();
@@ -83,6 +96,9 @@ function change_patient_data(patient_id) {
   let patient_name = patients_data["patient_name"];
 
   patient_live_update(patient_id, patient_name);
+
+  fetch_sleep_data(patient_id);
+  // patient_sleep_graph(patient_id,patient_name);
 
 }
 
@@ -186,7 +202,7 @@ function patient_live_update(id, name) {
       }
     }
     // console.log(post_patient_data)
-    post_patients_data(post_patient_data);
+    // post_patients_data(post_patient_data);
 
 
 
@@ -206,36 +222,27 @@ function patient_live_update(id, name) {
 
 
 // Area graph for sleep 
+
+
+function patient_sleep_graph(){
+
+
+
+
 const el = document.getElementById('chart-area-sleep');
-const data = {
-  categories: [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ],
+let data = {
+  categories: [],
   series: [
     {
       name: 'Sleep',
-      data: [20, 40, 25, 50, 15, 45, 33, 34, 20, 30, 22, 13],
+      data: [],
     },
     {
       name: 'Deep Sleep',
-      data: [5, 30, 21, 18, 59, 50, 28, 33, 7, 20, 10, 30],
-    },
-    // {
-    //   name: 'Moscow',
-    //   data: [30, 5, 18, 21, 33, 41, 29, 15, 30, 10, 33, 5],
-    // },
-  ],
+      data: [],
+    }
+
+  ]
 };
 
 const theme = {
@@ -259,16 +266,35 @@ const theme = {
 };
 
 const options = {
-  chart: { title: 'Sleep Analysis', width: 900, height: 230 },
-  xAxis: { pointOnColumn: false, title: { text: 'Month' } },
+  chart: { title: 'Sleep Analysis - ', width: 900, height: 230 },
+  xAxis: { pointOnColumn: false, title: { text: 'Date' } },
   yAxis: { title: 'Y - Data' },
-  series: { dataLabels: { visible: true, offsetY: -10 } },
+  series: { },
   theme,
 };
 
-const chart = toastui.Chart.areaChart({ el, data, options });
 
 
+ chart_sleep = toastui.Chart.areaChart({ el, data, options });
+
+ chart_sleep.setData({
+  categories: data_categories,
+  series: [
+    {
+      name: 'Sleep',
+      data: total_sleep,
+    },
+    {
+      name: 'Deep Sleep',
+      data: deep_sleep,
+    }
+
+  ]
+});
+
+
+
+}
 
 
 
@@ -294,3 +320,75 @@ function post_patients_data(data) {
 }
 
 
+function fetch_sleep_data(id){
+
+  var xhr=new XMLHttpRequest();
+
+    //  xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+fetch_patient_id,true);
+
+     xhr.open("GET",fetch_sleep_url,true);
+
+    
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    xhr.onreadystatechange= function (){
+        if (this.readyState==4 & this.status==200){
+            sleep_data=JSON.parse(this.responseText).sleep.reverse(); 
+            console.log(sleep_data);
+
+            process_sleep_data(sleep_data)
+        }   
+    }
+    xhr.send();
+
+   
+}
+
+
+  function process_sleep_data(){
+    // console.log(sleep_data[0])
+
+  let days=["SUN","MON","TUE","WED","THRU","FRI","SAT"]
+
+
+  for(i=0;i<sleep_data.length;i++)
+  {
+  
+  let unix_timestamp=Number(sleep_data[i].ts+19800);
+
+  // Create a new JavaScript Date object based on the timestamp
+  // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+  var unix_date = new Date(unix_timestamp * 1000);
+  // Hours part from the timestamp
+  
+  var position_day=unix_date.getDay(); // 0 1 2 3
+  
+  // console.log(days[position_day]);
+
+  let date=unix_date.getDate()+"-0"+Number(unix_date.getMonth()+1)+"-"+unix_date.getFullYear();	
+
+  // console.log(date)
+
+  data_categories.push(date);
+
+
+  deep_sleep_time=Number(sleep_data[i].tds/3600);
+
+  deep_sleep.push(deep_sleep_time.toString());
+
+  total_sleep_time=Number(sleep_data[i].tst/3600)
+
+  total_sleep.push(total_sleep_time.toString());
+
+  console.log(deep_sleep_time+" : "+total_sleep_time)
+
+  }
+
+  console.log(data_categories);
+  console.log(deep_sleep);
+  console.log(total_sleep);
+
+  patient_sleep_graph();
+
+
+  }

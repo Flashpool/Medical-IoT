@@ -5,6 +5,11 @@ patient_data =[];
 vitals_data =[];
 footsteps_data =[];
 fetch_patient_id="";
+
+
+// fetch_vital_url="http://192.168.29.17/api?fresh";
+fetch_vital_url="http://localhost:8080/Medical-IoT/vital.json";
+
 function fetch_patients_data(){
      
     var xhr=new XMLHttpRequest();
@@ -12,7 +17,6 @@ function fetch_patients_data(){
     // xhr.open("GET","./resources/crud.php",true);
     // xhr.open("POST","./resources/crud.php",true);
 
-    let data={readdata:"getpatientList"}
 
 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange= function (){
@@ -22,7 +26,7 @@ xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             create_patient_list(patient_data);
         }   
     }
-xhr.send("readdata");
+xhr.send();
 }
 
 
@@ -181,12 +185,12 @@ function generate_patient_status(patientid){
             // patient_pulse.innerHTML=pulse_random;
             // patient_oxygen.innerHTML=oxy_random;
 
-            patient_temperature.innerHTML=vitals_data[0].temp;
-            patient_pulse.innerHTML=vitals_data[0].pulse_rate;
-            patient_sleep.innerHTML=Number(vitals_data[0].sleep_min/60).toFixed(2);
-            patient_oxygen.innerHTML=vitals_data[0].oxygen;
-            get_footsteps_data();
-            patient_footsteps.innerHTML=footsteps_data[0].footsteps;
+            patient_temperature.innerHTML=vitals_data[0].t;
+            patient_pulse.innerHTML=vitals_data[0].b;
+            // patient_sleep.innerHTML=Number(vitals_data[0].sleep_min/60).toFixed(2);
+            patient_oxygen.innerHTML=vitals_data[0].o;
+            // get_footsteps_data();
+            patient_footsteps.innerHTML=vitals_data[0].s;
 
     
       
@@ -219,7 +223,7 @@ google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Steps', ''],
+        ['Steps', 'Deep'],
         ['Mon', 900],
         ['Tue', 200],
         ['Wed', 700],
@@ -265,15 +269,19 @@ function drawChart() {
 
 function get_vitals_data(){
 
-
     var xhr=new XMLHttpRequest();
-     xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+fetch_patient_id,true);
 
+    //  xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+fetch_patient_id,true);
+
+     xhr.open("GET",fetch_vital_url,true);
+
+    
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
-            vitals_data=JSON.parse(this.responseText); 
+            vitals_data=JSON.parse(this.responseText).data; 
+            console.log(vitals_data);
         }   
     }
     xhr.send();
