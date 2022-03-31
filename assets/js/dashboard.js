@@ -219,7 +219,7 @@ google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Branch Name', ''],
+        ['Steps', ''],
         ['Mon', 900],
         ['Tue', 200],
         ['Wed', 700],
@@ -306,3 +306,29 @@ function get_footsteps_data(){
   
 }
    
+function create_schedule_card(){
+
+    
+    let parent_schedule = document.getElementById('leaderboard__profiles');
+
+    for (let i = 0; i < schedule_data.length; i++) {
+        
+        let leader_board = document.createElement('article')
+        leader_board.setAttribute("class","leaderboard__profile");
+
+        let leader_name = document.createElement('span');
+        leader_name.setAttribute("class","leaderboard__name");
+        leader_name.innerHTML=schedule_data[i].schedule_type;
+
+        let leader_time = document.createElement('span');
+        leader_time.setAttribute("class","leaderboard__value");
+
+        leader_board.appendChild(leader_name);
+        leader_board.appendChild(leader_time);
+        parent_schedule.appendChild(leader_board);
+  
+
+}
+}
+
+create_schedule_card()

@@ -1,117 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/reports.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/reports.css">
 </head>
+
 <body>
-    <section id="">
-        <div class="left-sidebar">
-            <img class="logo" src="assets/img/logo.png">
-            <br><br><br>
-            
-            <a href="index.html" class="nav__link">
-            <i class="material-icons nav__icon" style="font-size: 35px;">dashboard</i> </a>
-            <br><br><br>
-            <a href="analysis.html" class="nav__link">
-            <i class="material-icons nav__icon" style="font-size: 35px;">analytics</i></a>
-            <br><br><br>
-            <a href="#" class="nav__link">
-            <i class="material-icons nav__icon" style="font-size: 35px;">person</i></a>
-            <br><br><br>
-            <a href="#" class="nav__link">
-            <i class="material-icons nav__icon" style="font-size: 35px;">settings</i></a>
-            <br>
-    
-            
-        </div>
-    
-        
-    
-    
-    
+  <section id="">
+    <div class="left-sidebar">
+      <img class="logo" src="assets/img/logo.png">
+      <br><br><br>
+
+      <a href="index.html" class="nav__link">
+        <i class="material-icons nav__icon" style="font-size: 35px;">dashboard</i> </a>
+      <br><br><br>
+      <a href="analysis.html" class="nav__link">
+        <i class="material-icons nav__icon" style="font-size: 35px;">analytics</i></a>
+      <br><br><br>
+      <a href="#" class="nav__link">
+        <i class="material-icons nav__icon" style="font-size: 35px;">person</i></a>
+      <br><br><br>
+      <a href="#" class="nav__link">
+        <i class="material-icons nav__icon" style="font-size: 35px;">settings</i></a>
+      <br>
+
+
+    </div>
+
+
+
+
+
     <!--	<a href="#" style="text-decoration: none; float: left; margin-left: 0.5em;"><i class="fa fa-reorder menu-icon" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i></a>-->
-        <div class="main">
-            <div class="welcome">
-                <div class="content">
-                    <p style="font-size: large; color: white;">Welcome</p>
-                    <span style="color: white;">Dr. Rugved Alav</span>
-                    
-                </div>
-            
-            </div>
-    
-           
-                
-               <!--<i class="fa fa-long-arrow-left arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0; "></i>
+    <div class="main">
+      <div class="welcome">
+        <div class="content">
+          <p style="font-size: large; color: white;">Welcome</p>
+          <span style="color: white;">Dr. Rugved Alav</span>
+
+        </div>
+
+      </div>
+
+
+
+      <!--<i class="fa fa-long-arrow-left arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0; "></i>
                 <i class="fa fa-long-arrow-right arrow1" style="background-color: white; border-radius: 5px; padding: 3px; margin: 10px 0;"></i>-->
-            
-                <div class="clearfix"></div>
-                <div class="personal">
-                  <label class="p_data" for="name">Name: </label><span class="info" id="p_name"></span><br><br>
-                </div>
-                <br>
-          <div class="viewreports">
-            <embed
-            id="prescription"
-           
-            type="application/pdf"
-            frameBorder="0"
-            scrolling="auto"
-            height="100%"
-            width="100%"
-         ></embed>
-          </div>
-          <div class="viewreports" >
-            <embed
-            id="reports"
-          
-            type="application/pdf"
-            frameBorder="0"
-            scrolling="auto"
-            height="100%"
-            width="100%"
-        ></embed>
-        </div>
+
+      <div class="clearfix"></div>
+      <div class="personal">
+        <label class="p_data" for="name">Name: </label><span class="info" id="p_name"></span><br><br>
+      </div>
+      <br>
+      <div class="viewreports">
+        <embed id="prescription" type="application/pdf" frameBorder="0" scrolling="auto" height="100%"
+          width="100%"></embed>
+      </div>
+      <div class="viewreports">
+        <embed id="reports" type="application/pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"></embed>
+      </div>
 
 
-        </div>
+    </div>
 
-        <!-- Patient list start -->
-	<div class="right-sidebar" id="parent_patient_list">
-		<p class="p-1" >Patient List</p>
-	<!-- Patient list end -->
-
-    
-	<nav class="nav">
-		<a href="#" class="nav__link1">
-		  <i class="material-icons nav__icon">dashboard</i>
-		  <span class="nav__text">Dashboard</span>
-		</a>
-		<a href="analysis.html" class="nav__link">
-		  <i class="material-icons nav__icon">analytics</i>
-		  <span class="nav__text">Analysis</span>
-		</a>
-		<a href="reports.html" class="nav__link nav__link">
-			<i class="material-icons nav__icon">person</i>
-			<span class="nav__text">Profile</span>
-		  </a>
-		<a href="#" class="nav__link">
-		  <i class="material-icons nav__icon">settings</i>
-		  <span class="nav__text">Settings</span>
-		</a>
-	  </nav>
-</section>
-    
+    <!-- Patient list start -->
+    <div class="right-sidebar" id="parent_patient_list">
+      <p class="p-1">Patient List</p>
+      <!-- Patient list end -->
 
 
-   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="assets/js/reports.js"></script>
+      <nav class="nav">
+        <a href="#" class="nav__link1">
+          <i class="material-icons nav__icon">dashboard</i>
+          <span class="nav__text">Dashboard</span>
+        </a>
+        <a href="analysis.html" class="nav__link">
+          <i class="material-icons nav__icon">analytics</i>
+          <span class="nav__text">Analysis</span>
+        </a>
+        <a href="reports.html" class="nav__link nav__link">
+          <i class="material-icons nav__icon">person</i>
+          <span class="nav__text">Profile</span>
+        </a>
+        <a href="#" class="nav__link">
+          <i class="material-icons nav__icon">settings</i>
+          <span class="nav__text">Settings</span>
+        </a>
+      </nav>
+  </section>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/js/reports.js"></script>
 </body>
+
 </html>

@@ -357,6 +357,11 @@ function change_patient_data(patient_id) {
     let patient_reg_date = document.getElementById('p_reg_date');
     patient_reg_date.innerHTML = patients_data["reg_date"];
 
+    let patient_address = document.getElementById('p_address');
+    patient_address.innerHTML = patient_data["address"];
+
+    let patient_contact = document.getElementById('p_contact');
+    patient_contact.innerHTML = patient_data["contact_no"];
 
     // let patient_image=document.getElementById('p_img');
     // patient_image.setAttribute("src",patients_data["profile_img"]);
@@ -606,3 +611,18 @@ function get_vitals_data(data) {
 
 
 }
+
+function card_alert()
+{
+    
+    if(pulse_random<=60 && pulse_random>=55)
+    {
+     
+        let patient_alert=document.getElementsByClassName("p_cards")
+        patient_alert.setAttribute("style","border-top: 1em solid red")
+
+
+      }
+      
+}
+card_alert()
