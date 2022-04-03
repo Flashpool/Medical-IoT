@@ -1,8 +1,9 @@
 
 patient_data = [];
 
-fetch_sleep_url="http://localhost:8080/Medical-IoT/sleep.json";
+fetch_sleep_url="http://192.168.29.17:80/api?sleep=8080";
 
+fetch_vital_url = "http://192.168.29.17:80/api?fresh";
 sleep_data=[];
 
 data_categories=[];
@@ -11,6 +12,7 @@ total_sleep=[];
 
 deep_sleep=[];
 
+vitals_data=[];
 let  chart_sleep;
 
 
@@ -97,8 +99,7 @@ function change_patient_data(patient_id) {
 
   patient_live_update(patient_id, patient_name);
 
-  fetch_sleep_data(patient_id);
-  // patient_sleep_graph(patient_id,patient_name);
+  //fetch_sleep_data(patient_id);
 
 }
 
@@ -147,9 +148,19 @@ function patient_live_update(id, name) {
 
   const intervalId = setInterval(() => {
 
-    const temp_random = Math.round(get_random_numbers(36, 50));
-    const pulse_random = Math.round(get_random_numbers(70, 95));
-    const oxygen_random = Math.round(get_random_numbers(90, 100));
+    // const temp_random = Math.round(get_random_numbers(36, 50));
+    // const pulse_random = Math.round(get_random_numbers(70, 95));
+    // const oxygen_random = Math.round(get_random_numbers(90, 100));
+    get_vitals_data();
+
+    const temp_random  = vitals_data[0].t;
+    const pulse_random = vitals_data[0].b;
+    const oxygen_random = vitals_data[0].o;
+
+
+    // get_footsteps_data();
+
+
 
 
     const date_time = new Date();
@@ -163,44 +174,44 @@ function patient_live_update(id, name) {
 
 
 
-    if (pulse_random <= 60 && pulse_random >= 55) {
+      // if (pulse_random <= 60 && pulse_random >= 55) {
 
-      sleep_seconds++;
-      // console.log(sleep_hours);
+      //   sleep_seconds++;
+      //   // console.log(sleep_hours);
 
-      sleep_min = (sleep_seconds / 60);
-      console.log(sleep_min + " mins - " + current_time + " - " + sleep_seconds);
+      //   sleep_min = (sleep_seconds / 60);
+      //   console.log(sleep_min + " mins - " + current_time + " - " + sleep_seconds);
 
-      post_patient_data = {
-        patient_id: id,
-        pulse_rate: pulse_random,
-        temp: temp_random,
-        sleepmin: sleep_min,
-        current_timestamp: current_time,
-        oxygen: oxygen_random,
-        footsteps: "0",
-        movementicon: "sleeping"
-
-
-      }
-    }
-    else {
-      let footsteps = Math.round(get_random_numbers(4, 10));
-      let position = Math.round(get_random_numbers(0, 2));
-      let movementicon = ["walking", "running", "sitting"]
-      post_patient_data = {
-        patient_id: id,
-        pulse_rate: pulse_random,
-        temp: temp_random,
-        sleepmin: null,
-        current_timestamp: current_time,
-        oxygen: oxygen_random,
-        footsteps: footsteps,
-        movementicon: movementicon[position]
+      //   post_patient_data = {
+      //     patient_id: id,
+      //     pulse_rate: pulse_random,
+      //     temp: temp_random,
+      //     sleepmin: sleep_min,
+      //     current_timestamp: current_time,
+      //     oxygen: oxygen_random,
+      //     footsteps: "0",
+      //     movementicon: "sleeping"
 
 
-      }
-    }
+      //   }
+      // }
+      // else {
+      //   let footsteps = Math.round(get_random_numbers(4, 10));
+      //   let position = Math.round(get_random_numbers(0, 2));
+      //   let movementicon = ["walking", "running", "sitting"]
+      //   post_patient_data = {
+      //     patient_id: id,
+      //     pulse_rate: pulse_random,
+      //     temp: temp_random,
+      //     sleepmin: null,
+      //     current_timestamp: current_time,
+      //     oxygen: oxygen_random,
+      //     footsteps: footsteps,
+      //     movementicon: movementicon[position]
+
+
+      //   }
+      // }
     // console.log(post_patient_data)
     // post_patients_data(post_patient_data);
 
@@ -329,7 +340,7 @@ function fetch_sleep_data(id){
      xhr.open("GET",fetch_sleep_url,true);
 
     
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     xhr.onreadystatechange= function (){
         if (this.readyState==4 & this.status==200){
@@ -354,7 +365,7 @@ function fetch_sleep_data(id){
   for(i=0;i<sleep_data.length;i++)
   {
   
-  let unix_timestamp=Number(sleep_data[i].ts+19800);
+  let unix_timestamp=Number(sleep_data[i].ts);
 
   // Create a new JavaScript Date object based on the timestamp
   // multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -392,3 +403,24 @@ function fetch_sleep_data(id){
 
 
   }
+
+
+  function get_vitals_data() {
+
+    var xhr = new XMLHttpRequest();
+
+
+    xhr.open("GET", fetch_vital_url, true);
+
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 & this.status == 200) {
+            vitals_data = JSON.parse(this.responseText).data;
+            console.log(vitals_data);
+        }
+    }
+    xhr.send();
+
+
+
+}

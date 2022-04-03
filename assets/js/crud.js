@@ -376,11 +376,6 @@ function change_patient_data(patient_id) {
 
 
 
-
-
-
-
-
 function generate_patient_status() {
 
 
@@ -391,34 +386,52 @@ function generate_patient_status() {
         pulse_array = [];
         oxy_array = [];
         get_vitals_data(patient_data)
-        for (i = 0; i < patient_data.length; i++) {
-            // const temp_random = Math.round(Math.random() * 100);
-            // const pulse_random = Math.round(Math.random() * 100);
-            // const oxy_random = Math.round(Math.random() * 100);
-            // fetch_patient_id=patient_data[i].id;
-            // get_vitals_data()
-            // const temp_random = Math.round(get_random_numbers(30, 36));
-            // const pulse_random = Math.round(get_random_numbers(70, 75));
-            // const oxy_random = Math.round(get_random_numbers(90, 100));
-            patient_temperature = document.getElementById('patient_temp_' + patient_data[i].id)
-            patient_pulse = document.getElementById('patient_pulse_' + patient_data[i].id)
-            patient_oxygen = document.getElementById('patient_oxygen_' + patient_data[i].id)
-            patient_action = document.getElementById('patient_action_' + patient_data[i].id)
-            // temp_array.push(temp_random);
-            // pulse_array.push(pulse_random);
-            // oxy_array.push(oxy_random);
-            // temp_array.push(vitals_data[0].temp);
-            // pulse_array.push(vitals_data[0].pulse_rate);
-            // oxy_array.push(vitals_data[0].oxygen);
+        // for (i = 0; i < patient_data.length; i++) {
 
-            console.log(vitals_data)
+        // const temp_random = Math.round(Math.random() * 100);
+        // const pulse_random = Math.round(Math.random() * 100);
+        // const oxy_random = Math.round(Math.random() * 100);
+        // fetch_patient_id=patient_data[i].id;
+        // get_vitals_data()
+        // const temp_random = Math.round(get_random_numbers(30, 36));
+        // const pulse_random = Math.round(get_random_numbers(70, 75));
+        // const oxy_random = Math.round(get_random_numbers(90, 100));
+        patient_temperature = document.getElementById('patient_temp_' + patient_data[2].id)
+        patient_pulse = document.getElementById('patient_pulse_' + patient_data[2].id)
+        patient_oxygen = document.getElementById('patient_oxygen_' + patient_data[2].id)
+        patient_action = document.getElementById('patient_action_' + patient_data[2].id)
+        let patient_alert = document.getElementById("p_cards_" + patient_data[2].id)
 
-            patient_temperature.innerHTML = vitals_data[i].temp;
-            patient_pulse.innerHTML = vitals_data[i].pulse_rate;
-            patient_oxygen.innerHTML = vitals_data[i].oxygen;
-            patient_action.setAttribute("src", "./assets/img/" + vitals_data[i].movementicon + ".svg")
+        // temp_array.push(temp_random);
+        // pulse_array.push(pulse_random);
+        // oxy_array.push(oxy_random);
+        // temp_array.push(vitals_data[0].temp);
+        // pulse_array.push(vitals_data[0].pulse_rate);
+        // oxy_array.push(vitals_data[0].oxygen);
+
+        console.log(vitals_data)
+
+        patient_temperature.innerHTML = vitals_data[0].t;
+        patient_pulse.innerHTML = vitals_data[0].b;
+        patient_oxygen.innerHTML = vitals_data[0].o;
+        patient_action.setAttribute("src", "./assets/img/" + "running" + ".svg")
+
+        if (vitals_data[0].a > 0 || vitals_data[0].b < 60 || vitals_data[0].b > 110 || vitals_data[0].t > 39 || vitals_data[0].o < 94) {
+            patient_alert.setAttribute("style", "border-top: 1em solid red")
+
+
 
         }
+        else {
+            patient_alert.setAttribute("style", "border-top: 1em solid green")
+
+        }
+
+        if (vitals_data[0].a > 0) {
+            alert("ALARM TRIGGERED : ID-> " + vitals_data[0].i);
+        }
+
+        // }
 
 
         // for (j = 0; j < patient_data.length; j++) {
@@ -490,6 +503,8 @@ function create_vitals_card(data) {
 
         let p_card = document.createElement('div');
         p_card.setAttribute("class", "p_cards")
+        p_card.setAttribute("id", "p_cards_" + data[i].id)
+
 
         let vitals_div = document.createElement('div')
         vitals_div.setAttribute("class", "vitals")
@@ -586,18 +601,25 @@ function create_vitals_card(data) {
 // create_vitals_card();
 
 function get_vitals_data(data) {
-    vitals_data = [];
-    let single_vitals_data = [];
-    for (i = 0; i < data.length; i++) {
+    vitals_data;
+    let single_vitals_data;
+    //for (i = 0; i < data.length; i++) {
+    for (i = 0; i < 1; i++) {
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://127.0.0.1:5000/get/patient/vitals?id=" + data[i].id, true);
+        //xhr.open("GET", "http://127.0.0.1:5000/get/patient/vitals?id=" + data[i].id, true);
+        xhr.open("GET", "http://192.168.29.17:80/api?fresh=" + data[i].id, true);
 
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 & this.status == 200) {
-                single_vitals_data.push(this.responseText);
+                //single_vitals_data.push(this.responseText);
+                console.log(this.responseText)
+                vitals_data = JSON.parse(this.responseText)
+
+
+
 
                 // console.log(single_vitals_data)
 
@@ -606,23 +628,23 @@ function get_vitals_data(data) {
         xhr.send();
 
     }
-    vitals_data = JSON.parse(single_vitals_data)
+    //vitals_data = JSON.parse(single_vitals_data)
+    vitals_data = vitals_data.data
+    console.log(vitals_data.data)
 
 
 
 }
 
-function card_alert()
-{
-    
-    if(pulse_random<=60 && pulse_random>=55)
-    {
-     
-        let patient_alert=document.getElementsByClassName("p_cards")
-        patient_alert.setAttribute("style","border-top: 1em solid red")
+function card_alert() {
+
+    if (pulse_random <= 60 && pulse_random >= 55) {
+
+        let patient_alert = document.getElementsByClassName("p_cards")
+        patient_alert.setAttribute("style", "border-top: 1em solid red")
 
 
-      }
-      
+    }
+
 }
 card_alert()
