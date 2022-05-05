@@ -5,6 +5,7 @@ patient_data = [];
 vitals_data = [];
 footsteps_data = [];
 fetch_patient_id = "";
+schedule_data = [{schedule_type: 'Breakfast', schedule_time: '10:30am'},{schedule_type: 'Checkup visit', schedule_time: '11:00am'},{schedule_type: 'Blood test', schedule_time: '1:00pm'},{schedule_type: 'Lunch', schedule_time: '2:00pm'},{schedule_type: 'Medicine', schedule_time: '2:30pm'}];
 
 
 fetch_vital_url = "http://192.168.29.17:80/api?fresh";
@@ -273,10 +274,7 @@ function get_vitals_data() {
     //  xhr.open("GET","http://127.0.0.1:5000/get/patient/vitals?id="+fetch_patient_id,true);
 
     xhr.open("GET", fetch_vital_url, true);
-    //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://192.168.29.17');
-    //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
+   
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 & this.status == 200) {
             vitals_data = JSON.parse(this.responseText).data;
@@ -322,7 +320,7 @@ function create_schedule_card() {
 
     for (let i = 0; i < schedule_data.length; i++) {
 
-        let leader_board = document.createElement('article')
+        let leader_board = document.createElement('div')
         leader_board.setAttribute("class", "leaderboard__profile");
 
         let leader_name = document.createElement('span');
@@ -331,6 +329,7 @@ function create_schedule_card() {
 
         let leader_time = document.createElement('span');
         leader_time.setAttribute("class", "leaderboard__value");
+        leader_time.innerHTML = schedule_data[i].schedule_time;
 
         leader_board.appendChild(leader_name);
         leader_board.appendChild(leader_time);
@@ -341,3 +340,4 @@ function create_schedule_card() {
 }
 
 create_schedule_card()
+

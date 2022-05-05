@@ -367,18 +367,15 @@ function fetch_sleep_data(id){
   
   let unix_timestamp=Number(sleep_data[i].ts);
 
-  // Create a new JavaScript Date object based on the timestamp
-  // multiplied by 1000 so that the argument is in milliseconds, not seconds.
   var unix_date = new Date(unix_timestamp * 1000);
-  // Hours part from the timestamp
   
   var position_day=unix_date.getDay(); // 0 1 2 3
   
-  // console.log(days[position_day]);
+
 
   let date=unix_date.getDate()+"-0"+Number(unix_date.getMonth()+1)+"-"+unix_date.getFullYear();	
 
-  // console.log(date)
+
 
   data_categories.push(date);
 

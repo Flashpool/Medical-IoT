@@ -38,7 +38,7 @@ def patientList():
         return "Connection not Available, Please check your Internet."
     else:
         try:    
-            # patient_query = ("SELECT * FROM `patient_data`")
+        
             patient_query=("SELECT patient_data.id as patientid,patient_data.patient_name,patient_data.age,patient_data.gender,patient_data.blood_group,patient_data.weight,patient_data.height,bed_data.bed_no as bed_id,bed_data.floor, bed_data.ward,patient_data.dob,patient_data.reg_date,disease_data.disease_name as patient_type,patient_data.profile_img,patient_data.bmi,patient_data.address,patient_data.contact_no,patient_data.doctor_id FROM patient_data INNER JOIN disease_data ON patient_data.patient_type =disease_data.id INNER JOIN bed_data ON patient_data.bed_id =bed_data.id")
             cursor.execute(patient_query)
         except Exception as e:

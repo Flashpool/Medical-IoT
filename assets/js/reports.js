@@ -86,40 +86,6 @@ function change_patient_data(patient_id) {
     let patient_reports = document.getElementById('reports');
     patient_reports.setAttribute("src", patients_data["reports"])
 
-    // let patient_blood=document.getElementById('p_blood');
-    // patient_blood.innerHTML=patients_data["blood_group"];
-
-
-    // let patient_birth=document.getElementById('p_birth');
-    // patient_birth.innerHTML=patients_data["dob"];
-
-
-    // let patient_gender=document.getElementById('p_gender');
-    // patient_gender.innerHTML=patients_data["gender"];
-
-
-    // let patient_age=document.getElementById('p_age');
-    // patient_age.innerHTML=patients_data["age"];
-
-
-    // let patient_weight=document.getElementById('p_weight');
-    // patient_weight.innerHTML=patients_data["weight"];
-
-
-    // let patient_type=document.getElementById('p_type');
-    // patient_type.innerHTML=patients_data["patient_type"];
-
-
-    // let patient_bed=document.getElementById('p_bed');
-    // patient_bed.innerHTML=patients_data["bed_id"];
-
-
-    // let patient_reg_date=document.getElementById('p_reg_date');
-    // patient_reg_date.innerHTML=patients_data["reg_date"];
-
-
-    // let patient_image=document.getElementById('p_img');
-    // patient_image.setAttribute("src",patients_data["profile_img"]);
 
 
 

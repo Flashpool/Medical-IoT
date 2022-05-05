@@ -262,9 +262,7 @@ body{
 }
 /*start of schedule meet*/
 .leaderboard {
-	/* max-width: fit-content;
-	height: fit-content;
-	border-radius: 12px; */
+	max-width: fit-content;
 	height: 25em;
 	width: 27%;
 	margin-top: 2em;
@@ -273,8 +271,10 @@ body{
 	padding: 15px;
 	border-radius: 15px;
 	float: left;
+	/* overflow-y: scroll; */
+	
   }
-  .leaderboard header {
+   .header {
 	--start: 15%;
 	height: 4em;
 	width: 90%;
@@ -285,56 +285,55 @@ body{
 	border-radius: 12px;
 	overflow: hidden;
   }
-  .leaderboard header .leaderboard__title {
-	/* position: absolute; */
-	/* z-index: 2; */
-	/* top: 50%; */
-	padding: 1em;
+   .header .leaderboard__title {
+
+	padding: 0.3em;
 	text-align: center;
-	/* right: calc(var(--start) * 0.75); */
-	/* transform: translateY(-50%); */
 	text-transform: uppercase;
 	margin: 0;
   }
-  .leaderboard header .leaderboard__title span {
+   .header .leaderboard__title span {
 	display: block;
 	font-size: 1.5em;
 	font-weight: 800;
 	text-align: center;
 	letter-spacing: 6.5px;
   }
-  /* .leaderboard header .leaderboard__title--top {
-	font-size: 1.5em;
-	font-weight: 700;
-	text-align: center;
-	letter-spacing: 6.5px;
+  .schedule{
+	  width: fit-content;
+	  height: 20em;
+	  overflow-y: scroll;
   }
-  .leaderboard header .leaderboard__title--bottom {
-	font-size: 13px;
-	font-weight: 500;
-	letter-spacing: 3.55px;
-	opacity: 0.65;
-	transform: translateY(-2px);
+  ::-webkit-scrollbar {
+	width: 0.3em;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #9395ed; 
+  }
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+	background: #9395ed; 
   } */
-  /* .leaderboard header .leaderboard__icon {
-	fill: #fff;
-	opacity: 0.35;
-	width: 50px;
-	position: absolute;
-	top: 50%;
-	left: var(--start);
-	transform: translate(-50%, -50%);
-  } */
+
   .leaderboard__profiles {
-	/* background-color: #fff; */
 	border-radius:12px;
-	padding: 15px 15px 20px;
+	padding: 13px 13px 18px;
 	display: grid;
 	row-gap: 0.5em;
+	
+	
   }
   .leaderboard__profile {
 	display: grid;
-	grid-template-columns: 12em 9em ;
+	grid-template-columns: 12em 8em ;
 	height: 2.5em;
 	align-items: center;
 	padding: 10px 20px 10px 10px;
@@ -345,16 +344,13 @@ body{
 	transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
 	background-color: #fff;
   }
-  /* .leaderboard__profile:hover {
-	transform: scale(1.2);
-	box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
-  } */
+/*   
   .leaderboard__picture {
 	max-width: 100%;
 	width: 50px;
 	border-radius: 50%;
 	box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
-  }
+  } */
   .leaderboard__name {
 	color: #000000;
 	font-weight: 600;
@@ -365,7 +361,7 @@ body{
   .leaderboard__value {
 	color: #35d8ac;
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	text-align: right;
   }
   .leaderboard__value > span {

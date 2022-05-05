@@ -363,10 +363,7 @@ function change_patient_data(patient_id) {
     let patient_contact = document.getElementById('p_contact');
     patient_contact.innerHTML = patient_data["contact_no"];
 
-    // let patient_image=document.getElementById('p_img');
-    // patient_image.setAttribute("src",patients_data["profile_img"]);
-
-    // generate_patient_status(patient_id);
+ 
 
 }
 
